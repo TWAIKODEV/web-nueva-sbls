@@ -23,14 +23,14 @@ export default function Header() {
   };
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50 transition-all duration-300">
+    <header className="bg-white shadow-md sticky top-0 z-50 transition-all duration-300 border-b border-sagardoy-light-gray">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <div className="text-2xl font-bold text-sagardoy-navy">
+            <div className="text-2xl font-bold text-sagardoy-dark-blue">
               <span className="text-sagardoy-gold">S</span>agardoy
-              <span className="text-sm font-medium text-sagardoy-gray ml-2">Business School</span>
+              <span className="text-sm font-medium text-sagardoy-gray ml-2 block">Business School</span>
             </div>
           </Link>
 
@@ -40,10 +40,10 @@ export default function Header() {
               <Link
                 key={item.name}
                 href={item.href}
-                className={`font-medium transition-colors duration-200 ${
+                className={`font-medium text-base transition-colors duration-200 py-2 px-1 border-b-2 ${
                   isActive(item.href)
-                    ? "text-sagardoy-navy"
-                    : "text-sagardoy-gray hover:text-sagardoy-blue"
+                    ? "text-sagardoy-blue border-sagardoy-gold"
+                    : "text-sagardoy-dark-gray hover:text-sagardoy-blue border-transparent"
                 }`}
               >
                 {item.name}
@@ -54,7 +54,7 @@ export default function Header() {
           {/* CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
             <Link href="/solicitud-admision">
-              <Button className="bg-sagardoy-gold text-white px-6 py-2 rounded-lg font-semibold hover:bg-yellow-600 transition-colors duration-200">
+              <Button className="bg-sagardoy-gold text-white px-6 py-3 rounded-md font-semibold hover:bg-amber-600 transition-all duration-200 shadow-sm">
                 Solicitar Admisión
               </Button>
             </Link>
