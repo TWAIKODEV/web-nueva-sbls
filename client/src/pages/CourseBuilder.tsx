@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -20,6 +21,7 @@ import {
   Eye,
   Settings
 } from 'lucide-react';
+import CoursePreview from '@/components/CoursePreview';
 
 interface CourseModule {
   id: string;
@@ -60,6 +62,7 @@ export default function CourseBuilder() {
   const [editingModule, setEditingModule] = useState<string | null>(null);
   const [isEditingCourse, setIsEditingCourse] = useState(false);
   const [draggedItem, setDraggedItem] = useState<string | null>(null);
+  const [previewOpen, setPreviewOpen] = useState(false);
 
   const addModule = (type: 'text' | 'video' | 'image' | 'quiz') => {
     const newModule: CourseModule = {
@@ -142,8 +145,7 @@ export default function CourseBuilder() {
   };
 
   const previewCourse = () => {
-    // Implementation for course preview
-    alert('Vista previa del curso (funcionalidad en desarrollo)');
+    setPreviewOpen(true);
   };
 
   return (
@@ -177,20 +179,28 @@ export default function CourseBuilder() {
                 <CardTitle className="text-lg">Elementos del Curso</CardTitle>
               </CardHeader>
               <CardContent className="space-y-3">
-                {moduleTypes.map((moduleType) => {
+                {moduleTypes.map((moduleType, index) => {
                   const Icon = moduleType.icon;
                   return (
-                    <Button
+                    <motion.div
                       key={moduleType.type}
-                      onClick={() => addModule(moduleType.type as any)}
-                      variant="outline"
-                      className="w-full justify-start p-3 h-auto"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.1 }}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
                     >
-                      <Icon className="mr-3 h-5 w-5" />
-                      <div className="text-left">
-                        <div className="font-medium">{moduleType.label}</div>
-                      </div>
-                    </Button>
+                      <Button
+                        onClick={() => addModule(moduleType.type as any)}
+                        variant="outline"
+                        className="w-full justify-start p-3 h-auto transition-all duration-200 hover:shadow-md"
+                      >
+                        <Icon className="mr-3 h-5 w-5" />
+                        <div className="text-left">
+                          <div className="font-medium">{moduleType.label}</div>
+                        </div>
+                      </Button>
+                    </motion.div>
                   );
                 })}
               </CardContent>
@@ -295,9 +305,13 @@ export default function CourseBuilder() {
                             return (
                               <Draggable key={module.id} draggableId={module.id} index={index}>
                                 {(provided, snapshot) => (
-                                  <div
+                                  <motion.div
                                     ref={provided.innerRef}
                                     {...provided.draggableProps}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    transition={{ delay: index * 0.1 }}
+                                    whileHover={{ scale: 1.02 }}
                                     className={`bg-white border rounded-lg p-4 transition-all ${
                                       snapshot.isDragging ? 'shadow-lg rotate-2 scale-105' : 'shadow-sm'
                                     } ${isDragging ? 'opacity-50' : ''}`}
@@ -406,7 +420,7 @@ export default function CourseBuilder() {
                                         )}
                                       </div>
                                     </div>
-                                  </div>
+                                  </motion.div>
                                 )}
                               </Draggable>
                             );
@@ -422,6 +436,12 @@ export default function CourseBuilder() {
           </div>
         </div>
       </div>
+      
+      <CoursePreview
+        course={course}
+        isOpen={previewOpen}
+        onClose={() => setPreviewOpen(false)}
+      />
     </div>
   );
 }
