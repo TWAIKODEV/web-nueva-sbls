@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu } from "lucide-react";
+import sagardoyLogo from "@assets/sagardoy-logo-1_1750499204211.png";
 
 export default function Header() {
   const [location] = useLocation();
@@ -28,10 +29,11 @@ export default function Header() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <div className="text-2xl font-bold text-sagardoy-dark-blue">
-              <span className="text-sagardoy-gold">S</span>agardoy
-              <span className="text-sm font-medium text-sagardoy-gray ml-2 block">Business School</span>
-            </div>
+            <img 
+              src={sagardoyLogo} 
+              alt="Sagardoy Business School" 
+              className="h-12 w-auto"
+            />
           </Link>
 
           {/* Desktop Navigation */}
