@@ -144,7 +144,7 @@ export default function News() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Latest News */}
             <div className="lg:col-span-2">
-              <h2 className="text-3xl font-bold text-sagardoy-navy mb-8">Últimas Noticias</h2>
+              <h2 className="text-3xl font-bold text-sagardoy-navy mb-8">{t("news.latestNews")}</h2>
               
               {/* Featured News Article */}
               <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-8">

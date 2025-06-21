@@ -13,6 +13,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const contactFormSchema = z.object({
   nombre: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
@@ -27,6 +28,7 @@ const contactFormSchema = z.object({
 type ContactFormData = z.infer<typeof contactFormSchema>;
 
 export default function Contact() {
+  const { t } = useLanguage();
   const { toast } = useToast();
   
   const form = useForm<ContactFormData>({
@@ -101,10 +103,10 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              <span className="text-sagardoy-gold">Contacto</span>
+              <span className="text-sagardoy-gold">{t("contact.title")}</span>
             </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              ¿Listo para dar el siguiente paso en tu carrera? Contacta con nuestro equipo de admisiones
+              {t("contact.subtitle")}
             </p>
           </div>
         </div>
@@ -116,7 +118,7 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Contact Form */}
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-sagardoy-navy mb-6">Solicita Información</h3>
+              <h3 className="text-2xl font-bold text-sagardoy-navy mb-6">{t("contact.requestInfo")}</h3>
               
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">

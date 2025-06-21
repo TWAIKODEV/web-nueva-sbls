@@ -13,6 +13,7 @@ import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { Badge } from "@/components/ui/badge";
 import { Upload, FileText, CheckCircle, User, Briefcase, GraduationCap, MessageSquare } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const admissionFormSchema = z.object({
   nombre: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
