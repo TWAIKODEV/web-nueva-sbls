@@ -34,6 +34,8 @@ const collaboratorFormSchema = z.object({
   provinciaBanco: z.string().min(2, "Provincia del banco requerida"),
   iban: z.string().min(24, "IBAN válido requerido"),
   opcionFacturacion: z.string().min(1, "Seleccione una opción de facturación"),
+  formaRetribucion: z.string().min(1, "Seleccione una forma de retribución"),
+  imagenClaustro: z.any().optional(),
   usoImagen: z.boolean().default(false),
   politicaPrivacidad: z.boolean().refine(val => val === true, "Debe aceptar la política de privacidad")
 });
@@ -49,7 +51,9 @@ export default function CollaboratorForm() {
     resolver: zodResolver(collaboratorFormSchema),
     defaultValues: {
       usoImagen: false,
-      politicaPrivacidad: false
+      politicaPrivacidad: false,
+      formaRetribucion: "",
+      opcionFacturacion: ""
     }
   });
 
@@ -371,6 +375,58 @@ export default function CollaboratorForm() {
                 {form.formState.errors.opcionFacturacion && (
                   <p className="text-red-500 text-sm mt-1">{form.formState.errors.opcionFacturacion.message}</p>
                 )}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Forma de Retribución */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-xl text-sagardoy-navy">Forma de Retribución</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div>
+                <Label htmlFor="formaRetribucion">Tipo de retribución *</Label>
+                <Select onValueChange={(value) => form.setValue("formaRetribucion", value)}>
+                  <SelectTrigger className="mt-1">
+                    <SelectValue placeholder="Selecciona una opción" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="rendimiento-trabajo">Retribución como rendimiento del trabajo</SelectItem>
+                    <SelectItem value="actividad-profesional">Retribución como actividad profesional</SelectItem>
+                    <SelectItem value="actividad-empresarial">Retribución como actividad empresarial</SelectItem>
+                  </SelectContent>
+                </Select>
+                {form.formState.errors.formaRetribucion && (
+                  <p className="text-red-500 text-sm mt-1">{form.formState.errors.formaRetribucion.message}</p>
+                )}
+              </div>
+            </CardContent>
+          </Card>
+
+          {/* Imagen Claustro */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-xl text-sagardoy-navy">Imagen Claustro</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <div>
+                <Label htmlFor="imagenClaustro">Subir fotografía</Label>
+                <Input
+                  id="imagenClaustro"
+                  type="file"
+                  accept="image/*"
+                  className="mt-1"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) {
+                      form.setValue("imagenClaustro", file);
+                    }
+                  }}
+                />
+                <p className="text-xs text-sagardoy-gray mt-1">
+                  Formatos aceptados: JPG, PNG, GIF. Tamaño máximo: 5MB
+                </p>
               </div>
             </CardContent>
           </Card>
