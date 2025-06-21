@@ -103,7 +103,7 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              <span className="text-sagardoy-gold">{t("contact.title")}</span>
+              {t("contact.title")} <span className="text-sagardoy-gold">{t("contact.titleHighlight")}</span>
             </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
               {t("contact.subtitle")}
@@ -118,7 +118,7 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Contact Form */}
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h3 className="text-2xl font-bold text-sagardoy-navy mb-6">{t("contact.requestInfo")}</h3>
+              <h3 className="text-2xl font-bold text-sagardoy-navy mb-6">{t("contact.form.title")}</h3>
               
               <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">

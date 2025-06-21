@@ -33,6 +33,7 @@ const admissionFormSchema = z.object({
 type AdmissionFormData = z.infer<typeof admissionFormSchema>;
 
 export default function Admission() {
+  const { t } = useLanguage();
   const { toast } = useToast();
   
   const form = useForm<AdmissionFormData>({
@@ -103,10 +104,10 @@ export default function Admission() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Solicitud de <span className="text-sagardoy-gold">Admisión</span>
+              {t("admission.title")} <span className="text-sagardoy-gold">{t("admission.titleHighlight")}</span>
             </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              Da el primer paso hacia tu transformación profesional. Completa tu solicitud y únete a la próxima generación de líderes empresariales.
+              {t("admission.subtitle")}
             </p>
           </div>
         </div>
