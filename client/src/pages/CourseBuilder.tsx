@@ -22,15 +22,27 @@ import {
   Settings
 } from 'lucide-react';
 import CoursePreview from '@/components/CoursePreview';
+import { SCORMProvider } from '@/components/SCORMTracker';
+import H5PIntegration from '@/components/H5PIntegration';
 
 interface CourseModule {
   id: string;
   title: string;
   description: string;
-  type: 'text' | 'video' | 'image' | 'quiz';
+  type: 'text' | 'video' | 'image' | 'quiz' | 'h5p' | 'scorm';
   content: string;
   duration?: number;
   order: number;
+  scormData?: {
+    packageUrl?: string;
+    completionThreshold?: number;
+    masteryScore?: number;
+  };
+  h5pData?: {
+    contentType: string;
+    parameters: any;
+    tracking: boolean;
+  };
 }
 
 interface Course {
@@ -46,7 +58,9 @@ const moduleTypes = [
   { type: 'text', label: 'Contenido de Texto', icon: FileText, color: 'bg-blue-100 text-blue-800' },
   { type: 'video', label: 'Video', icon: Video, color: 'bg-green-100 text-green-800' },
   { type: 'image', label: 'Imagen', icon: Image, color: 'bg-purple-100 text-purple-800' },
-  { type: 'quiz', label: 'Evaluación', icon: Settings, color: 'bg-orange-100 text-orange-800' }
+  { type: 'quiz', label: 'Evaluación', icon: Settings, color: 'bg-orange-100 text-orange-800' },
+  { type: 'h5p', label: 'Contenido H5P', icon: Settings, color: 'bg-indigo-100 text-indigo-800' },
+  { type: 'scorm', label: 'Paquete SCORM', icon: Settings, color: 'bg-red-100 text-red-800' }
 ];
 
 export default function CourseBuilder() {
@@ -64,7 +78,7 @@ export default function CourseBuilder() {
   const [draggedItem, setDraggedItem] = useState<string | null>(null);
   const [previewOpen, setPreviewOpen] = useState(false);
 
-  const addModule = (type: 'text' | 'video' | 'image' | 'quiz') => {
+  const addModule = (type: 'text' | 'video' | 'image' | 'quiz' | 'h5p' | 'scorm') => {
     const newModule: CourseModule = {
       id: `module-${Date.now()}`,
       title: `Nuevo ${moduleTypes.find(t => t.type === type)?.label}`,

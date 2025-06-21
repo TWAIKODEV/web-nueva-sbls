@@ -24,7 +24,7 @@ interface CourseModule {
   id: string;
   title: string;
   description: string;
-  type: 'text' | 'video' | 'image' | 'quiz';
+  type: 'text' | 'video' | 'image' | 'quiz' | 'h5p' | 'scorm';
   content: string;
   duration?: number;
   order: number;
@@ -49,14 +49,18 @@ const moduleIcons = {
   text: FileText,
   video: Video,
   image: Image,
-  quiz: Settings
+  quiz: Settings,
+  h5p: Settings,
+  scorm: Settings
 };
 
 const moduleColors = {
   text: 'bg-blue-500',
   video: 'bg-green-500',
   image: 'bg-purple-500',
-  quiz: 'bg-orange-500'
+  quiz: 'bg-orange-500',
+  h5p: 'bg-indigo-500',
+  scorm: 'bg-red-500'
 };
 
 export default function CoursePreview({ course, isOpen, onClose }: CoursePreviewProps) {
