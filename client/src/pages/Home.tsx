@@ -122,7 +122,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Slider Section */}
-      <section className="relative bg-gradient-to-br from-sagardoy-dark-blue via-sagardoy-blue to-sagardoy-light-blue min-h-screen flex items-center overflow-hidden">
+      <section className="relative bg-gradient-to-br from-sagardoy-dark-blue via-sagardoy-blue to-sagardoy-light-blue h-[70vh] flex items-center overflow-hidden">
         <div className="absolute inset-0 bg-black bg-opacity-10"></div>
         
         {/* Slider Container */}
