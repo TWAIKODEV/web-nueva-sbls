@@ -513,10 +513,10 @@ export default function CollaboratorForm() {
             </CardContent>
           </Card>
 
-          {/* Imagen Claustro */}
+          {/* Políticas de Imagen y Privacidad */}
           <Card>
             <CardHeader>
-              <CardTitle className="text-xl text-sagardoy-navy">Imagen Claustro</CardTitle>
+              <CardTitle className="text-xl text-sagardoy-navy">Políticas de Imagen y Privacidad</CardTitle>
             </CardHeader>
             <CardContent>
               <div>
