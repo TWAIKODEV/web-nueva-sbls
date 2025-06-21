@@ -63,7 +63,14 @@ export const translations = {
       duration: 'Duración',
       price: 'Precio',
       consult: 'Consultar',
-      moreInfo: 'Más información'
+      moreInfo: 'Más información',
+      noResults: 'No se encontraron programas para este filtro.',
+      cta: {
+        title: '¿No encuentras el programa ideal?',
+        subtitle: 'Contacta con nuestro equipo de admisiones para recibir asesoramiento personalizado',
+        contact: 'Contactar Asesor',
+        apply: 'Solicitar Admisión'
+      }
     },
 
     // About page

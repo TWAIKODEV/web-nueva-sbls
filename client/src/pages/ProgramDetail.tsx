@@ -4,8 +4,10 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Clock, Users, Award, BookOpen, Calendar, Euro, ArrowRight, CheckCircle } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function ProgramDetail() {
+  const { t } = useLanguage();
   const { id } = useParams<{ id: string }>();
 
   // Mock program data - in a real app, this would come from an API

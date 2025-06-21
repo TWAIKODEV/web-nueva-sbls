@@ -162,23 +162,23 @@ export default function Programs() {
           {/* No results message */}
           {filteredPrograms.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-xl text-sagardoy-gray">No se encontraron programas para este filtro.</p>
+              <p className="text-xl text-sagardoy-gray">{t("programs.noResults")}</p>
             </div>
           )}
 
           {/* CTA Section */}
           <div className="text-center mt-16">
-            <h3 className="text-2xl font-bold text-sagardoy-navy mb-4">¿No encuentras el programa ideal?</h3>
-            <p className="text-sagardoy-gray mb-8">Contacta con nuestro equipo de admisiones para recibir asesoramiento personalizado</p>
+            <h3 className="text-2xl font-bold text-sagardoy-navy mb-4">{t("programs.cta.title")}</h3>
+            <p className="text-sagardoy-gray mb-8">{t("programs.cta.subtitle")}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contacto">
                 <Button className="bg-sagardoy-gold text-white px-8 py-4 rounded-lg font-semibold hover:bg-yellow-600 transition-colors duration-200">
-                  Contactar Asesor
+                  {t("programs.cta.contact")}
                 </Button>
               </Link>
               <Link href="/solicitud-admision">
                 <Button variant="outline" className="border-2 border-sagardoy-navy text-sagardoy-navy px-8 py-4 rounded-lg font-semibold hover:bg-sagardoy-navy hover:text-white transition-colors duration-200">
-                  Solicitar Admisión
+                  {t("programs.cta.apply")}
                 </Button>
               </Link>
             </div>
