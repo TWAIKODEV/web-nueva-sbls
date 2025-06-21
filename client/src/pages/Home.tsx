@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Award, Users, Building, TrendingUp } from "lucide-react";
+import sagardoyLogo from "@assets/sagardoy-logo-1_1750499204211.png";
 
 export default function Home() {
   const programs = [
@@ -51,6 +52,13 @@ export default function Home() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-white">
+              <div className="mb-8">
+                <img 
+                  src={sagardoyLogo} 
+                  alt="Sagardoy Business School" 
+                  className="h-16 md:h-20 w-auto mb-4"
+                />
+              </div>
               <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
                 Lidera el 
                 <span className="text-sagardoy-gold"> Futuro</span>
