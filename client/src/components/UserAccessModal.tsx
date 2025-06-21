@@ -28,8 +28,8 @@ export default function UserAccessModal({ open, onOpenChange }: UserAccessModalP
       href: "#"
     },
     {
-      title: "Alumni",
-      description: "Red de antiguos alumnos, oportunidades profesionales y eventos exclusivos",
+      title: "Claustro",
+      description: "Área exclusiva para profesores y miembros del claustro académico",
       icon: Users,
       gradient: "from-sagardoy-light-blue/90 to-blue-600/90",
       image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
