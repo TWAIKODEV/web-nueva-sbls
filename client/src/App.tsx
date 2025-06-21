@@ -12,6 +12,7 @@ import About from "./pages/About";
 import CorporateTraining from "./pages/CorporateTraining";
 import News from "./pages/News";
 import NewsDetail from "./pages/NewsDetail";
+import Events from "./pages/Events";
 import EventDetail from "./pages/EventDetail";
 import Contact from "./pages/Contact";
 import ProgramDetail from "./pages/ProgramDetail";
@@ -30,6 +31,7 @@ function Router() {
           <Route path="/corporate-training" component={CorporateTraining} />
           <Route path="/noticias" component={News} />
           <Route path="/noticia/:id" component={NewsDetail} />
+          <Route path="/eventos" component={Events} />
           <Route path="/evento/:id" component={EventDetail} />
           <Route path="/contacto" component={Contact} />
           <Route path="/programa/:id" component={ProgramDetail} />

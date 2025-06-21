@@ -262,9 +262,11 @@ export default function News() {
               </div>
 
               <div className="mt-6">
-                <Button className="w-full bg-sagardoy-navy text-white py-3 hover:bg-blue-800">
-                  Ver Todos los Eventos
-                </Button>
+                <Link href="/eventos">
+                  <Button className="w-full bg-sagardoy-navy text-white py-3 hover:bg-blue-800">
+                    Ver Todos los Eventos
+                  </Button>
+                </Link>
               </div>
 
               {/* Newsletter Signup */}
