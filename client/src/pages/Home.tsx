@@ -122,7 +122,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Slider Section */}
-      <section className="relative bg-gradient-to-br from-sagardoy-dark-blue via-sagardoy-blue to-sagardoy-light-blue h-[70vh] flex items-center overflow-hidden">
+      <section className="relative bg-gradient-to-br from-sagardoy-dark-blue via-sagardoy-blue to-sagardoy-light-blue py-16 md:py-20 overflow-hidden">
         <div className="absolute inset-0 bg-black bg-opacity-10"></div>
         
         {/* Slider Container */}
@@ -133,7 +133,7 @@ export default function Home() {
           >
             {heroSlides.map((slide, index) => (
               <div key={index} className="w-full flex-shrink-0">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div className="text-white">
                       <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
