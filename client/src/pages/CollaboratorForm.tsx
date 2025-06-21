@@ -504,7 +504,6 @@ export default function CollaboratorForm() {
                   <SelectContent>
                     <SelectItem value="autonomo">Autónomo</SelectItem>
                     <SelectItem value="empresa">Empresa</SelectItem>
-                    <SelectItem value="sociedad">Sociedad</SelectItem>
                   </SelectContent>
                 </Select>
                 {form.formState.errors.opcionFacturacion && (
