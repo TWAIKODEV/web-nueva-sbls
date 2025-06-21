@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Users, Target, TrendingUp, Building2, CheckCircle, Award, Clock, Globe, Shield, Briefcase, Code, Lightbulb } from "lucide-react";
+import { ArrowRight, Users, Target, TrendingUp, Building2, CheckCircle, Award, Clock, Globe, Shield, Briefcase, Code, Lightbulb, BookOpen, Settings, Zap } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function CorporateTraining() {
@@ -60,10 +60,25 @@ export default function CorporateTraining() {
     }
   ];
 
-  const benefits = [
-    "Nuestra actitud, autoliderazgo y gestión emocional ante el impacto de la incertidumbre",
-    "La forma en que gestionamos, dirigimos y lideramos",
-    "La forma en que nos relacionamos con los clientes y afrontamos la incertidumbre del mercado"
+  const methodologyAreas = [
+    {
+      title: "Formaciones personalizadas",
+      description: "Creación de programas exclusivos que abordan los desafíos únicos de tu compañía y potencian las competencias clave para lograr los objetivos y retos a los que se enfrenta.",
+      icon: BookOpen,
+      color: "text-green-600"
+    },
+    {
+      title: "Programas de Management y Desarrollo Directivo",
+      description: "Capacitación avanzada que desarrolla líderes visionarios capaces de gestionar el cambio y alcanzar un impacto significativo en la organización.",
+      icon: Settings,
+      color: "text-yellow-600"
+    },
+    {
+      title: "Especialización Funcional Avanzada",
+      description: "Módulos que profundizan en áreas estratégicas del negocio, mejorando el rendimiento y la eficiencia operativa.",
+      icon: Zap,
+      color: "text-red-600"
+    }
   ];
 
   const stats = [
@@ -187,43 +202,40 @@ export default function CorporateTraining() {
 
           {/* Metodología */}
           <div className="mb-20">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div className="relative">
-                <img 
-                  src="https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600"
-                  alt="Training methodology" 
-                  className="rounded-2xl shadow-xl w-full h-auto"
-                />
-              </div>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-sagardoy-navy mb-4">
+                Nuestra Metodología
+              </h2>
+              <p className="text-xl text-sagardoy-gray max-w-4xl mx-auto">
+                El profundo conocimiento de los recursos pedagógicos, junto con el conocimiento del negocio de las diferentes empresas e 
+                industrias, nos permite diseñar proyectos alineados al negocio con la estrategia metodológica más eficiente.
+              </p>
+            </div>
 
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-sagardoy-navy mb-6">
-                  Nuestra Metodología
-                </h2>
-                
-                <p className="text-sagardoy-gray mb-6 leading-relaxed">
-                  El profundo conocimiento de los recursos pedagógicos, junto con el conocimiento del negocio de las diferentes empresas e 
-                  industrias, nos permite diseñar proyectos alineados al negocio, con la estrategia metodológica más eficiente en las siguientes áreas:
-                </p>
-
-                <div className="space-y-4">
-                  {benefits.map((benefit, index) => (
-                    <div key={index} className="flex items-start space-x-3">
-                      <CheckCircle className="w-6 h-6 text-sagardoy-gold flex-shrink-0 mt-0.5" />
-                      <span className="text-sagardoy-gray">{benefit}</span>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {methodologyAreas.map((area, index) => {
+                const IconComponent = area.icon;
+                return (
+                  <div key={index} className="text-center">
+                    <div className="mb-6">
+                      <div className="w-20 h-20 mx-auto bg-gray-100 rounded-full flex items-center justify-center mb-4">
+                        <IconComponent className={`w-10 h-10 ${area.color}`} />
+                      </div>
+                      <h3 className="text-xl font-bold text-sagardoy-navy mb-3">{area.title}</h3>
+                      <p className="text-sagardoy-gray leading-relaxed">{area.description}</p>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                );
+              })}
+            </div>
 
-                <div className="mt-8">
-                  <Link href="/contacto">
-                    <Button className="bg-sagardoy-gold text-white px-8 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-all duration-300">
-                      Solicitar Información
-                      <ArrowRight className="ml-2 w-5 h-5" />
-                    </Button>
-                  </Link>
-                </div>
-              </div>
+            <div className="text-center mt-12">
+              <Link href="/contacto">
+                <Button className="bg-sagardoy-gold text-white px-8 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-all duration-300">
+                  Solicitar Información
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </Link>
             </div>
           </div>
 
