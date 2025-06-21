@@ -176,33 +176,17 @@ export default function CollaboratorForm() {
                   )}
                 </div>
 
-                <div>
-                  <Label htmlFor="emailProfesional">Email Profesional *</Label>
-                  <Input
-                    id="emailProfesional"
-                    type="email"
-                    {...form.register("emailProfesional")}
-                    className="mt-1"
-                    placeholder="profesional@empresa.com"
-                  />
-                  {form.formState.errors.emailProfesional && (
-                    <p className="text-red-500 text-sm mt-1">{form.formState.errors.emailProfesional.message}</p>
-                  )}
-                </div>
+              </div>
+            </CardContent>
+          </Card>
 
-                <div>
-                  <Label htmlFor="telefonoProfesional">Teléfono Profesional *</Label>
-                  <Input
-                    id="telefonoProfesional"
-                    {...form.register("telefonoProfesional")}
-                    className="mt-1"
-                    placeholder="+34 91 000 00 00"
-                  />
-                  {form.formState.errors.telefonoProfesional && (
-                    <p className="text-red-500 text-sm mt-1">{form.formState.errors.telefonoProfesional.message}</p>
-                  )}
-                </div>
-
+          {/* Datos Profesionales */}
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-xl text-sagardoy-navy">Datos Profesionales</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <Label htmlFor="empresaActualPersonal">Empresa Actual *</Label>
                   <Input
@@ -237,6 +221,33 @@ export default function CollaboratorForm() {
                   />
                   {form.formState.errors.cargoPuesto && (
                     <p className="text-red-500 text-sm mt-1">{form.formState.errors.cargoPuesto.message}</p>
+                  )}
+                </div>
+
+                <div>
+                  <Label htmlFor="telefonoProfesional">Teléfono Profesional *</Label>
+                  <Input
+                    id="telefonoProfesional"
+                    {...form.register("telefonoProfesional")}
+                    className="mt-1"
+                    placeholder="+34 91 000 00 00"
+                  />
+                  {form.formState.errors.telefonoProfesional && (
+                    <p className="text-red-500 text-sm mt-1">{form.formState.errors.telefonoProfesional.message}</p>
+                  )}
+                </div>
+
+                <div>
+                  <Label htmlFor="emailProfesional">Email Profesional *</Label>
+                  <Input
+                    id="emailProfesional"
+                    type="email"
+                    {...form.register("emailProfesional")}
+                    className="mt-1"
+                    placeholder="profesional@empresa.com"
+                  />
+                  {form.formState.errors.emailProfesional && (
+                    <p className="text-red-500 text-sm mt-1">{form.formState.errors.emailProfesional.message}</p>
                   )}
                 </div>
 
