@@ -163,7 +163,8 @@ export default function CourseBuilder() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <SCORMProvider>
+      <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="mb-8">
@@ -387,22 +388,97 @@ export default function CourseBuilder() {
                                                 rows={2}
                                               />
                                             </div>
-                                            <div>
-                                              <Label htmlFor={`content-${module.id}`}>Contenido</Label>
-                                              <Textarea
-                                                id={`content-${module.id}`}
-                                                value={module.content}
-                                                onChange={(e) => updateModule(module.id, { content: e.target.value })}
-                                                className="mt-1"
-                                                rows={4}
-                                                placeholder={
-                                                  module.type === 'video' ? 'URL del video o descripción...' :
-                                                  module.type === 'image' ? 'URL de la imagen o descripción...' :
-                                                  module.type === 'quiz' ? 'Preguntas y respuestas...' :
-                                                  'Contenido del texto...'
-                                                }
-                                              />
-                                            </div>
+                                            
+                                            {/* H5P Module Configuration */}
+                                            {module.type === 'h5p' && (
+                                              <div className="border rounded-lg p-4 bg-indigo-50">
+                                                <H5PIntegration 
+                                                  moduleId={module.id}
+                                                  onProgressUpdate={(progress) => updateModule(module.id, { duration: progress })}
+                                                  onScoreUpdate={(score) => console.log(`Score updated: ${score}`)}
+                                                />
+                                              </div>
+                                            )}
+                                            
+                                            {/* SCORM Module Configuration */}
+                                            {module.type === 'scorm' && (
+                                              <div className="border rounded-lg p-4 bg-red-50">
+                                                <div className="space-y-4">
+                                                  <div>
+                                                    <Label htmlFor={`scorm-package-${module.id}`}>URL del Paquete SCORM</Label>
+                                                    <Input
+                                                      id={`scorm-package-${module.id}`}
+                                                      value={module.scormData?.packageUrl || ''}
+                                                      onChange={(e) => updateModule(module.id, { 
+                                                        scormData: { 
+                                                          ...module.scormData, 
+                                                          packageUrl: e.target.value 
+                                                        } 
+                                                      })}
+                                                      className="mt-1"
+                                                      placeholder="https://ejemplo.com/curso.zip"
+                                                    />
+                                                  </div>
+                                                  <div className="grid grid-cols-2 gap-4">
+                                                    <div>
+                                                      <Label htmlFor={`completion-threshold-${module.id}`}>Umbral de Completitud (%)</Label>
+                                                      <Input
+                                                        id={`completion-threshold-${module.id}`}
+                                                        type="number"
+                                                        min="0"
+                                                        max="100"
+                                                        value={module.scormData?.completionThreshold || 80}
+                                                        onChange={(e) => updateModule(module.id, { 
+                                                          scormData: { 
+                                                            ...module.scormData, 
+                                                            completionThreshold: parseInt(e.target.value) || 80
+                                                          } 
+                                                        })}
+                                                        className="mt-1"
+                                                      />
+                                                    </div>
+                                                    <div>
+                                                      <Label htmlFor={`mastery-score-${module.id}`}>Puntuación de Dominio</Label>
+                                                      <Input
+                                                        id={`mastery-score-${module.id}`}
+                                                        type="number"
+                                                        min="0"
+                                                        max="100"
+                                                        value={module.scormData?.masteryScore || 70}
+                                                        onChange={(e) => updateModule(module.id, { 
+                                                          scormData: { 
+                                                            ...module.scormData, 
+                                                            masteryScore: parseInt(e.target.value) || 70
+                                                          } 
+                                                        })}
+                                                        className="mt-1"
+                                                      />
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </div>
+                                            )}
+                                            
+                                            {/* Standard Content for other types */}
+                                            {!['h5p', 'scorm'].includes(module.type) && (
+                                              <div>
+                                                <Label htmlFor={`content-${module.id}`}>Contenido</Label>
+                                                <Textarea
+                                                  id={`content-${module.id}`}
+                                                  value={module.content}
+                                                  onChange={(e) => updateModule(module.id, { content: e.target.value })}
+                                                  className="mt-1"
+                                                  rows={4}
+                                                  placeholder={
+                                                    module.type === 'video' ? 'URL del video o descripción...' :
+                                                    module.type === 'image' ? 'URL de la imagen o descripción...' :
+                                                    module.type === 'quiz' ? 'Preguntas y respuestas...' :
+                                                    'Contenido del texto...'
+                                                  }
+                                                />
+                                              </div>
+                                            )}
+                                            
                                             <div className="grid grid-cols-2 gap-4">
                                               <div>
                                                 <Label htmlFor={`duration-${module.id}`}>Duración (minutos)</Label>
@@ -451,11 +527,12 @@ export default function CourseBuilder() {
         </div>
       </div>
       
-      <CoursePreview
-        course={course}
-        isOpen={previewOpen}
-        onClose={() => setPreviewOpen(false)}
-      />
-    </div>
+        <CoursePreview
+          course={course}
+          isOpen={previewOpen}
+          onClose={() => setPreviewOpen(false)}
+        />
+      </div>
+    </SCORMProvider>
   );
 }
