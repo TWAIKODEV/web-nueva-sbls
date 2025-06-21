@@ -8,39 +8,39 @@ import sagardoyLogo from "@assets/sagardoy-logo-1_1750499204211.png";
 export default function Home() {
   const programs = [
     {
-      id: "mba",
-      title: "MBA Ejecutivo",
-      description: "Programa integral para directivos que buscan acelerar su carrera profesional y liderar la transformación empresarial.",
-      duration: "18 meses",
-      price: "€24,500",
-      category: "MBA",
-      image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250"
+      id: "master-acceso-abogacia",
+      title: "Máster de Acceso a la Abogacía",
+      description: "Programa oficial que habilita para el ejercicio de la profesión de abogado, con enfoque práctico y especialización sectorial.",
+      duration: "12 meses",
+      price: "Consultar",
+      category: "Máster",
+      image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250"
     },
     {
-      id: "master-estrategia", 
-      title: "Máster en Dirección Estratégica",
-      description: "Desarrolla competencias estratégicas para liderar organizaciones en entornos complejos y dinámicos.",
+      id: "master-derecho-trabajo", 
+      title: "Máster en Derecho del Trabajo y RRHH",
+      description: "Especialización integral en derecho laboral y gestión de recursos humanos para profesionales del sector jurídico.",
       duration: "12 meses",
-      price: "€18,900",
+      price: "Consultar",
       category: "Máster",
       image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250"
     },
     {
-      id: "liderazgo-digital",
-      title: "Liderazgo Digital", 
-      description: "Programa intensivo para líderes que buscan dominar la transformación digital empresarial.",
+      id: "executive-rrhh",
+      title: "Executive en Recursos Humanos", 
+      description: "Programa ejecutivo diseñado para directivos de RRHH que buscan actualizar sus competencias directivas.",
       duration: "6 meses",
-      price: "€12,500",
-      category: "Ejecutivo",
-      image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250"
+      price: "Consultar",
+      category: "Executive",
+      image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250"
     }
   ];
 
   const stats = [
-    { icon: TrendingUp, value: "25+", label: "Años de Experiencia" },
-    { icon: Users, value: "12,000+", label: "Graduados" },
-    { icon: Building, value: "150+", label: "Profesores" },
-    { icon: Award, value: "500+", label: "Empresas Partner" }
+    { icon: TrendingUp, value: "50+", label: "Años de Experiencia" },
+    { icon: Users, value: "10,000+", label: "Profesionales Formados" },
+    { icon: Building, value: "200+", label: "Profesores Expertos" },
+    { icon: Award, value: "95%", label: "Empleabilidad" }
   ];
 
   return (
@@ -53,12 +53,12 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-white">
               <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
-                Lidera el 
-                <span className="text-sagardoy-gold"> Futuro</span>
-                <br />de los Negocios
+                Especialistas en
+                <span className="text-sagardoy-gold"> Derecho</span>
+                <br />y Recursos Humanos
               </h1>
               <p className="text-xl md:text-2xl text-slate-200 mb-8 leading-relaxed">
-                Programas ejecutivos de excelencia que transforman profesionales en líderes visionarios
+                Formación especializada en Derecho del Trabajo, Acceso a la Abogacía y gestión de Recursos Humanos
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/programas">

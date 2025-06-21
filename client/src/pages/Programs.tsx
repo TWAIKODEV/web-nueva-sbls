@@ -10,61 +10,61 @@ export default function Programs() {
 
   const programs = [
     {
-      id: "mba",
-      title: "MBA Ejecutivo",
-      description: "Programa integral para directivos que buscan acelerar su carrera profesional y liderar la transformación empresarial.",
-      duration: "18 meses",
-      price: "€24,500",
-      category: "mba",
-      categoryLabel: "MBA",
-      image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250"
-    },
-    {
-      id: "master-estrategia",
-      title: "Máster en Dirección Estratégica",
-      description: "Desarrolla competencias estratégicas para liderar organizaciones en entornos complejos y dinámicos.",
+      id: "master-acceso-abogacia",
+      title: "Máster de Acceso a la Abogacía",
+      description: "Programa oficial que habilita para el ejercicio de la profesión de abogado. Incluye prácticas en despachos de prestigio y especialización sectorial.",
       duration: "12 meses",
-      price: "€18,900",
+      price: "Consultar",
+      category: "master",
+      categoryLabel: "Máster",
+      image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250"
+    },
+    {
+      id: "master-derecho-trabajo",
+      title: "Máster en Derecho del Trabajo y RRHH",
+      description: "Especialización integral en derecho laboral y gestión de recursos humanos. Formación práctica con casos reales del sector.",
+      duration: "12 meses",
+      price: "Consultar",
       category: "master",
       categoryLabel: "Máster",
       image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250"
     },
     {
-      id: "liderazgo-digital",
-      title: "Liderazgo Digital",
-      description: "Programa intensivo para líderes que buscan dominar la transformación digital empresarial.",
+      id: "executive-rrhh",
+      title: "Executive en Recursos Humanos",
+      description: "Programa ejecutivo para directivos de RRHH. Actualización en normativa laboral, gestión del talento y transformación digital.",
       duration: "6 meses",
-      price: "€12,500",
+      price: "Consultar",
       category: "executive",
-      categoryLabel: "Ejecutivo",
-      image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250"
+      categoryLabel: "Executive",
+      image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250"
     },
     {
-      id: "finanzas-corporativas",
-      title: "Finanzas Corporativas",
-      description: "Domina las finanzas empresariales y la gestión de inversiones para maximizar el valor de la organización.",
-      duration: "8 meses",
-      price: "€14,500",
-      category: "master",
-      categoryLabel: "Máster",
+      id: "curso-especialista-derecho-trabajo",
+      title: "Curso de Especialista en Derecho del Trabajo",
+      description: "Formación intensiva en derecho laboral con enfoque práctico. Actualización normativa y resolución de casos complejos.",
+      duration: "4 meses",
+      price: "Consultar",
+      category: "executive",
+      categoryLabel: "Executive",
       image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250"
     },
     {
-      id: "marketing-digital",
-      title: "Marketing Digital y Comunicación",
-      description: "Estrategias avanzadas de marketing digital para el mundo empresarial moderno.",
-      duration: "6 meses",
-      price: "€11,500",
+      id: "programa-compliance-laboral",
+      title: "Programa de Compliance Laboral",
+      description: "Especialización en cumplimiento normativo laboral. Prevención de riesgos y auditorías laborales en la empresa.",
+      duration: "3 meses",
+      price: "Consultar",
       category: "executive",
-      categoryLabel: "Ejecutivo",
+      categoryLabel: "Executive",
       image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250"
     },
     {
-      id: "recursos-humanos",
-      title: "Gestión Estratégica de RRHH",
-      description: "Transforma la gestión de talento humano en tu organización con estrategias innovadoras.",
-      duration: "10 meses",
-      price: "€16,900",
+      id: "master-derecho-empresa",
+      title: "Máster en Derecho de la Empresa",
+      description: "Formación integral en asesoría jurídica empresarial. Especialización en derecho corporativo y mercantil.",
+      duration: "12 meses",
+      price: "Consultar",
       category: "master",
       categoryLabel: "Máster",
       image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250"
@@ -73,9 +73,8 @@ export default function Programs() {
 
   const filters = [
     { key: "all", label: "Todos los Programas" },
-    { key: "mba", label: "MBA Ejecutivo" },
     { key: "master", label: "Másters" },
-    { key: "executive", label: "Formación Ejecutiva" }
+    { key: "executive", label: "Executive" }
   ];
 
   const filteredPrograms = activeFilter === "all" 
