@@ -2,7 +2,7 @@ import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Users, Target, TrendingUp, Building2, CheckCircle, Award, Clock, Globe } from "lucide-react";
+import { ArrowRight, Users, Target, TrendingUp, Building2, CheckCircle, Award, Clock, Globe, Shield, Briefcase, Code, Lightbulb } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function CorporateTraining() {
@@ -11,21 +11,52 @@ export default function CorporateTraining() {
   const areas = [
     {
       title: "Recursos Humanos",
-      description: "El departamento de RRHH que hasta ahora se enfocaba en las estructuras organizativas, la dificultad para atraer y seleccionar profesionales cualificados, la dificultad de diseñar e implantar un plan de conciliación flexible y adaptado a la nueva realidad.",
+      description: "El gran impacto que ha tenido la pandemia tanto en las estructuras organizativas, como en las metodologías y procesos de trabajo, la dificultad para atraer y seleccionar profesionales cualificados, la dificultad de diseñar e implantar un plan de conciliación flexible y adaptado a la nueva realidad, ponen de manifiesto que la función de RR.HH. es sin duda una pieza fundamental en la viabilidad y sostenibilidad del negocio.",
+      details: "A través de nuestros programas in-company especializados en RR.HH. hemos ayudado a organizaciones de muy diversos sectores a reflexionar y replantearse sus políticas de RR.HH., su modelo de gestión de talento y estrategia de compensación.",
       icon: Users,
       color: "bg-blue-500"
     },
     {
       title: "Management",
-      description: "La situación actual está poniendo en jaque todo nuestro modelo de desarrollo profesional desde una triple perspectiva: nuestra actitud, autoliderazgo y gestión emocional ante el impacto de la incertidumbre.",
+      description: "La situación actual está poniendo en jaque todo nuestro modelo de desarrollo profesional desde una triple perspectiva: Nuestra actitud, autoliderazgo y gestión emocional ante el impacto de la incertidumbre. La forma en que gestionamos, dirigimos y lideramos. La forma en que nos relacionamos con los clientes y afrontamos la incertidumbre del mercado.",
+      details: "Desde Sagardoy Business & Law School, con nuestro claustro de reconocidos expertos, hemos desarrollado una amplia experiencia en la formación de directivos de muy diversos sectores a través nuestro programa 'High Performance Management' y 'Liderazgo de Nueva Generación'.",
       icon: Target,
       color: "bg-green-500"
     },
     {
-      title: "Transformación Digital",
-      description: "La aceleración de transformación digital en muchos casos, y el trabajo en remoto han desembocado en un nuevo modelo organizativo, nuevas formas de relación entre las personas y un impacto en la cultura y valores.",
+      title: "Banca y Finanzas",
+      description: "La formación financiera y regulatoria en el sector Banca y Seguros es uno de los pilares fundamentales en los que se soporta el amplio expertise de la formación in-company de Sagardoy Business & Law School.",
+      details: "Actualmente nuestros programas están contrastados con los requerimientos de la CNMV a los efectos del cumplimiento con MIFID II, y con los estándares de calidad y certificación de EFPA España. Contamos con reconocidos clientes como Bankinter, BBVA o Seguros Santa Lucía entre otros.",
       icon: TrendingUp,
       color: "bg-purple-500"
+    },
+    {
+      title: "Jurídica/Legal Tech",
+      description: "En Sagardoy B&L School, contamos con una dilatada experiencia en la formación y actualización de profesionales del ámbito jurídico, societario, laboral y fiscal.",
+      details: "A través de nuestros programas in-company 'Liderando las Relaciones Laborales' y 'Programa Nuevo Marco de Relaciones Laborales post Covid', hemos impulsado la actualización de equipos de relaciones laborales, responsables de RR.HH. y HR Business Partners para afrontar la nueva organización del trabajo.",
+      icon: Briefcase,
+      color: "bg-indigo-500"
+    },
+    {
+      title: "Innovación",
+      description: "En Sagardoy B&L School, contamos con una dilatada experiencia en el desarrollo de programas que impulsan estrategias de transformación cultural, digitalización y desarrollo de culturas de innovación, creatividad e intra-emprendimiento.",
+      details: "Nuestros programas están diseñados para desarrollar capacidades de innovación e intraemprendimiento en los equipos corporativos.",
+      icon: Lightbulb,
+      color: "bg-orange-500"
+    },
+    {
+      title: "Ciberseguridad",
+      description: "El 70% de los ciber ataques y brechas de seguridad dependen de los empleados. Sagardoy B&L School y AIWIN desarrollan una herramienta única que aúna formación y gamificación de última generación: Firewall, el sistema de concienciación en ciberseguridad de mayor impacto.",
+      details: "Se trata de una aventura formativa inmersiva, que consigue atrapar la atención de los participantes y transformar sus conductas para proteger a la compañía de ciberataques.",
+      icon: Shield,
+      color: "bg-red-500"
+    },
+    {
+      title: "Desarrollo de Negocio y Redes Comerciales",
+      description: "Nuestros docentes expertos en materia de desarrollo comercial, y coaching de ventas, coinciden en que la mayor parte de las redes comerciales adolecen de falta de confianza y seguridad con canales telemáticos, errores en la preparación y ejecución de las reuniones virtuales.",
+      details: "Sagardoy B&L School, con su claustro de expertos formadores de desarrollo de negocio, ha colaborado en proyectos de formación comercial de compañías tales como Cofares, Ecoembes o Italfarmaco, para acelerar la adaptación de los procedimientos comerciales a través de la formación en técnicas propias de los medios digitales.",
+      icon: Globe,
+      color: "bg-teal-500"
     }
   ];
 
@@ -131,7 +162,7 @@ export default function CorporateTraining() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {areas.map((area, index) => {
                 const IconComponent = area.icon;
                 return (
@@ -141,7 +172,12 @@ export default function CorporateTraining() {
                         <IconComponent className="w-8 h-8 text-white" />
                       </div>
                       <h3 className="text-xl font-bold text-sagardoy-navy mb-4">{area.title}</h3>
-                      <p className="text-sagardoy-gray leading-relaxed">{area.description}</p>
+                      <p className="text-sagardoy-gray leading-relaxed mb-4">{area.description}</p>
+                      {area.details && (
+                        <p className="text-sm text-sagardoy-gray leading-relaxed font-medium border-t border-gray-200 pt-4">
+                          {area.details}
+                        </p>
+                      )}
                     </CardContent>
                   </Card>
                 );
