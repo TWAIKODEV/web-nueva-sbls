@@ -10,7 +10,6 @@ export default function ProgramDetail() {
   const { t } = useLanguage();
   const { id } = useParams<{ id: string }>();
 
-  // Program data matching the IDs from Programs.tsx
   const programsData: Record<string, any> = {
     "master-acceso-abogacia": {
       title: "Máster de Acceso a la Abogacía",
@@ -41,14 +40,6 @@ export default function ProgramDetail() {
         {
           module: "Derecho Procesal Laboral",
           topics: ["Procedimiento Ordinario", "Procedimientos Especiales", "Recursos y Casación", "Ejecución de Sentencias"]
-        },
-        {
-          module: "Especialización Sectorial",
-          topics: ["Derecho Penal Laboral", "Prevención de Riesgos", "Extranjería Laboral", "Compliance Laboral"]
-        },
-        {
-          module: "Prácticas Profesionales",
-          topics: ["Ejercicio en Despacho", "Redacción de Escritos", "Vista Oral", "Mediación Laboral"]
         }
       ],
       faculty: [
@@ -57,34 +48,19 @@ export default function ProgramDetail() {
           title: "Director del Programa",
           expertise: "Derecho del Trabajo",
           image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150"
-        },
-        {
-          name: "Dra. Ana Belén Muñoz",
-          title: "Profesora de Derecho Procesal",
-          expertise: "Derecho Procesal Laboral",
-          image: "https://images.unsplash.com/photo-1494790108755-2616c6a0d2d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150"
-        },
-        {
-          name: "Prof. Carlos Martínez",
-          title: "Especialista en Seguridad Social",
-          expertise: "Derecho de la Seguridad Social",
-          image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150"
         }
       ],
       requirements: [
         "Licenciatura o Grado en Derecho",
         "Expediente académico",
         "Entrevista personal",
-        "Carta de motivación",
-        "Nivel B2 de inglés recomendable"
+        "Carta de motivación"
       ],
       benefits: [
         "Habilitación oficial para ejercer la abogacía",
         "95% de aprobados en el examen de Estado",
         "Prácticas remuneradas en despachos",
-        "Especialización en derecho laboral",
-        "Acceso al Colegio de Abogados",
-        "Red profesional de abogados laboralistas"
+        "Especialización en derecho laboral"
       ]
     },
     "master-derecho-trabajo": {
@@ -99,31 +75,18 @@ export default function ProgramDetail() {
       schedule: "Martes y Jueves 18:00-21:00",
       startDate: "Septiembre 2024",
       language: "Español",
-      format: "Presencial + Seminarios Online",
+      format: "Presencial + Online",
       classSize: "25-30 estudiantes",
       highlights: [
         "Doble especialización jurídica y de RRHH",
         "Casos prácticos reales",
         "Profesorado en activo",
-        "Prácticas en empresas",
-        "Certificación HRCI"
+        "Prácticas en empresas"
       ],
       curriculum: [
         {
           module: "Derecho Individual del Trabajo",
           topics: ["Contrato de Trabajo", "Tiempo de Trabajo", "Salarios", "Modificaciones Contractuales"]
-        },
-        {
-          module: "Derecho Colectivo del Trabajo",
-          topics: ["Representación Sindical", "Negociación Colectiva", "Huelga y Conflictos", "Libertad Sindical"]
-        },
-        {
-          module: "Gestión Estratégica de RRHH",
-          topics: ["Planificación de Personal", "Selección y Desarrollo", "Evaluación del Desempeño", "Compensación"]
-        },
-        {
-          module: "Especialización Sectorial",
-          topics: ["Compliance Laboral", "Transformación Digital", "Diversidad e Inclusión", "Relaciones Laborales"]
         }
       ],
       faculty: [
@@ -132,27 +95,17 @@ export default function ProgramDetail() {
           title: "Director del Programa",
           expertise: "Derecho del Trabajo",
           image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150"
-        },
-        {
-          name: "Dra. Elena Rodríguez",
-          title: "Especialista en RRHH",
-          expertise: "Gestión del Talento",
-          image: "https://images.unsplash.com/photo-1494790108755-2616c6a0d2d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150"
         }
       ],
       requirements: [
         "Licenciatura o Grado universitario",
         "Experiencia profesional valorable",
-        "Entrevista personal",
-        "Carta de motivación"
+        "Entrevista personal"
       ],
       benefits: [
         "Doble competencia jurídica-empresarial",
         "98% de empleabilidad",
-        "Acceso a puestos directivos",
-        "Red profesional especializada",
-        "Formación continua",
-        "Consultoría posterior"
+        "Acceso a puestos directivos"
       ]
     },
     "executive-rrhh": {
@@ -173,17 +126,12 @@ export default function ProgramDetail() {
         "Enfoque 100% ejecutivo",
         "Transformación digital HR",
         "Liderazgo avanzado",
-        "People Analytics",
-        "Networking de alto nivel"
+        "People Analytics"
       ],
       curriculum: [
         {
           module: "Liderazgo y Transformación",
           topics: ["Liderazgo Disruptivo", "Change Management", "Cultura Organizacional", "Employee Experience"]
-        },
-        {
-          module: "HR Digital",
-          topics: ["People Analytics", "HR Tech", "Automatización de Procesos", "Inteligencia Artificial en HR"]
         }
       ],
       faculty: [
@@ -202,145 +150,7 @@ export default function ProgramDetail() {
       benefits: [
         "Actualización competencial",
         "Red ejecutiva exclusiva",
-        "Certificación internacional",
-        "Seguimiento personalizado"
-      ]
-    },
-    "curso-especialista-derecho-trabajo": {
-      title: "Curso de Especialista en Derecho del Trabajo",
-      description: "Formación intensiva en derecho laboral con enfoque práctico y actualización normativa.",
-      longDescription: "Curso intensivo diseñado para abogados y profesionales que necesitan una especialización rápida pero completa en derecho del trabajo.",
-      duration: "4 meses",
-      price: "Consultar",
-      category: "Executive",
-      categoryColor: "bg-green-500",
-      image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-      schedule: "Martes 18:00-21:00",
-      startDate: "Marzo 2024",
-      language: "Español",
-      format: "Presencial",
-      classSize: "20-25 estudiantes",
-      highlights: [
-        "Formación intensiva",
-        "Casos prácticos reales",
-        "Actualización normativa",
-        "Profesorado especializado"
-      ],
-      curriculum: [
-        {
-          module: "Fundamentos del Derecho Laboral",
-          topics: ["Contrato de Trabajo", "Jornada Laboral", "Salarios", "Seguridad Social"]
-        }
-      ],
-      faculty: [
-        {
-          name: "Dr. Carlos Martínez",
-          title: "Especialista en Derecho Laboral",
-          expertise: "Derecho del Trabajo",
-          image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150"
-        }
-      ],
-      requirements: [
-        "Licenciatura en Derecho",
-        "Experiencia profesional"
-      ],
-      benefits: [
-        "Especialización rápida",
-        "Formación práctica",
-        "Certificación oficial"
-      ]
-    },
-    "programa-compliance-laboral": {
-      title: "Programa de Compliance Laboral",
-      description: "Especialización en cumplimiento normativo laboral y prevención de riesgos.",
-      longDescription: "Programa especializado en compliance laboral para profesionales que necesitan dominar el cumplimiento normativo en el ámbito laboral.",
-      duration: "3 meses",
-      price: "Consultar",
-      category: "Executive",
-      categoryColor: "bg-green-500",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-      schedule: "Viernes 16:00-19:00",
-      startDate: "Abril 2024",
-      language: "Español",
-      format: "Presencial + Online",
-      classSize: "15-20 estudiantes",
-      highlights: [
-        "Compliance especializado",
-        "Prevención de riesgos",
-        "Auditorías laborales",
-        "Normativa actualizada"
-      ],
-      curriculum: [
-        {
-          module: "Compliance Laboral",
-          topics: ["Normativa Laboral", "Auditorías", "Prevención de Riesgos", "Protocolos de Actuación"]
-        }
-      ],
-      faculty: [
-        {
-          name: "Dra. Elena Rodríguez",
-          title: "Especialista en Compliance",
-          expertise: "Compliance Laboral",
-          image: "https://images.unsplash.com/photo-1494790108755-2616c6a0d2d5?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150"
-        }
-      ],
-      requirements: [
-        "Formación jurídica o empresarial",
-        "Experiencia en compliance"
-      ],
-      benefits: [
-        "Especialización en compliance",
-        "Certificación profesional",
-        "Red de especialistas"
-      ]
-    },
-    "master-derecho-empresa": {
-      title: "Máster en Derecho de la Empresa",
-      description: "Formación integral en asesoría jurídica empresarial y derecho corporativo.",
-      longDescription: "Máster dirigido a juristas que desean especializarse en asesoría jurídica integral a empresas, abarcando todas las áreas del derecho empresarial.",
-      duration: "12 meses",
-      price: "Consultar",
-      category: "Máster",
-      categoryColor: "bg-sagardoy-blue",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=400",
-      schedule: "Lunes y Miércoles 18:00-21:00",
-      startDate: "Octubre 2024",
-      language: "Español",
-      format: "Presencial",
-      classSize: "25-30 estudiantes",
-      highlights: [
-        "Formación integral empresarial",
-        "Derecho corporativo",
-        "Prácticas en empresas",
-        "Asesoría jurídica completa"
-      ],
-      curriculum: [
-        {
-          module: "Derecho Societario",
-          topics: ["Constitución de Sociedades", "Gobierno Corporativo", "Fusiones y Adquisiciones", "Restructuraciones"]
-        },
-        {
-          module: "Derecho Mercantil",
-          topics: ["Contratos Mercantiles", "Derecho de la Competencia", "Propiedad Intelectual", "Insolvencias"]
-        }
-      ],
-      faculty: [
-        {
-          name: "Dr. Iñigo Sagardoy",
-          title: "Director del Programa",
-          expertise: "Derecho Empresarial",
-          image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=150&h=150"
-        }
-      ],
-      requirements: [
-        "Licenciatura en Derecho",
-        "Expediente académico",
-        "Entrevista personal"
-      ],
-      benefits: [
-        "Asesoría integral empresarial",
-        "Acceso a grandes despachos",
-        "Red profesional corporativa"
+        "Certificación internacional"
       ]
     }
   };
