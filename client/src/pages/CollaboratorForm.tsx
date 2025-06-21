@@ -43,6 +43,7 @@ type CollaboratorFormData = z.infer<typeof collaboratorFormSchema>;
 export default function CollaboratorForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [imageRightsModalOpen, setImageRightsModalOpen] = useState(false);
+  const [privacyPolicyModalOpen, setPrivacyPolicyModalOpen] = useState(false);
 
   const form = useForm<CollaboratorFormData>({
     resolver: zodResolver(collaboratorFormSchema),
@@ -406,9 +407,13 @@ export default function CollaboratorForm() {
                 <div className="text-sm">
                   <Label htmlFor="politicaPrivacidad" className="cursor-pointer">
                     Política de privacidad.{" "}
-                    <Link href="#" className="text-sagardoy-blue hover:underline">
+                    <button 
+                      type="button"
+                      onClick={() => setPrivacyPolicyModalOpen(true)}
+                      className="text-sagardoy-blue hover:underline"
+                    >
                       Ver
-                    </Link>
+                    </button>
                     <span className="text-red-500 ml-1">*</span>
                   </Label>
                 </div>
@@ -565,6 +570,168 @@ export default function CollaboratorForm() {
               onClick={() => {
                 form.setValue("usoImagen", true);
                 setImageRightsModalOpen(false);
+              }}
+            >
+              Aceptar
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
+      {/* Modal de Política de Privacidad */}
+      <Dialog open={privacyPolicyModalOpen} onOpenChange={setPrivacyPolicyModalOpen}>
+        <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-bold text-sagardoy-navy">
+              Política de Privacidad
+            </DialogTitle>
+            <DialogDescription className="sr-only">
+              Política de privacidad de Sagardoy Business & Law School
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="space-y-4 text-sm leading-relaxed">
+            <p>
+              Con la aceptación del presente documento declaro conocer y entender la política de 
+              privacidad de SBLS.
+            </p>
+
+            <div>
+              <h3 className="font-bold text-sagardoy-navy mb-3">
+                Identificación y datos de contacto del Responsable
+              </h3>
+              <p>
+                La compañía responsable del tratamiento de sus datos personales, SAGARDOY BUSINESS & 
+                LAW SCHOOL, S.L. (en adelante, "SAGARDOY") inscrita en el Registro Mercantil de Madrid 
+                al Tomo 40086, Libro 0, Folio 140, Sec. 8ª, Hoja M-712220, inscripción 1ª con CIF 
+                número B-88562079 y con domicilio social en la calle Tutor nº 27, 28008 Madrid (Madrid).
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-sagardoy-navy mb-3">
+                Información general: descripción de la información contenida en la política de privacidad
+              </h3>
+              <p>
+                En la presente política de privacidad encontrará una tabla identificando, por cada uno de 
+                los diferentes tratamientos de datos realizados por el SBLS, la siguiente información:
+              </p>
+              <ul className="list-disc list-inside space-y-1 mt-2 ml-4">
+                <li>Las finalidades del tratamiento de sus datos personales, esto es, el motivo por el cual el SBLS trata sus datos personales.</li>
+                <li>Las bases legales que permiten el tratamiento de sus datos por parte de SBLS para cada una de las finalidades indicadas.</li>
+                <li>La posible comunicación de sus datos a terceros, así como la causa de dicha comunicación.</li>
+                <li>La existencia de potenciales transferencias internacionales de datos.</li>
+                <li>El plazo de conservación de los datos que nos facilite.</li>
+              </ul>
+              <p className="mt-2">
+                Le informamos de que puede solicitar mayor detalle de información respecto de los 
+                destinatarios de sus datos enviando un correo electrónico a la dirección 
+                protecciondedatos@sagardoy.com indicando el tratamiento concreto sobre cuyos 
+                destinatarios querría información.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-sagardoy-navy mb-3">
+                Información necesaria y actualizada
+              </h3>
+              <p>
+                Todos los campos que aparezcan señalados con un asterisco (*) en los formularios serán 
+                de obligada cumplimentación, de tal modo que la omisión de alguno de ellos podría 
+                comportar la imposibilidad de que se le puedan facilitar los servicios o información 
+                solicitados.
+              </p>
+              <p className="mt-2">
+                Deberá proporcionar información verídica, para que la información facilitada esté 
+                siempre actualizada y no contenga errores, deberá comunicar al SBLS a la mayor brevedad 
+                posible, las modificaciones y rectificaciones de sus datos de carácter personal que se 
+                vayan produciendo a través de un correo electrónico a la dirección: 
+                protecciondedatos@sagardoy.com
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-sagardoy-navy mb-3">
+                Información detallada de los tratamientos realizados por el SBLS
+              </h3>
+              
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse border border-gray-300 text-xs">
+                  <thead>
+                    <tr className="bg-gray-100">
+                      <th className="border border-gray-300 p-2 text-left">Finalidad del tratamiento</th>
+                      <th className="border border-gray-300 p-2 text-left">Base legal</th>
+                      <th className="border border-gray-300 p-2 text-left">Destinatarios</th>
+                      <th className="border border-gray-300 p-2 text-left">Transferencias internacionales</th>
+                      <th className="border border-gray-300 p-2 text-left">Plazo de conservación</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td className="border border-gray-300 p-2">Gestionar sus solicitudes de información</td>
+                      <td className="border border-gray-300 p-2">Interés legítimo: para atender a sus requerimientos de información</td>
+                      <td className="border border-gray-300 p-2">No se realizará ninguna cesión o acceso a sus datos personales diferente de la indicada en el apartado 2.</td>
+                      <td className="border border-gray-300 p-2">No se hacen transferencias internacionales de sus datos personales.</td>
+                      <td className="border border-gray-300 p-2">Hasta la resolución de su solicitud.</td>
+                    </tr>
+                    <tr>
+                      <td className="border border-gray-300 p-2">Mantenernos en contacto con usted y mantenerle informado de todas las noticias de actualidad de SBLS</td>
+                      <td className="border border-gray-300 p-2">Consentimiento.</td>
+                      <td className="border border-gray-300 p-2">No se realizará ninguna comunicación o acceso a sus datos personales diferente de la indicada en el apartado 2, excepto los prestadores de servicios de envío de comunicaciones comerciales.</td>
+                      <td className="border border-gray-300 p-2">No se hacen transferencias internacionales de sus datos personales.</td>
+                      <td className="border border-gray-300 p-2">Durante tres años desde la última interacción con el SBLS o hasta que revoque su consentimiento (lo que suceda antes).</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-sagardoy-navy mb-3">
+                Ejercicio de sus derechos
+              </h3>
+              <p>Le informamos de que podrá ejercer los siguientes derechos:</p>
+              <ul className="list-disc list-inside space-y-1 mt-2 ml-4">
+                <li>derecho de acceso a sus datos personales para saber cuáles están siendo objeto de tratamiento y las operaciones de tratamiento llevadas a cabo con ellos;</li>
+                <li>derecho de rectificación de cualquier dato personal inexacto;</li>
+                <li>derecho de supresión de sus datos personales, cuando esto sea posible;</li>
+                <li>derecho de oposición al tratamiento de sus datos personales;</li>
+                <li>derecho a solicitar la limitación del tratamiento de sus datos personales;</li>
+                <li>derecho a la portabilidad de sus datos personales;</li>
+                <li>derecho a revocar su consentimiento en cualquier momento.</li>
+              </ul>
+              <p className="mt-2">
+                Podrá ejercitar sus derechos en cualquier momento y de forma gratuita dirigiendo un 
+                correo electrónico a protecciondedatos@sagardoy.com indicando el derecho que desea 
+                ejercitar y sus datos identificativos.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="font-bold text-sagardoy-navy mb-3">
+                Medidas de seguridad
+              </h3>
+              <p>
+                SBLS adopta los niveles de seguridad requeridos por el RGPD adecuados a la naturaleza 
+                de los datos que son objeto de tratamiento en cada momento. No obstante lo anterior, 
+                pueden existir actuaciones dolosas de terceros, si bien SBLS pone todos los medios a 
+                su alcance para evitar dichas actuaciones.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex justify-end gap-4 mt-6">
+            <Button 
+              variant="outline" 
+              onClick={() => setPrivacyPolicyModalOpen(false)}
+            >
+              Cancelar
+            </Button>
+            <Button 
+              className="bg-sagardoy-red text-white hover:bg-red-700"
+              onClick={() => {
+                form.setValue("politicaPrivacidad", true);
+                setPrivacyPolicyModalOpen(false);
               }}
             >
               Aceptar
