@@ -46,28 +46,56 @@ export default function Home() {
 
   return (
     <div className="min-h-screen">
-      {/* Welcome Section */}
-      <section className="bg-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-3xl md:text-4xl font-bold text-sagardoy-navy mb-6">
-              {t("home.title")}
-              <span className="text-sagardoy-gold"> {t("home.titleHighlight")}</span>
-            </h1>
-            <p className="text-lg text-sagardoy-gray max-w-3xl mx-auto mb-8">
-              {t("home.subtitle")}
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/programas">
-                <Button className="bg-sagardoy-gold text-white px-8 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-all duration-300">
-                  {t("home.explorePrograms")}
-                </Button>
-              </Link>
-              <Link href="/contacto">
-                <Button variant="outline" className="border-2 border-sagardoy-navy text-sagardoy-navy px-8 py-3 rounded-lg font-semibold hover:bg-sagardoy-navy hover:text-white transition-all duration-300">
-                  {t("home.moreInfo")}
-                </Button>
-              </Link>
+      {/* Hero Section */}
+      <section className="relative bg-gradient-to-br from-sagardoy-dark-blue via-sagardoy-blue to-sagardoy-light-blue min-h-screen flex items-center">
+        <div className="absolute inset-0 bg-black bg-opacity-10"></div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="text-white">
+              <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
+                {t("home.title")}
+                <span className="text-sagardoy-gold"> {t("home.titleHighlight")}</span>
+                <br />{t("home.titleEnd")}
+              </h1>
+              <p className="text-xl md:text-2xl text-slate-200 mb-8 leading-relaxed">
+                {t("home.subtitle")}
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Link href="/programas">
+                  <Button className="bg-sagardoy-gold text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-600 transition-all duration-300">
+                    {t("home.explorePrograms")}
+                  </Button>
+                </Link>
+                <Link href="/contacto">
+                  <Button variant="outline" className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-sagardoy-navy transition-all duration-300">
+                    {t("home.moreInfo")}
+                  </Button>
+                </Link>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <img 
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600" 
+                alt="Business school students in modern classroom" 
+                className="rounded-2xl shadow-2xl w-full h-auto"
+              />
+              
+              {/* Stats overlay */}
+              <div className="absolute -bottom-6 -left-6 bg-white rounded-xl p-6 shadow-lg">
+                <div className="flex items-center space-x-4">
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-sagardoy-dark-blue">5,200+</div>
+                    <div className="text-sm text-sagardoy-gray">Estudiantes</div>
+                  </div>
+                  <div className="w-px h-12 bg-gray-200"></div>
+                  <div className="text-center">
+                    <div className="text-2xl font-bold text-sagardoy-dark-blue">25+</div>
+                    <div className="text-sm text-sagardoy-gray">Programas</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
