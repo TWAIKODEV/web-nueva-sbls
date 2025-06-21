@@ -18,6 +18,7 @@ import Contact from "./pages/Contact";
 import ProgramDetail from "./pages/ProgramDetail";
 import Admission from "./pages/Admission";
 import CollaboratorForm from "./pages/CollaboratorForm";
+import CourseBuilder from "./pages/CourseBuilder";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -38,6 +39,7 @@ function Router() {
           <Route path="/programa/:id" component={ProgramDetail} />
           <Route path="/solicitud-admision" component={Admission} />
           <Route path="/ficha-colaboradores" component={CollaboratorForm} />
+          <Route path="/constructor-cursos" component={CourseBuilder} />
           <Route component={NotFound} />
         </Switch>
       </main>
