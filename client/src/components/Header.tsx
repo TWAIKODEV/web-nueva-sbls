@@ -5,11 +5,13 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, User } from "lucide-react";
 import sagardoyLogo from "@assets/sagardoy-logo-1_1750499204211.png";
 import LanguageSelector from "./LanguageSelector";
+import UserAccessModal from "./UserAccessModal";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Header() {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [userModalOpen, setUserModalOpen] = useState(false);
   const { t } = useLanguage();
 
   const navigation = [
@@ -60,7 +62,12 @@ export default function Header() {
           {/* Language Selector & User Access */}
           <div className="hidden md:flex items-center space-x-4">
             <LanguageSelector />
-            <Button variant="ghost" size="icon" className="text-sagardoy-gray hover:text-sagardoy-navy hover:bg-gray-100">
+            <Button 
+              variant="ghost" 
+              size="icon" 
+              className="text-sagardoy-gray hover:text-sagardoy-navy hover:bg-gray-100"
+              onClick={() => setUserModalOpen(true)}
+            >
               <User className="h-5 w-5" />
             </Button>
           </div>
@@ -91,7 +98,14 @@ export default function Header() {
                   ))}
                   <div className="mt-6 pt-4 border-t border-gray-200 space-y-4">
                     <LanguageSelector />
-                    <Button variant="ghost" className="w-full justify-start text-sagardoy-gray hover:text-sagardoy-navy">
+                    <Button 
+                      variant="ghost" 
+                      className="w-full justify-start text-sagardoy-gray hover:text-sagardoy-navy"
+                      onClick={() => {
+                        setUserModalOpen(true);
+                        setMobileMenuOpen(false);
+                      }}
+                    >
                       <User className="h-5 w-5 mr-2" />
                       Acceso de usuarios
                     </Button>
@@ -102,6 +116,12 @@ export default function Header() {
           </div>
         </div>
       </nav>
+      
+      {/* User Access Modal */}
+      <UserAccessModal 
+        open={userModalOpen} 
+        onOpenChange={setUserModalOpen} 
+      />
     </header>
   );
 }
