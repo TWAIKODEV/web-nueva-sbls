@@ -18,6 +18,10 @@ const collaboratorFormSchema = z.object({
   apellidos: z.string().min(2, "Los apellidos son requeridos"),
   nif: z.string().min(9, "NIF válido requerido"),
   telefono: z.string().min(9, "Teléfono válido requerido"),
+  empresaActualPersonal: z.string().min(2, "La empresa actual es requerida"),
+  sector: z.string().min(2, "El sector es requerido"),
+  cargoPuesto: z.string().min(2, "El cargo/puesto es requerido"),
+  linkedin: z.string().optional(),
   empresaActual: z.string().min(2, "La empresa actual es requerida"),
   cargo: z.string().min(2, "El cargo es requerido"),
   email: z.string().email("Email válido requerido"),
@@ -152,6 +156,56 @@ export default function CollaboratorForm() {
                   />
                   {form.formState.errors.telefono && (
                     <p className="text-red-500 text-sm mt-1">{form.formState.errors.telefono.message}</p>
+                  )}
+                </div>
+
+                <div>
+                  <Label htmlFor="empresaActualPersonal">Empresa Actual *</Label>
+                  <Input
+                    id="empresaActualPersonal"
+                    {...form.register("empresaActualPersonal")}
+                    className="mt-1"
+                  />
+                  {form.formState.errors.empresaActualPersonal && (
+                    <p className="text-red-500 text-sm mt-1">{form.formState.errors.empresaActualPersonal.message}</p>
+                  )}
+                </div>
+
+                <div>
+                  <Label htmlFor="sector">Sector *</Label>
+                  <Input
+                    id="sector"
+                    {...form.register("sector")}
+                    className="mt-1"
+                    placeholder="Ej: Servicios financieros, Tecnología..."
+                  />
+                  {form.formState.errors.sector && (
+                    <p className="text-red-500 text-sm mt-1">{form.formState.errors.sector.message}</p>
+                  )}
+                </div>
+
+                <div>
+                  <Label htmlFor="cargoPuesto">Cargo/Puesto *</Label>
+                  <Input
+                    id="cargoPuesto"
+                    {...form.register("cargoPuesto")}
+                    className="mt-1"
+                  />
+                  {form.formState.errors.cargoPuesto && (
+                    <p className="text-red-500 text-sm mt-1">{form.formState.errors.cargoPuesto.message}</p>
+                  )}
+                </div>
+
+                <div>
+                  <Label htmlFor="linkedin">LinkedIn</Label>
+                  <Input
+                    id="linkedin"
+                    {...form.register("linkedin")}
+                    className="mt-1"
+                    placeholder="https://linkedin.com/in/tu-perfil"
+                  />
+                  {form.formState.errors.linkedin && (
+                    <p className="text-red-500 text-sm mt-1">{form.formState.errors.linkedin.message}</p>
                   )}
                 </div>
               </div>
