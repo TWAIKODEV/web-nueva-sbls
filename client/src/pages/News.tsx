@@ -1,4 +1,5 @@
 import { Calendar, User, Tag, ArrowRight } from "lucide-react";
+import { Link } from "wouter";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -170,9 +171,11 @@ export default function News() {
                   </div>
                   <h3 className="text-2xl font-bold text-sagardoy-navy mb-4">{featuredNews.title}</h3>
                   <p className="text-sagardoy-gray mb-6 leading-relaxed">{featuredNews.excerpt}</p>
-                  <Button className="bg-sagardoy-blue text-white hover:bg-blue-700">
-                    Leer artículo completo <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
+                  <Link href={`/noticia/${featuredNews.id}`}>
+                    <Button className="bg-sagardoy-blue text-white hover:bg-blue-700">
+                      Leer artículo completo <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
 
@@ -201,9 +204,11 @@ export default function News() {
                         </div>
                         <h4 className="text-xl font-bold text-sagardoy-navy mb-3">{article.title}</h4>
                         <p className="text-sagardoy-gray mb-4">{article.excerpt}</p>
-                        <Button variant="ghost" className="text-sagardoy-blue hover:text-sagardoy-navy font-semibold p-0">
-                          Leer más <ArrowRight className="ml-1 h-4 w-4" />
-                        </Button>
+                        <Link href={`/noticia/${article.id}`}>
+                          <Button variant="ghost" className="text-sagardoy-blue hover:text-sagardoy-navy font-semibold p-0">
+                            Leer más <ArrowRight className="ml-1 h-4 w-4" />
+                          </Button>
+                        </Link>
                       </CardContent>
                     </div>
                   </Card>
