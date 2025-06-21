@@ -17,7 +17,10 @@ const collaboratorFormSchema = z.object({
   nombre: z.string().min(2, "El nombre es requerido"),
   apellidos: z.string().min(2, "Los apellidos son requeridos"),
   nif: z.string().min(9, "NIF válido requerido"),
-  telefono: z.string().min(9, "Teléfono válido requerido"),
+  movil: z.string().min(9, "Móvil válido requerido"),
+  emailPersonal: z.string().email("Email personal válido requerido"),
+  emailProfesional: z.string().email("Email profesional válido requerido"),
+  telefonoProfesional: z.string().min(9, "Teléfono profesional válido requerido"),
   empresaActualPersonal: z.string().min(2, "La empresa actual es requerida"),
   sector: z.string().min(2, "El sector es requerido"),
   cargoPuesto: z.string().min(2, "El cargo/puesto es requerido"),
@@ -147,15 +150,56 @@ export default function CollaboratorForm() {
                 </div>
 
                 <div>
-                  <Label htmlFor="telefono">Teléfono *</Label>
+                  <Label htmlFor="movil">Móvil *</Label>
                   <Input
-                    id="telefono"
-                    {...form.register("telefono")}
+                    id="movil"
+                    {...form.register("movil")}
                     className="mt-1"
                     placeholder="+34 600 000 000"
                   />
-                  {form.formState.errors.telefono && (
-                    <p className="text-red-500 text-sm mt-1">{form.formState.errors.telefono.message}</p>
+                  {form.formState.errors.movil && (
+                    <p className="text-red-500 text-sm mt-1">{form.formState.errors.movil.message}</p>
+                  )}
+                </div>
+
+                <div>
+                  <Label htmlFor="emailPersonal">Email Personal *</Label>
+                  <Input
+                    id="emailPersonal"
+                    type="email"
+                    {...form.register("emailPersonal")}
+                    className="mt-1"
+                    placeholder="personal@ejemplo.com"
+                  />
+                  {form.formState.errors.emailPersonal && (
+                    <p className="text-red-500 text-sm mt-1">{form.formState.errors.emailPersonal.message}</p>
+                  )}
+                </div>
+
+                <div>
+                  <Label htmlFor="emailProfesional">Email Profesional *</Label>
+                  <Input
+                    id="emailProfesional"
+                    type="email"
+                    {...form.register("emailProfesional")}
+                    className="mt-1"
+                    placeholder="profesional@empresa.com"
+                  />
+                  {form.formState.errors.emailProfesional && (
+                    <p className="text-red-500 text-sm mt-1">{form.formState.errors.emailProfesional.message}</p>
+                  )}
+                </div>
+
+                <div>
+                  <Label htmlFor="telefonoProfesional">Teléfono Profesional *</Label>
+                  <Input
+                    id="telefonoProfesional"
+                    {...form.register("telefonoProfesional")}
+                    className="mt-1"
+                    placeholder="+34 91 000 00 00"
+                  />
+                  {form.formState.errors.telefonoProfesional && (
+                    <p className="text-red-500 text-sm mt-1">{form.formState.errors.telefonoProfesional.message}</p>
                   )}
                 </div>
 
