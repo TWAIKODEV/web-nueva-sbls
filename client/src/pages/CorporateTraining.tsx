@@ -62,20 +62,20 @@ export default function CorporateTraining() {
 
   const methodologyAreas = [
     {
-      title: "Formaciones personalizadas",
-      description: "Creación de programas exclusivos que abordan los desafíos únicos de tu compañía y potencian las competencias clave para lograr los objetivos y retos a los que se enfrenta.",
+      title: "Formaciones Personalizadas",
+      description: "Programas exclusivos adaptados a los retos concretos de cada empresa, diseñados para potenciar competencias críticas, impulsar la innovación y reforzar la cohesión de los equipos.",
       icon: BookOpen,
       color: "text-green-600"
     },
     {
       title: "Programas de Management y Desarrollo Directivo",
-      description: "Capacitación avanzada que desarrolla líderes visionarios capaces de gestionar el cambio y alcanzar un impacto significativo en la organización.",
+      description: "Formación avanzada para líderes que necesitan gestionar el cambio, tomar decisiones con impacto y generar valor desde una perspectiva ética, estratégica y transformadora.",
       icon: Settings,
       color: "text-yellow-600"
     },
     {
       title: "Especialización Funcional Avanzada",
-      description: "Módulos que profundizan en áreas estratégicas del negocio, mejorando el rendimiento y la eficiencia operativa.",
+      description: "Módulos centrados en áreas clave del negocio —como recursos humanos, relaciones laborales o transformación organizativa—, con un enfoque práctico y orientado a resultados sostenibles.",
       icon: Zap,
       color: "text-red-600"
     }
