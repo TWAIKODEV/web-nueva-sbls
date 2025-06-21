@@ -29,7 +29,7 @@ export default function Header() {
         { name: "Constructor de Cursos", href: "/constructor-cursos", icon: Wrench },
         { name: "Demo SCORM/H5P", href: "/curso-demo", icon: Play },
         { name: "Ficha de Colaboradores", href: "/ficha-colaboradores", icon: UserPlus },
-        { name: "Seguimiento de Progreso", href: "/constructor-cursos", icon: BarChart3 }
+        { name: "Seguimiento de Progreso", href: "/seguimiento-progreso", icon: BarChart3 }
       ]
     },
     { name: t("nav.contacto"), href: "/contacto" },
