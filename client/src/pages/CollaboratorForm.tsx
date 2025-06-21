@@ -9,6 +9,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Link } from "wouter";
 import sagardoyLogo from "@assets/sagardoy-logo-1_1750499204211.png";
 
@@ -41,6 +42,7 @@ type CollaboratorFormData = z.infer<typeof collaboratorFormSchema>;
 
 export default function CollaboratorForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [imageRightsModalOpen, setImageRightsModalOpen] = useState(false);
 
   const form = useForm<CollaboratorFormData>({
     resolver: zodResolver(collaboratorFormSchema),
@@ -384,9 +386,13 @@ export default function CollaboratorForm() {
                 <div className="text-sm">
                   <Label htmlFor="usoImagen" className="cursor-pointer">
                     Uso del derecho de imagen.{" "}
-                    <Link href="#" className="text-sagardoy-blue hover:underline">
+                    <button 
+                      type="button"
+                      onClick={() => setImageRightsModalOpen(true)}
+                      className="text-sagardoy-blue hover:underline"
+                    >
                       Ver
-                    </Link>
+                    </button>
                   </Label>
                 </div>
               </div>
@@ -479,6 +485,93 @@ export default function CollaboratorForm() {
           </div>
         </div>
       </footer>
+
+      {/* Modal de Derechos de Imagen */}
+      <Dialog open={imageRightsModalOpen} onOpenChange={setImageRightsModalOpen}>
+        <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+          <DialogHeader>
+            <DialogTitle className="text-xl font-bold text-sagardoy-navy">
+              Autorización para el uso del derecho de imagen
+            </DialogTitle>
+            <DialogDescription className="sr-only">
+              Términos y condiciones para el uso del derecho de imagen
+            </DialogDescription>
+          </DialogHeader>
+          
+          <div className="space-y-4 text-sm leading-relaxed">
+            <p>
+              Mediante la aceptación de la presente autorización ("Autorización") declaro ser mayor de 
+              edad y autorizo expresamente a Sagardoy Business & Law School (en adelante "SBLS"), 
+              con domicilio social en la c/ Tutor, 27, 28008 Madrid y C.I.F. nº B-88.562.079 para que, 
+              directamente o a través de terceros, pueda captar y reproducir por cualquier medio mi 
+              imagen (incluyendo mi voz y mi nombre) (las "Captaciones") con ocasión de mi 
+              participación en las actividades docentes y no docentes de SBLS durante el curso 
+              académico 2020-2021. La presente Autorización comprende la captación, explotación, 
+              reproducción, publicación, transformación y comunicación pública (incluyendo la puesta a 
+              disposición del público) de mi imagen (y/o mi voz o nombre) por cualquier medio o soporte, 
+              incluyendo a título enunciativo medios impresos, audiovisuales, digitales, internet, prensa, 
+              radio, redes sociales, páginas web, aplicaciones móviles, etc. La presente Autorización 
+              abarca el uso de la imagen, voz y/o nombre con la finalidad de difundir y publicitar la 
+              actividad docente y/o comercial de SBLS en cualquier medio de comunicación, con 
+              capacidad plena de transmisión o sublicencia a terceros, para un ámbito territorial mundial 
+              y por el plazo máximo de duración de los derechos, de conformidad con la legislación 
+              aplicable.
+            </p>
+
+            <div className="mt-6">
+              <h3 className="font-bold text-sagardoy-navy mb-3">DECLARO Y ASUMO</h3>
+              <ul className="space-y-2 list-disc list-inside">
+                <li>
+                  Que SBLS no tendrá que contar con mi aprobación para la utilización de las 
+                  Captaciones.
+                </li>
+                <li>
+                  Que la presente Autorización no dará lugar a ningún tipo de contraprestación 
+                  económica.
+                </li>
+                <li>
+                  Que no realizaré ningún acto susceptible de impedir o dificultar el pleno ejercicio 
+                  pacífico de los derechos que a SBLS le correspondan en virtud de la presente 
+                  Autorización.
+                </li>
+                <li>
+                  Que las Captaciones podrán encontrarse disponibles, más allá de los límites de la 
+                  presente Autorización, en repositorios virtuales y/o redes sociales.
+                </li>
+              </ul>
+            </div>
+
+            <p className="mt-4">
+              El responsable del tratamiento de los datos personales facilitados en el formulario es el 
+              Sagardoy Business & Law School, quien tiene un interés legítimo en tratarlos con la 
+              finalidad gestionar la presente autorización y su participación en la difusión y publicidad de 
+              SBLS para promocionar sus actividades y servicios pertenecientes al sector de la 
+              educación superior. Podrán acceder a sus datos personales los prestadores de servicios 
+              de SBLS. Tiene derecho a acceder, rectificar y suprimir sus datos, así como otros 
+              derechos, como se explica en la información adicional sobre privacidad que figura al 
+              reverso de este documento.
+            </p>
+          </div>
+
+          <div className="flex justify-end gap-4 mt-6">
+            <Button 
+              variant="outline" 
+              onClick={() => setImageRightsModalOpen(false)}
+            >
+              Cancelar
+            </Button>
+            <Button 
+              className="bg-sagardoy-red text-white hover:bg-red-700"
+              onClick={() => {
+                form.setValue("usoImagen", true);
+                setImageRightsModalOpen(false);
+              }}
+            >
+              Aceptar
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
