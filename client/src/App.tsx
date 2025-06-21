@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Programs from "./pages/Programs";
 import About from "./pages/About";
+import CorporateTraining from "./pages/CorporateTraining";
 import News from "./pages/News";
 import NewsDetail from "./pages/NewsDetail";
 import EventDetail from "./pages/EventDetail";
@@ -26,6 +27,7 @@ function Router() {
           <Route path="/" component={Home} />
           <Route path="/programas" component={Programs} />
           <Route path="/la-escuela" component={About} />
+          <Route path="/corporate-training" component={CorporateTraining} />
           <Route path="/noticias" component={News} />
           <Route path="/noticia/:id" component={NewsDetail} />
           <Route path="/evento/:id" component={EventDetail} />
