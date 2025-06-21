@@ -10,13 +10,14 @@ import { useLanguage } from "@/contexts/LanguageContext";
 export default function Header() {
   const [location] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const navigation = [
-    { name: "Inicio", href: "/" },
-    { name: "Programas", href: "/programas" },
-    { name: "La Escuela", href: "/la-escuela" },
-    { name: "Noticias", href: "/noticias" },
-    { name: "Contacto", href: "/contacto" },
+    { name: t("nav.inicio"), href: "/" },
+    { name: t("nav.programas"), href: "/programas" },
+    { name: t("nav.escuela"), href: "/la-escuela" },
+    { name: t("nav.noticias"), href: "/noticias" },
+    { name: t("nav.contacto"), href: "/contacto" },
   ];
 
   const isActive = (href: string) => {
@@ -55,11 +56,12 @@ export default function Header() {
             ))}
           </div>
 
-          {/* CTA Button */}
+          {/* Language Selector & CTA Button */}
           <div className="hidden md:flex items-center space-x-4">
+            <LanguageSelector />
             <Link href="/solicitud-admision">
               <Button className="bg-sagardoy-gold text-white px-6 py-3 rounded-md font-semibold hover:bg-amber-600 transition-all duration-200 shadow-sm">
-                Solicitar Admisión
+                {t("nav.admision")}
               </Button>
             </Link>
           </div>
@@ -88,12 +90,15 @@ export default function Header() {
                       {item.name}
                     </Link>
                   ))}
+                  <div className="mt-6 pt-4 border-t border-gray-200">
+                    <LanguageSelector />
+                  </div>
                   <Link
                     href="/solicitud-admision"
                     onClick={() => setMobileMenuOpen(false)}
                     className="block px-3 py-2 bg-sagardoy-gold text-white rounded-lg mt-4 text-center font-semibold"
                   >
-                    Solicitar Admisión
+                    {t("nav.admision")}
                   </Link>
                 </div>
               </SheetContent>

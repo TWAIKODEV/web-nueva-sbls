@@ -3,9 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Award, Users, Building, TrendingUp } from "lucide-react";
-import sagardoyLogo from "@assets/sagardoy-logo-1_1750499204211.png";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Home() {
+  const { t } = useLanguage();
   const programs = [
     {
       id: "master-acceso-abogacia",
@@ -37,10 +38,10 @@ export default function Home() {
   ];
 
   const stats = [
-    { icon: TrendingUp, value: "50+", label: "Años de Experiencia" },
-    { icon: Users, value: "10,000+", label: "Profesionales Formados" },
-    { icon: Building, value: "200+", label: "Profesores Expertos" },
-    { icon: Award, value: "95%", label: "Empleabilidad" }
+    { icon: TrendingUp, value: "50+", label: t("home.stats.experience") },
+    { icon: Users, value: "10,000+", label: t("home.stats.professionals") },
+    { icon: Building, value: "200+", label: t("home.stats.professors") },
+    { icon: Award, value: "95%", label: t("home.stats.employability") }
   ];
 
   return (
@@ -53,22 +54,22 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-white">
               <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
-                Especialistas en
-                <span className="text-sagardoy-gold"> Derecho</span>
-                <br />y Recursos Humanos
+                {t("home.title")}
+                <span className="text-sagardoy-gold"> {t("home.titleHighlight")}</span>
+                <br />{t("home.titleEnd")}
               </h1>
               <p className="text-xl md:text-2xl text-slate-200 mb-8 leading-relaxed">
-                Formación especializada en Derecho del Trabajo, Acceso a la Abogacía y gestión de Recursos Humanos
+                {t("home.subtitle")}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link href="/programas">
                   <Button className="bg-sagardoy-gold text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-600 transition-all duration-300">
-                    Explorar Programas
+                    {t("home.explorePrograms")}
                   </Button>
                 </Link>
                 <Link href="/contacto">
                   <Button variant="outline" className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-sagardoy-navy transition-all duration-300">
-                    Más Información
+                    {t("home.moreInfo")}
                   </Button>
                 </Link>
               </div>
@@ -104,9 +105,9 @@ export default function Home() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-sagardoy-dark-blue mb-4">Nuestros Programas</h2>
+            <h2 className="text-4xl font-bold text-sagardoy-dark-blue mb-4">{t("home.ourPrograms")}</h2>
             <p className="text-xl text-sagardoy-gray max-w-3xl mx-auto">
-              Programas ejecutivos diseñados para impulsar tu carrera profesional y transformar tu visión empresarial
+              {t("home.programsSubtitle")}
             </p>
           </div>
 
