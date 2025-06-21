@@ -2,8 +2,10 @@ import { Calendar, User, Tag, ArrowRight } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function News() {
+  const { t } = useLanguage();
   const featuredNews = {
     id: 1,
     title: "Nuevo Máster de Acceso a la Abogacía 2024-2025",
@@ -127,10 +129,10 @@ export default function News() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Noticias y <span className="text-sagardoy-gold">Eventos</span>
+              {t("news.title")} <span className="text-sagardoy-gold">{t("news.titleHighlight")}</span>
             </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              Mantente al día con las últimas novedades, eventos y logros de nuestra comunidad académica
+              {t("news.subtitle")}
             </p>
           </div>
         </div>

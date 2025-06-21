@@ -1,34 +1,36 @@
 import { Award, Users, Building, TrendingUp, Globe, BookOpen } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function About() {
+  const { t } = useLanguage();
   const stats = [
-    { icon: TrendingUp, value: "50+", label: "Años de Experiencia", description: "Especialistas en formación jurídica y empresarial" },
-    { icon: Users, value: "10,000+", label: "Profesionales Formados", description: "Abogados y directivos de RRHH certificados" },
-    { icon: Building, value: "200+", label: "Profesores Expertos", description: "Profesionales activos del sector jurídico y empresarial" },
-    { icon: Award, value: "300+", label: "Despachos Colaboradores", description: "Red de despachos de abogados para prácticas profesionales" }
+    { icon: TrendingUp, value: "50+", label: t("about.statsLabels.experience"), description: "Especialistas en formación jurídica y empresarial" },
+    { icon: Users, value: "10,000+", label: t("about.statsLabels.professionals"), description: "Abogados y directivos de RRHH certificados" },
+    { icon: Building, value: "200+", label: t("about.statsLabels.professors"), description: "Profesionales activos del sector jurídico y empresarial" },
+    { icon: Award, value: "300+", label: t("about.statsLabels.collaborators"), description: "Red de despachos de abogados para prácticas profesionales" }
   ];
 
   const values = [
     {
       icon: Award,
-      title: "Especialización Jurídica",
-      description: "Programas especializados en Derecho del Trabajo, acceso a la abogacía y compliance laboral."
+      title: t("about.valuesList.specialization.title"),
+      description: t("about.valuesList.specialization.description")
     },
     {
       icon: Globe,
-      title: "Experiencia Profesional",
-      description: "Profesores en activo con amplia experiencia en despachos de prestigio y empresas líderes."
+      title: t("about.valuesList.experience.title"),
+      description: t("about.valuesList.experience.description")
     },
     {
       icon: Users,
-      title: "Red de Contactos",
-      description: "Networking con profesionales del sector jurídico y directivos de recursos humanos."
+      title: t("about.valuesList.networking.title"),
+      description: t("about.valuesList.networking.description")
     },
     {
       icon: BookOpen,
-      title: "Formación Práctica",
-      description: "Metodología basada en casos reales del ámbito laboral y empresarial."
+      title: t("about.valuesList.practical.title"),
+      description: t("about.valuesList.practical.description")
     }
   ];
 
@@ -57,11 +59,10 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              La <span className="text-sagardoy-gold">Escuela</span>
+              {t("about.title")} <span className="text-sagardoy-gold">{t("about.titleHighlight")}</span>
             </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              Con más de 50 años de experiencia, Sagardoy Business School es referente en formación especializada 
-              en Derecho del Trabajo, Acceso a la Abogacía y Gestión de Recursos Humanos.
+              {t("about.subtitle")}
             </p>
           </div>
         </div>
@@ -72,14 +73,12 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-sagardoy-navy mb-6">Nuestra Misión</h2>
+              <h2 className="text-4xl font-bold text-sagardoy-navy mb-6">{t("about.mission")}</h2>
               <p className="text-xl text-sagardoy-gray mb-6 leading-relaxed">
-                Formar profesionales del derecho y recursos humanos altamente cualificados, proporcionando 
-                formación especializada y práctica que responda a las demandas del mercado laboral.
+                {t("about.missionText")}
               </p>
               <p className="text-lg text-sagardoy-gray mb-8 leading-relaxed">
-                Combinamos la experiencia de profesionales en activo con metodologías innovadoras, 
-                ofreciendo una formación integral en el ámbito jurídico-laboral y empresarial.
+                {t("about.missionDetails")}
               </p>
               
               <div className="space-y-4">
