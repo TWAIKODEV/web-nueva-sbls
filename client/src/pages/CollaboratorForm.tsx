@@ -469,22 +469,6 @@ export default function CollaboratorForm() {
                 </div>
               </div>
 
-              <div>
-                <Label htmlFor="opcionFacturacion">Opción de facturación *</Label>
-                <Select onValueChange={(value) => form.setValue("opcionFacturacion", value)}>
-                  <SelectTrigger className="mt-1">
-                    <SelectValue placeholder="Selecciona una opción" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="autonomo">Autónomo</SelectItem>
-                    <SelectItem value="empresa">Empresa</SelectItem>
-                    <SelectItem value="sociedad">Sociedad</SelectItem>
-                  </SelectContent>
-                </Select>
-                {form.formState.errors.opcionFacturacion && (
-                  <p className="text-red-500 text-sm mt-1">{form.formState.errors.opcionFacturacion.message}</p>
-                )}
-              </div>
             </CardContent>
           </Card>
 
@@ -493,7 +477,7 @@ export default function CollaboratorForm() {
             <CardHeader>
               <CardTitle className="text-xl text-sagardoy-navy">Forma de Retribución</CardTitle>
             </CardHeader>
-            <CardContent>
+            <CardContent className="space-y-6">
               <div>
                 <Label htmlFor="formaRetribucion">Tipo de retribución *</Label>
                 <Select onValueChange={(value) => form.setValue("formaRetribucion", value)}>
@@ -508,6 +492,23 @@ export default function CollaboratorForm() {
                 </Select>
                 {form.formState.errors.formaRetribucion && (
                   <p className="text-red-500 text-sm mt-1">{form.formState.errors.formaRetribucion.message}</p>
+                )}
+              </div>
+
+              <div>
+                <Label htmlFor="opcionFacturacion">Opción de facturación *</Label>
+                <Select onValueChange={(value) => form.setValue("opcionFacturacion", value)}>
+                  <SelectTrigger className="mt-1">
+                    <SelectValue placeholder="Selecciona una opción" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="autonomo">Autónomo</SelectItem>
+                    <SelectItem value="empresa">Empresa</SelectItem>
+                    <SelectItem value="sociedad">Sociedad</SelectItem>
+                  </SelectContent>
+                </Select>
+                {form.formState.errors.opcionFacturacion && (
+                  <p className="text-red-500 text-sm mt-1">{form.formState.errors.opcionFacturacion.message}</p>
                 )}
               </div>
             </CardContent>
