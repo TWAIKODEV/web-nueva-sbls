@@ -17,7 +17,7 @@ export default function UserAccessModal({ open, onOpenChange }: UserAccessModalP
       icon: BookOpen,
       gradient: "from-sagardoy-blue/90 to-blue-700/90",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      href: "#"
+      href: "https://sbls.engage360.es/login"
     },
     {
       title: "Profesional",
@@ -25,7 +25,7 @@ export default function UserAccessModal({ open, onOpenChange }: UserAccessModalP
       icon: Briefcase,
       gradient: "from-sagardoy-navy/90 to-blue-900/90",
       image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      href: "#"
+      href: "https://sbls.engage360.es/login"
     },
     {
       title: "Claustro",
@@ -33,7 +33,7 @@ export default function UserAccessModal({ open, onOpenChange }: UserAccessModalP
       icon: Users,
       gradient: "from-sagardoy-light-blue/90 to-blue-600/90",
       image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
-      href: "#"
+      href: "https://sbls.engage360.es/login"
     }
   ];
 
@@ -73,8 +73,9 @@ export default function UserAccessModal({ open, onOpenChange }: UserAccessModalP
                     key={index} 
                     className="group relative overflow-hidden hover:shadow-2xl transition-all duration-500 cursor-pointer border-0"
                     onClick={() => {
-                      // Aquí se manejaría la navegación a cada área
-                      console.log(`Navigating to ${area.title}`);
+                      // Redirigir a la página de login de Sagardoy
+                      window.open(area.href, '_blank');
+                      onOpenChange(false); // Cerrar el modal
                     }}
                   >
                     <div className="relative h-64">
