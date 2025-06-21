@@ -481,11 +481,11 @@ export default function CollaboratorForm() {
           </Card>
 
           {/* Submit Button */}
-          <div className="flex justify-center">
+          <div className="flex justify-center mt-8 mb-8">
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="bg-sagardoy-red text-white px-8 py-3 text-lg font-semibold hover:bg-red-700 disabled:opacity-50"
+              className="bg-sagardoy-red text-white px-12 py-4 text-lg font-semibold hover:bg-red-700 disabled:opacity-50 shadow-lg"
             >
               {isSubmitting ? "Enviando..." : "Enviar"}
             </Button>
