@@ -11,6 +11,7 @@ import Programs from "./pages/Programs";
 import About from "./pages/About";
 import News from "./pages/News";
 import NewsDetail from "./pages/NewsDetail";
+import EventDetail from "./pages/EventDetail";
 import Contact from "./pages/Contact";
 import ProgramDetail from "./pages/ProgramDetail";
 import Admission from "./pages/Admission";
@@ -27,6 +28,7 @@ function Router() {
           <Route path="/la-escuela" component={About} />
           <Route path="/noticias" component={News} />
           <Route path="/noticia/:id" component={NewsDetail} />
+          <Route path="/evento/:id" component={EventDetail} />
           <Route path="/contacto" component={Contact} />
           <Route path="/programa/:id" component={ProgramDetail} />
           <Route path="/solicitud-admision" component={Admission} />

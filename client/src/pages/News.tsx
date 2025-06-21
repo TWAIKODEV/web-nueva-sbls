@@ -74,15 +74,17 @@ export default function News() {
 
   const upcomingEvents = [
     {
+      id: 1,
       day: "25",
       month: "ENE",
       title: "Webinar: Nuevas Reformas Laborales 2024",
       description: "Análisis de los cambios normativos y su impacto empresarial",
       time: "18:00 - 19:30",
       format: "Online",
-      color: "bg-sagardoy-gold"
+      color: "bg-orange-500"
     },
     {
+      id: 2,
       day: "02",
       month: "FEB",
       title: "Jornada de Puertas Abiertas - Máster Acceso Abogacía",
@@ -92,6 +94,7 @@ export default function News() {
       color: "bg-sagardoy-blue"
     },
     {
+      id: 3,
       day: "15",
       month: "FEB",
       title: "Networking Jurídico-Empresarial",
@@ -101,6 +104,7 @@ export default function News() {
       color: "bg-green-500"
     },
     {
+      id: 4,
       day: "28",
       month: "FEB",
       title: "Seminario: Innovación y Tecnología",
@@ -239,12 +243,17 @@ export default function News() {
                         <div className="flex-1">
                           <h4 className="font-bold text-sagardoy-navy mb-2">{event.title}</h4>
                           <p className="text-sm text-sagardoy-gray mb-3">{event.description}</p>
-                          <div className="flex items-center text-xs text-sagardoy-gray">
+                          <div className="flex items-center text-xs text-sagardoy-gray mb-3">
                             <Calendar className="w-3 h-3 mr-1" />
                             <span>{event.time}</span>
                             <span className="mx-2">•</span>
                             <span>{event.format}</span>
                           </div>
+                          <Link href={`/evento/${event.id}`}>
+                            <Button size="sm" className="bg-sagardoy-gold text-white hover:bg-yellow-600">
+                              Registrarse
+                            </Button>
+                          </Link>
                         </div>
                       </div>
                     </CardContent>
