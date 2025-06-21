@@ -16,8 +16,8 @@ export default function Header() {
     { name: t("nav.inicio"), href: "/" },
     { name: t("nav.programas"), href: "/programas" },
     { name: t("nav.escuela"), href: "/la-escuela" },
-    { name: "Corporate Training", href: "/corporate-training" },
-    { name: t("nav.noticias"), href: "/noticias" },
+    { name: "In Company", href: "/corporate-training" },
+    { name: "Actualidad", href: "/noticias" },
     { name: t("nav.contacto"), href: "/contacto" },
   ];
 
