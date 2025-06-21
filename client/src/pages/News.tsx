@@ -6,41 +6,41 @@ import { Button } from "@/components/ui/button";
 export default function News() {
   const featuredNews = {
     id: 1,
-    title: "Sagardoy Business School lanza nuevo programa de MBA Digital",
-    excerpt: "El programa combina metodologías tradicionales con las últimas tendencias en transformación digital, preparando a los ejecutivos para liderar en la era digital.",
-    content: "La nueva propuesta académica incluye módulos especializados en inteligencia artificial, blockchain, y gestión de equipos remotos...",
+    title: "Nuevo Máster de Acceso a la Abogacía 2024-2025",
+    excerpt: "Sagardoy Business School presenta su programa oficial para el acceso a la profesión de abogado, con enfoque especializado en derecho laboral y empresarial.",
+    content: "El programa incluye prácticas profesionales en despachos de prestigio y especialización en las áreas más demandadas del mercado jurídico actual...",
     date: "15 Enero 2024",
-    category: "MBA",
+    category: "Máster",
     author: "Redacción SBS",
-    image: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
+    image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&h=300",
     readTime: "5 min"
   };
 
   const news = [
     {
       id: 2,
-      title: "Reconocimiento internacional en educación ejecutiva",
-      excerpt: "La escuela recibe el premio Excellence in Executive Education por su innovadora metodología pedagógica.",
+      title: "Nueva normativa laboral 2024: Impacto en las empresas",
+      excerpt: "Análisis de los cambios normativos en derecho del trabajo y su impacto en la gestión empresarial y recursos humanos.",
       date: "12 Enero 2024",
-      category: "Premios",
+      category: "Derecho Laboral",
       author: "María González",
       image: "https://images.unsplash.com/photo-1551135049-8a33b5883817?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250",
       readTime: "3 min"
     },
     {
       id: 3,
-      title: "Alianza estratégica con universidades europeas",
-      excerpt: "Nueva colaboración para programas de intercambio internacional y doble titulación con instituciones de prestigio.",
+      title: "Colaboración con Colegios de Abogados",
+      excerpt: "Sagardoy Business School firma convenios con principales colegios profesionales para fortalecer la formación práctica.",
       date: "10 Enero 2024",
-      category: "Alianzas",
+      category: "Convenios",
       author: "Carlos Rodríguez",
       image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250",
       readTime: "4 min"
     },
     {
       id: 4,
-      title: "Graduación extraordinaria de la promoción 2023",
-      excerpt: "Más de 300 nuevos MBA y máster se gradúan con perspectivas laborales excepcionales en el mercado actual.",
+      title: "Graduación Promoción 2023 - Máster Acceso Abogacía",
+      excerpt: "95% de empleabilidad entre los graduados del Máster de Acceso a la Abogacía en despachos especializados.",
       date: "8 Enero 2024",
       category: "Graduación",
       author: "Ana Martín",
@@ -49,18 +49,18 @@ export default function News() {
     },
     {
       id: 5,
-      title: "Nuevas becas para profesionales en transición",
-      excerpt: "Programa de ayudas económicas dirigido a ejecutivos en procesos de cambio de carrera o sectores emergentes.",
+      title: "Programa de Compliance Laboral 2024",
+      excerpt: "Nueva formación especializada en cumplimiento normativo laboral para empresas y despachos de abogados.",
       date: "5 Enero 2024",
-      category: "Becas",
+      category: "Formación",
       author: "Luis Fernández",
       image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250",
       readTime: "4 min"
     },
     {
       id: 6,
-      title: "Conferencia magistral sobre liderazgo sostenible",
-      excerpt: "Expertos internacionales debaten sobre el futuro del liderazgo empresarial responsable y sostenible.",
+      title: "Jornada sobre Transformación Digital en RRHH",
+      excerpt: "Expertos analizan el impacto de la digitalización en la gestión de recursos humanos y derecho laboral.",
       date: "3 Enero 2024",
       category: "Eventos",
       author: "Patricia Sánchez",
@@ -73,8 +73,8 @@ export default function News() {
     {
       day: "25",
       month: "ENE",
-      title: "Webinar: Liderazgo en Tiempos de Crisis",
-      description: "Conferencia magistral con expertos internacionales",
+      title: "Webinar: Nuevas Reformas Laborales 2024",
+      description: "Análisis de los cambios normativos y su impacto empresarial",
       time: "18:00 - 19:30",
       format: "Online",
       color: "bg-sagardoy-gold"
@@ -82,8 +82,8 @@ export default function News() {
     {
       day: "02",
       month: "FEB",
-      title: "Jornada de Puertas Abiertas MBA",
-      description: "Conoce nuestras instalaciones y metodología",
+      title: "Jornada de Puertas Abiertas - Máster Acceso Abogacía",
+      description: "Conoce nuestro programa oficial y metodología práctica",
       time: "10:00 - 14:00",
       format: "Presencial",
       color: "bg-sagardoy-blue"
@@ -91,8 +91,8 @@ export default function News() {
     {
       day: "15",
       month: "FEB",
-      title: "Networking Business Leaders",
-      description: "Encuentro exclusivo para alumni y profesionales",
+      title: "Networking Jurídico-Empresarial",
+      description: "Encuentro de abogados laboralistas y directivos de RRHH",
       time: "19:00 - 22:00",
       format: "Madrid",
       color: "bg-green-500"

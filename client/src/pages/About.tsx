@@ -3,32 +3,32 @@ import { Card, CardContent } from "@/components/ui/card";
 
 export default function About() {
   const stats = [
-    { icon: TrendingUp, value: "25+", label: "Años de Experiencia", description: "Formando líderes empresariales desde 1999" },
-    { icon: Users, value: "12,000+", label: "Graduados", description: "Alumni exitosos en posiciones directivas" },
-    { icon: Building, value: "150+", label: "Profesores", description: "Expertos internacionales y profesionales activos" },
-    { icon: Award, value: "500+", label: "Empresas Partner", description: "Red corporativa global para prácticas y empleabilidad" }
+    { icon: TrendingUp, value: "50+", label: "Años de Experiencia", description: "Especialistas en formación jurídica y empresarial" },
+    { icon: Users, value: "10,000+", label: "Profesionales Formados", description: "Abogados y directivos de RRHH certificados" },
+    { icon: Building, value: "200+", label: "Profesores Expertos", description: "Profesionales activos del sector jurídico y empresarial" },
+    { icon: Award, value: "300+", label: "Despachos Colaboradores", description: "Red de despachos de abogados para prácticas profesionales" }
   ];
 
   const values = [
     {
       icon: Award,
-      title: "Excelencia Académica",
-      description: "Programas diseñados con los más altos estándares internacionales y metodologías innovadoras."
+      title: "Especialización Jurídica",
+      description: "Programas especializados en Derecho del Trabajo, acceso a la abogacía y compliance laboral."
     },
     {
       icon: Globe,
-      title: "Perspectiva Global",
-      description: "Visión internacional con profesores y estudiantes de múltiples países y culturas."
+      title: "Experiencia Profesional",
+      description: "Profesores en activo con amplia experiencia en despachos de prestigio y empresas líderes."
     },
     {
       icon: Users,
-      title: "Networking Profesional",
-      description: "Red de contactos exclusiva que conecta a líderes empresariales de todo el mundo."
+      title: "Red de Contactos",
+      description: "Networking con profesionales del sector jurídico y directivos de recursos humanos."
     },
     {
       icon: BookOpen,
-      title: "Aprendizaje Práctico",
-      description: "Metodología basada en casos reales y experiencias directas del mundo empresarial."
+      title: "Formación Práctica",
+      description: "Metodología basada en casos reales del ámbito laboral y empresarial."
     }
   ];
 
@@ -60,8 +60,8 @@ export default function About() {
               La <span className="text-sagardoy-gold">Escuela</span>
             </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              Con más de 25 años de experiencia en formación ejecutiva, Sagardoy Business School se ha consolidado 
-              como referente en educación empresarial de excelencia.
+              Con más de 50 años de experiencia, Sagardoy Business School es referente en formación especializada 
+              en Derecho del Trabajo, Acceso a la Abogacía y Gestión de Recursos Humanos.
             </p>
           </div>
         </div>
@@ -74,12 +74,12 @@ export default function About() {
             <div>
               <h2 className="text-4xl font-bold text-sagardoy-navy mb-6">Nuestra Misión</h2>
               <p className="text-xl text-sagardoy-gray mb-6 leading-relaxed">
-                Formar líderes empresariales capaces de transformar organizaciones y crear valor sostenible 
-                en un mundo en constante evolución.
+                Formar profesionales del derecho y recursos humanos altamente cualificados, proporcionando 
+                formación especializada y práctica que responda a las demandas del mercado laboral.
               </p>
               <p className="text-lg text-sagardoy-gray mb-8 leading-relaxed">
-                Creemos en el poder de la educación ejecutiva para impulsar el crecimiento profesional y 
-                empresarial, combinando rigor académico con experiencia práctica del mundo real.
+                Combinamos la experiencia de profesionales en activo con metodologías innovadoras, 
+                ofreciendo una formación integral en el ámbito jurídico-laboral y empresarial.
               </p>
               
               <div className="space-y-4">
