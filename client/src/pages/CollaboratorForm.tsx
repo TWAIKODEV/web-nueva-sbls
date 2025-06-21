@@ -513,10 +513,10 @@ export default function CollaboratorForm() {
             </CardContent>
           </Card>
 
-          {/* Políticas de Imagen y Privacidad */}
+          {/* Imagen Claustro */}
           <Card>
             <CardHeader>
-              <CardTitle className="text-xl text-sagardoy-navy">Políticas de Imagen y Privacidad</CardTitle>
+              <CardTitle className="text-xl text-sagardoy-navy">Imagen Claustro</CardTitle>
             </CardHeader>
             <CardContent>
               <div>
@@ -540,9 +540,12 @@ export default function CollaboratorForm() {
             </CardContent>
           </Card>
 
-          {/* Términos y Condiciones */}
+          {/* Políticas de Imagen y Privacidad */}
           <Card>
-            <CardContent className="pt-6 space-y-4">
+            <CardHeader>
+              <CardTitle className="text-xl text-sagardoy-navy">Políticas de Imagen y Privacidad</CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-4">
               <div className="flex items-start space-x-3">
                 <Checkbox
                   id="usoImagen"
