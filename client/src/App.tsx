@@ -17,6 +17,7 @@ import EventDetail from "./pages/EventDetail";
 import Contact from "./pages/Contact";
 import ProgramDetail from "./pages/ProgramDetail";
 import Admission from "./pages/Admission";
+import CollaboratorForm from "./pages/CollaboratorForm";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -36,6 +37,7 @@ function Router() {
           <Route path="/contacto" component={Contact} />
           <Route path="/programa/:id" component={ProgramDetail} />
           <Route path="/solicitud-admision" component={Admission} />
+          <Route path="/ficha-colaboradores" component={CollaboratorForm} />
           <Route component={NotFound} />
         </Switch>
       </main>
