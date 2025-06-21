@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { Menu, User } from "lucide-react";
 import sagardoyLogo from "@assets/sagardoy-logo-1_1750499204211.png";
 import LanguageSelector from "./LanguageSelector";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -57,14 +57,12 @@ export default function Header() {
             ))}
           </div>
 
-          {/* Language Selector & CTA Button */}
+          {/* Language Selector & User Access */}
           <div className="hidden md:flex items-center space-x-4">
             <LanguageSelector />
-            <Link href="/solicitud-admision">
-              <Button className="bg-sagardoy-gold text-white px-6 py-3 rounded-md font-semibold hover:bg-amber-600 transition-all duration-200 shadow-sm">
-                {t("nav.admision")}
-              </Button>
-            </Link>
+            <Button variant="ghost" size="icon" className="text-sagardoy-gray hover:text-sagardoy-navy hover:bg-gray-100">
+              <User className="h-5 w-5" />
+            </Button>
           </div>
 
           {/* Mobile menu button */}
@@ -91,16 +89,13 @@ export default function Header() {
                       {item.name}
                     </Link>
                   ))}
-                  <div className="mt-6 pt-4 border-t border-gray-200">
+                  <div className="mt-6 pt-4 border-t border-gray-200 space-y-4">
                     <LanguageSelector />
+                    <Button variant="ghost" className="w-full justify-start text-sagardoy-gray hover:text-sagardoy-navy">
+                      <User className="h-5 w-5 mr-2" />
+                      Acceso de usuarios
+                    </Button>
                   </div>
-                  <Link
-                    href="/solicitud-admision"
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="block px-3 py-2 bg-sagardoy-gold text-white rounded-lg mt-4 text-center font-semibold"
-                  >
-                    {t("nav.admision")}
-                  </Link>
                 </div>
               </SheetContent>
             </Sheet>
