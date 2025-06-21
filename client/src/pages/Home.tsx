@@ -45,8 +45,8 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-sagardoy-navy via-blue-900 to-sagardoy-blue min-h-screen flex items-center">
-        <div className="absolute inset-0 bg-black bg-opacity-20"></div>
+      <section className="relative bg-gradient-to-br from-sagardoy-dark-blue via-sagardoy-blue to-sagardoy-light-blue min-h-screen flex items-center">
+        <div className="absolute inset-0 bg-black bg-opacity-10"></div>
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -56,7 +56,7 @@ export default function Home() {
                 <span className="text-sagardoy-gold"> Futuro</span>
                 <br />de los Negocios
               </h1>
-              <p className="text-xl md:text-2xl text-blue-100 mb-8 leading-relaxed">
+              <p className="text-xl md:text-2xl text-slate-200 mb-8 leading-relaxed">
                 Programas ejecutivos de excelencia que transforman profesionales en líderes visionarios
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
@@ -84,12 +84,12 @@ export default function Home() {
               <div className="absolute -bottom-6 -left-6 bg-white rounded-xl p-6 shadow-lg">
                 <div className="flex items-center space-x-4">
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-sagardoy-navy">5,200+</div>
+                    <div className="text-2xl font-bold text-sagardoy-dark-blue">5,200+</div>
                     <div className="text-sm text-sagardoy-gray">Estudiantes</div>
                   </div>
                   <div className="w-px h-12 bg-gray-200"></div>
                   <div className="text-center">
-                    <div className="text-2xl font-bold text-sagardoy-navy">25+</div>
+                    <div className="text-2xl font-bold text-sagardoy-dark-blue">25+</div>
                     <div className="text-sm text-sagardoy-gray">Programas</div>
                   </div>
                 </div>
@@ -103,7 +103,7 @@ export default function Home() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-sagardoy-navy mb-4">Nuestros Programas</h2>
+            <h2 className="text-4xl font-bold text-sagardoy-dark-blue mb-4">Nuestros Programas</h2>
             <p className="text-xl text-sagardoy-gray max-w-3xl mx-auto">
               Programas ejecutivos diseñados para impulsar tu carrera profesional y transformar tu visión empresarial
             </p>
@@ -126,10 +126,10 @@ export default function Home() {
                       <Badge className={`${badgeColor} text-white`}>{program.category}</Badge>
                       <span className="text-sagardoy-gray text-sm">{program.duration}</span>
                     </div>
-                    <h3 className="text-xl font-bold text-sagardoy-navy mb-3">{program.title}</h3>
+                    <h3 className="text-xl font-bold text-sagardoy-dark-blue mb-3">{program.title}</h3>
                     <p className="text-sagardoy-gray mb-4">{program.description}</p>
                     <div className="flex items-center justify-between">
-                      <span className="text-2xl font-bold text-sagardoy-navy">{program.price}</span>
+                      <span className="text-2xl font-bold text-sagardoy-dark-blue">{program.price}</span>
                       <Link href={`/programa/${program.id}`}>
                         <Button variant="ghost" className="text-sagardoy-blue hover:text-sagardoy-navy font-semibold">
                           Ver más <ArrowRight className="ml-1 h-4 w-4" />
@@ -144,7 +144,7 @@ export default function Home() {
 
           <div className="text-center mt-12">
             <Link href="/programas">
-              <Button className="bg-sagardoy-navy text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-800 transition-colors duration-200">
+              <Button className="bg-sagardoy-dark-blue text-white px-8 py-4 rounded-lg font-semibold hover:bg-sagardoy-blue transition-colors duration-200">
                 Ver Todos los Programas
               </Button>
             </Link>
@@ -157,7 +157,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-sagardoy-navy mb-6">La Escuela</h2>
+              <h2 className="text-4xl font-bold text-sagardoy-dark-blue mb-6">La Escuela</h2>
               <p className="text-xl text-sagardoy-gray mb-8 leading-relaxed">
                 Con más de 25 años de experiencia en formación ejecutiva, Sagardoy Business School se ha consolidado 
                 como referente en educación empresarial de excelencia.
@@ -170,7 +170,7 @@ export default function Home() {
                   return (
                     <div key={index} className="text-center p-6 bg-gray-50 rounded-xl">
                       <IconComponent className="w-8 h-8 text-sagardoy-gold mx-auto mb-2" />
-                      <div className="text-3xl font-bold text-sagardoy-navy mb-2">{stat.value}</div>
+                      <div className="text-3xl font-bold text-sagardoy-dark-blue mb-2">{stat.value}</div>
                       <div className="text-sagardoy-gray">{stat.label}</div>
                     </div>
                   );
@@ -178,7 +178,7 @@ export default function Home() {
               </div>
 
               <Link href="/la-escuela">
-                <Button className="bg-sagardoy-navy text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-800 transition-colors duration-200">
+                <Button className="bg-sagardoy-dark-blue text-white px-8 py-4 rounded-lg font-semibold hover:bg-sagardoy-blue transition-colors duration-200">
                   Conoce Más <ArrowRight className="ml-2 h-5 w-5" />
                 </Button>
               </Link>
@@ -210,12 +210,12 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-sagardoy-navy to-sagardoy-blue">
+      <section className="py-20 bg-gradient-to-r from-sagardoy-dark-blue to-sagardoy-blue">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             ¿Listo para Transformar tu Carrera?
           </h2>
-          <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+          <p className="text-xl text-slate-200 mb-8 leading-relaxed">
             Únete a miles de profesionales que han impulsado su éxito con nuestros programas ejecutivos
           </p>
           
