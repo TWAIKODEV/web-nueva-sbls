@@ -134,7 +134,7 @@ export default function Home() {
                       <span className="text-2xl font-bold text-sagardoy-dark-blue">{program.price}</span>
                       <Link href={`/programa/${program.id}`}>
                         <Button variant="ghost" className="text-sagardoy-blue hover:text-sagardoy-navy font-semibold">
-                          Ver más <ArrowRight className="ml-1 h-4 w-4" />
+                          {t("home.viewMore")} <ArrowRight className="ml-1 h-4 w-4" />
                         </Button>
                       </Link>
                     </div>
@@ -147,7 +147,7 @@ export default function Home() {
           <div className="text-center mt-12">
             <Link href="/programas">
               <Button className="bg-sagardoy-dark-blue text-white px-8 py-4 rounded-lg font-semibold hover:bg-sagardoy-blue transition-colors duration-200">
-                Ver Todos los Programas
+                {t("programs.title")}
               </Button>
             </Link>
           </div>

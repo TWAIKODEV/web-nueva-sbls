@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 export default function Programs() {
+  const { t } = useLanguage();
   const [activeFilter, setActiveFilter] = useState("all");
 
   const programs = [
@@ -72,9 +74,9 @@ export default function Programs() {
   ];
 
   const filters = [
-    { key: "all", label: "Todos los Programas" },
-    { key: "master", label: "Másters" },
-    { key: "executive", label: "Executive" }
+    { key: "all", label: t("programs.filters.all") },
+    { key: "master", label: t("programs.filters.master") },
+    { key: "executive", label: t("programs.filters.executive") }
   ];
 
   const filteredPrograms = activeFilter === "all" 
@@ -97,10 +99,10 @@ export default function Programs() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Nuestros <span className="text-sagardoy-gold">Programas</span>
+              {t("programs.title")}
             </h1>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
-              Programas ejecutivos diseñados para impulsar tu carrera profesional y transformar tu visión empresarial
+              {t("programs.subtitle")}
             </p>
           </div>
         </div>
@@ -148,7 +150,7 @@ export default function Programs() {
                     <span className="text-2xl font-bold text-sagardoy-navy">{program.price}</span>
                     <Link href={`/programa/${program.id}`}>
                       <Button variant="ghost" className="text-sagardoy-blue hover:text-sagardoy-navy font-semibold">
-                        Ver más <ArrowRight className="ml-1 h-4 w-4" />
+                        {t("programs.moreInfo")} <ArrowRight className="ml-1 h-4 w-4" />
                       </Button>
                     </Link>
                   </div>
