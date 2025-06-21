@@ -1,4 +1,4 @@
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowRight, BookOpen, Briefcase, Users } from "lucide-react";
@@ -15,24 +15,24 @@ export default function UserAccessModal({ open, onOpenChange }: UserAccessModalP
       title: "Estudiante",
       description: "Accede a tu campus virtual, recursos académicos y seguimiento de programas",
       icon: BookOpen,
-      gradient: "from-sagardoy-blue to-blue-700",
-      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      gradient: "from-sagardoy-blue/90 to-blue-700/90",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
       href: "#"
     },
     {
       title: "Profesional",
       description: "Portal corporativo para empresas, formación in-company y servicios especializados",
       icon: Briefcase,
-      gradient: "from-sagardoy-navy to-blue-900",
-      image: "https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      gradient: "from-sagardoy-navy/90 to-blue-900/90",
+      image: "https://images.unsplash.com/photo-1556761175-b413da4baf72?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
       href: "#"
     },
     {
       title: "Alumni",
       description: "Red de antiguos alumnos, oportunidades profesionales y eventos exclusivos",
       icon: Users,
-      gradient: "from-sagardoy-light-blue to-blue-600",
-      image: "https://images.unsplash.com/photo-1511632765486-a01980e01a18?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
+      gradient: "from-sagardoy-light-blue/90 to-blue-600/90",
+      image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&h=600",
       href: "#"
     }
   ];
@@ -58,6 +58,9 @@ export default function UserAccessModal({ open, onOpenChange }: UserAccessModalP
                 Accede a tu área personalizada
               </div>
             </DialogTitle>
+            <DialogDescription className="text-center text-sagardoy-gray">
+              Selecciona tu perfil para acceder a los recursos y servicios personalizados de Sagardoy Business School
+            </DialogDescription>
           </DialogHeader>
 
           {/* Access Areas */}
@@ -82,13 +85,16 @@ export default function UserAccessModal({ open, onOpenChange }: UserAccessModalP
                       />
                       
                       {/* Gradient Overlay */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${area.gradient} opacity-85 group-hover:opacity-75 transition-opacity duration-300`} />
+                      <div className={`absolute inset-0 bg-gradient-to-br ${area.gradient} group-hover:opacity-80 transition-opacity duration-300`} />
+                      
+                      {/* Additional overlay for better text readability */}
+                      <div className="absolute inset-0 bg-black/20" />
                       
                       {/* Content */}
                       <CardContent className="relative h-full flex flex-col justify-between p-6 text-white">
                         {/* Logo */}
                         <div className="flex justify-center mb-4">
-                          <div className="text-3xl font-bold tracking-wider opacity-90">
+                          <div className="text-3xl font-bold tracking-wider text-white drop-shadow-lg">
                             mySagardoy
                           </div>
                         </div>
@@ -96,18 +102,18 @@ export default function UserAccessModal({ open, onOpenChange }: UserAccessModalP
                         {/* Bottom Section */}
                         <div>
                           <div className="flex items-center justify-between mb-3">
-                            <h3 className="text-2xl font-bold">{area.title}</h3>
+                            <h3 className="text-2xl font-bold text-white drop-shadow-lg">{area.title}</h3>
                             <div className="transform group-hover:translate-x-2 transition-transform duration-300">
-                              <ArrowRight className="w-6 h-6" />
+                              <ArrowRight className="w-6 h-6 drop-shadow-lg" />
                             </div>
                           </div>
                           
                           <div className="flex items-center space-x-2 mb-3">
-                            <IconComponent className="w-5 h-5 opacity-90" />
-                            <span className="text-sm opacity-90">Portal de acceso</span>
+                            <IconComponent className="w-5 h-5 drop-shadow-md" />
+                            <span className="text-sm drop-shadow-md">Portal de acceso</span>
                           </div>
                           
-                          <p className="text-sm opacity-80 leading-relaxed">
+                          <p className="text-sm leading-relaxed text-white/95 drop-shadow-md">
                             {area.description}
                           </p>
                         </div>
