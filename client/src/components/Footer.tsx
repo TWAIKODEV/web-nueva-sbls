@@ -57,6 +57,7 @@ export default function Footer() {
             <ul className="space-y-2 text-blue-200">
               <li><Link href="/solicitud-admision" className="hover:text-white transition-colors duration-200">Admisiones</Link></li>
               <li><Link href="/constructor-cursos" className="hover:text-white transition-colors duration-200">Constructor de Cursos</Link></li>
+              <li><Link href="/curso-demo" className="hover:text-white transition-colors duration-200">Demo SCORM/H5P</Link></li>
               <li><a href="#" className="hover:text-white transition-colors duration-200">Becas y Financiación</a></li>
               <li><a href="#" className="hover:text-white transition-colors duration-200">Servicios de Carrera</a></li>
               <li><a href="#" className="hover:text-white transition-colors duration-200">Red de Alumni</a></li>

@@ -19,6 +19,7 @@ import ProgramDetail from "./pages/ProgramDetail";
 import Admission from "./pages/Admission";
 import CollaboratorForm from "./pages/CollaboratorForm";
 import CourseBuilder from "./pages/CourseBuilder";
+import DemoCourseBuilder from "./components/DemoCourseBuilder";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -40,6 +41,7 @@ function Router() {
           <Route path="/solicitud-admision" component={Admission} />
           <Route path="/ficha-colaboradores" component={CollaboratorForm} />
           <Route path="/constructor-cursos" component={CourseBuilder} />
+          <Route path="/curso-demo" component={DemoCourseBuilder} />
           <Route component={NotFound} />
         </Switch>
       </main>

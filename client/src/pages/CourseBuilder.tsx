@@ -178,6 +178,10 @@ export default function CourseBuilder() {
                 <Eye className="mr-2 h-4 w-4" />
                 Vista Previa
               </Button>
+              <Button onClick={() => window.open('/curso-demo', '_blank')} variant="outline" className="flex items-center">
+                <Settings className="mr-2 h-4 w-4" />
+                Demo SCORM/H5P
+              </Button>
               <Button onClick={exportCourse} className="flex items-center bg-sagardoy-blue hover:bg-blue-700">
                 <Download className="mr-2 h-4 w-4" />
                 Exportar Curso
