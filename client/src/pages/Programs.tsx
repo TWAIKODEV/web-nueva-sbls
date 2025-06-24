@@ -101,7 +101,7 @@ export default function Programs() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               {t("programs.title")}
             </h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl max-w-3xl mx-auto leading-relaxed">
               {t("programs.subtitle")}
             </p>
           </div>
@@ -120,7 +120,7 @@ export default function Programs() {
                 className={`px-6 py-3 rounded-full font-medium transition-colors duration-200 ${
                   activeFilter === filter.key
                     ? "bg-sagardoy-navy text-white"
-                    : "bg-white text-sagardoy-gray hover:bg-sagardoy-navy hover:text-white"
+                    : "bg-sagardoy-light-gray text-sagardoy-blue hover:bg-sagardoy-navy hover:text-white"
                 }`}
               >
                 {filter.label}
@@ -142,10 +142,10 @@ export default function Programs() {
                     <Badge className={`${getBadgeColor(program.category)} text-white`}>
                       {program.categoryLabel}
                     </Badge>
-                    <span className="text-sagardoy-gray text-sm">{program.duration}</span>
+                    <span className="text-sagardoy-blue text-sm">{program.duration}</span>
                   </div>
                   <h3 className="text-xl font-bold text-sagardoy-navy mb-3">{program.title}</h3>
-                  <p className="text-sagardoy-gray mb-4">{program.description}</p>
+                  <p className="text-sagardoy-blue mb-4">{program.description}</p>
                   <div className="flex items-center justify-between">
                     <span className="text-2xl font-bold text-sagardoy-navy">{program.price}</span>
                     <Link href={`/programa/${program.id}`}>
@@ -169,10 +169,10 @@ export default function Programs() {
           {/* CTA Section */}
           <div className="text-center mt-16">
             <h3 className="text-2xl font-bold text-sagardoy-navy mb-4">{t("programs.cta.title")}</h3>
-            <p className="text-sagardoy-gray mb-8">{t("programs.cta.subtitle")}</p>
+            <p className="text-sagardoy-blue mb-8">{t("programs.cta.subtitle")}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contacto">
-                <Button className="bg-sagardoy-gold text-white px-8 py-4 rounded-lg font-semibold hover:bg-yellow-600 transition-colors duration-200">
+                <Button className="bg-sagardoy-gold text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-200">
                   {t("programs.cta.contact")}
                 </Button>
               </Link>

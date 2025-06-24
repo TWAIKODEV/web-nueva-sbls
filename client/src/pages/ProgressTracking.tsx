@@ -249,7 +249,7 @@ export default function ProgressTracking() {
                 <h1 className="text-3xl font-bold text-sagardoy-navy">
                   Seguimiento de Progreso
                 </h1>
-                <p className="text-sagardoy-gray mt-2">
+                <p className="text-sagardoy-blue mt-2">
                   Curso: Derecho Laboral Avanzado - Curso Interactivo
                 </p>
               </div>

@@ -51,14 +51,14 @@ export default function UserAccessModal({ open, onOpenChange }: UserAccessModalP
               />
             </div>
             <DialogTitle className="text-center">
-              <div className="text-4xl font-bold bg-gradient-to-r from-sagardoy-navy to-sagardoy-blue bg-clip-text text-transparent mb-2">
+              <div className="text-4xl font-bold bg-gradient-to-r from-sagardoy-navy to-sagardoy-blue bg-clip-text text-sagardoy-gold mb-2">
                 mySagardoy
               </div>
-              <div className="text-lg text-sagardoy-gray font-normal">
+              <div className="text-lg text-sagardoy-blue font-normal">
                 Accede a tu área personalizada
               </div>
             </DialogTitle>
-            <DialogDescription className="text-center text-sagardoy-gray">
+            <DialogDescription className="text-center text-sagardoy-blue">
               Selecciona tu perfil para acceder a los recursos y servicios personalizados de Sagardoy Business School
             </DialogDescription>
           </DialogHeader>
@@ -127,7 +127,7 @@ export default function UserAccessModal({ open, onOpenChange }: UserAccessModalP
 
             {/* Footer Info */}
             <div className="mt-8 text-center">
-              <p className="text-sagardoy-gray text-sm mb-4">
+              <p className="text-sagardoy-blue text-sm mb-4">
                 ¿Necesitas ayuda para acceder? Contacta con nuestro soporte técnico
               </p>
               <div className="flex flex-col sm:flex-row justify-center gap-4">

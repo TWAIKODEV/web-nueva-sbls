@@ -2,8 +2,22 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from "@/components/ui/dropdown-menu";
-import { Menu, User, ChevronDown, Wrench, Play, UserPlus, BarChart3 } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+  DropdownMenuSeparator,
+} from "@/components/ui/dropdown-menu";
+import {
+  Menu,
+  User,
+  ChevronDown,
+  Wrench,
+  Play,
+  UserPlus,
+  BarChart3,
+} from "lucide-react";
 import sagardoyLogo from "@assets/sagardoy-logo-1_1750499204211.png";
 import LanguageSelector from "./LanguageSelector";
 import UserAccessModal from "./UserAccessModal";
@@ -16,22 +30,21 @@ export default function Header() {
   const { t } = useLanguage();
 
   const navigation = [
-    { name: t("nav.inicio"), href: "/" },
-    { name: t("nav.programas"), href: "/programas" },
     { name: "Nosotros", href: "/la-escuela" },
+    { name: t("nav.programas"), href: "/programas" },
     { name: "In Company", href: "/corporate-training" },
     { name: "Actualidad", href: "/noticias" },
-    { 
-      name: "LMS", 
-      href: "#",
-      isDropdown: true,
-      dropdownItems: [
-        { name: "Constructor de Cursos", href: "/constructor-cursos", icon: Wrench },
-        { name: "Demo SCORM/H5P", href: "/curso-demo", icon: Play },
-        { name: "Ficha de Colaboradores", href: "/ficha-colaboradores", icon: UserPlus },
-        { name: "Seguimiento de Progreso", href: "/seguimiento-progreso", icon: BarChart3 }
-      ]
-    },
+    // {
+    //   name: "LMS",
+    //   href: "#",
+    //   isDropdown: true,
+    //   dropdownItems: [
+    //     { name: "Constructor de Cursos", href: "/constructor-cursos", icon: Wrench },
+    //     { name: "Demo SCORM/H5P", href: "/curso-demo", icon: Play },
+    //     { name: "Ficha de Colaboradores", href: "/ficha-colaboradores", icon: UserPlus },
+    //     { name: "Seguimiento de Progreso", href: "/seguimiento-progreso", icon: BarChart3 }
+    //   ]
+    // },
     { name: t("nav.contacto"), href: "/contacto" },
   ];
 
@@ -47,15 +60,15 @@ export default function Header() {
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <img 
-              src={sagardoyLogo} 
-              alt="Sagardoy Business School" 
-              className="h-12 w-auto"
+            <img
+              src={sagardoyLogo}
+              alt="Sagardoy Business School"
+              className="h-8 w-auto"
             />
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden lg:flex space-x-5 items-center">
             {navigation.map((item) => {
               if (item.isDropdown) {
                 return (
@@ -64,7 +77,9 @@ export default function Header() {
                       <Button
                         variant="ghost"
                         className={`font-medium text-base transition-colors duration-200 py-2 px-1 border-b-2 hover:bg-transparent ${
-                          item.dropdownItems?.some(dropdownItem => isActive(dropdownItem.href))
+                          item.dropdownItems?.some((dropdownItem) =>
+                            isActive(dropdownItem.href),
+                          )
                             ? "text-sagardoy-blue border-sagardoy-gold"
                             : "text-sagardoy-dark-gray hover:text-sagardoy-blue border-transparent"
                         }`}
@@ -85,58 +100,73 @@ export default function Header() {
                                 <dropdownItem.icon className="mr-3 h-4 w-4 text-sagardoy-blue" />
                               )}
                               <div>
-                                <div className="font-medium">{dropdownItem.name}</div>
+                                <div className="font-medium">
+                                  {dropdownItem.name}
+                                </div>
                                 <div className="text-xs text-gray-500">
-                                  {dropdownItem.name === "Constructor de Cursos" && "Crea cursos con drag & drop"}
-                                  {dropdownItem.name === "Demo SCORM/H5P" && "Prueba el seguimiento en tiempo real"}
-                                  {dropdownItem.name === "Ficha de Colaboradores" && "Registro de profesores"}
-                                  {dropdownItem.name === "Seguimiento de Progreso" && "Analytics y métricas"}
+                                  {dropdownItem.name ===
+                                    "Constructor de Cursos" &&
+                                    "Crea cursos con drag & drop"}
+                                  {dropdownItem.name === "Demo SCORM/H5P" &&
+                                    "Prueba el seguimiento en tiempo real"}
+                                  {dropdownItem.name ===
+                                    "Ficha de Colaboradores" &&
+                                    "Registro de profesores"}
+                                  {dropdownItem.name ===
+                                    "Seguimiento de Progreso" &&
+                                    "Analytics y métricas"}
                                 </div>
                               </div>
                             </Link>
                           </DropdownMenuItem>
-                          {index < item.dropdownItems.length - 1 && <DropdownMenuSeparator />}
+                          {index < item.dropdownItems.length - 1 && (
+                            <DropdownMenuSeparator />
+                          )}
                         </div>
                       ))}
                     </DropdownMenuContent>
                   </DropdownMenu>
                 );
               }
-              
+
               return (
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`font-medium text-base transition-colors duration-200 py-2 px-1 border-b-2 ${
+                  className={`font-medium text-base transition-colors duration-200 px-3 py-0.5 border-b-2 ${
                     isActive(item.href)
                       ? "text-sagardoy-blue border-sagardoy-gold"
                       : "text-sagardoy-dark-gray hover:text-sagardoy-blue border-transparent"
-                  }`}
+                  } ${item.href === "/contacto" ? "uppercase text-sm border-2 border-sagardoy-gold !text-white rounded-full bg-sagardoy-gold hover:bg-transparent hover:!text-sagardoy-blue" : ''}`}
                 >
                   {item.name}
                 </Link>
               );
             })}
+            {/* Language Selector & User Access */}
+            <div className="hidden lg:flex items-center">
+              <Button
+                variant="ghost"
+                className="text-sagardoy-blue hover:text-sagardoy-navy hover:bg-gray-100 p-2"
+                onClick={() => setUserModalOpen(true)}
+              >
+                <User className="h-24 w-24" />
+              </Button>
+              <LanguageSelector />
+            </div>
           </div>
 
-          {/* Language Selector & User Access */}
-          <div className="hidden md:flex items-center space-x-4">
-            <LanguageSelector />
-            <Button 
-              variant="ghost" 
-              size="icon" 
-              className="text-sagardoy-gray hover:text-sagardoy-navy hover:bg-gray-100"
-              onClick={() => setUserModalOpen(true)}
-            >
-              <User className="h-5 w-5" />
-            </Button>
-          </div>
+          
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon" className="text-sagardoy-gray hover:text-sagardoy-navy">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-sagardoy-blue hover:text-sagardoy-navy"
+                >
                   <Menu className="h-6 w-6" />
                 </Button>
               </SheetTrigger>
@@ -165,7 +195,7 @@ export default function Header() {
                         </div>
                       );
                     }
-                    
+
                     return (
                       <Link
                         key={item.name}
@@ -173,8 +203,8 @@ export default function Header() {
                         onClick={() => setMobileMenuOpen(false)}
                         className={`block px-3 py-2 font-medium transition-colors duration-200 ${
                           isActive(item.href)
-                            ? "text-sagardoy-navy"
-                            : "text-sagardoy-gray hover:text-sagardoy-blue"
+                            ? "bg-sagardoy-gray"
+                            : "text-sagardoy-blue hover:bg-sagardoy-gray"
                         }`}
                       >
                         {item.name}
@@ -183,9 +213,9 @@ export default function Header() {
                   })}
                   <div className="mt-6 pt-4 border-t border-gray-200 space-y-4">
                     <LanguageSelector />
-                    <Button 
-                      variant="ghost" 
-                      className="w-full justify-start text-sagardoy-gray hover:text-sagardoy-navy"
+                    <Button
+                      variant="ghost"
+                      className="w-full justify-start text-sagardoy-blue hover:text-sagardoy-navy"
                       onClick={() => {
                         setUserModalOpen(true);
                         setMobileMenuOpen(false);
@@ -201,12 +231,9 @@ export default function Header() {
           </div>
         </div>
       </nav>
-      
+
       {/* User Access Modal */}
-      <UserAccessModal 
-        open={userModalOpen} 
-        onOpenChange={setUserModalOpen} 
-      />
+      <UserAccessModal open={userModalOpen} onOpenChange={setUserModalOpen} />
     </header>
   );
 }

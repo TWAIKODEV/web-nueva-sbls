@@ -138,9 +138,9 @@ export default function Admission() {
                     })}
                   </div>
 
-                  <div className="mt-8 p-4 bg-blue-50 rounded-lg">
+                  <div className="mt-8 p-4 bg-sagardoy-light-gray rounded-lg">
                     <h4 className="font-semibold text-sagardoy-navy mb-2">¿Necesitas ayuda?</h4>
-                    <p className="text-sm text-sagardoy-gray mb-3">
+                    <p className="text-sm text-sagardoy-blue mb-3">
                       Nuestro equipo de admisiones está disponible para resolver tus dudas.
                     </p>
                     <Button variant="outline" className="w-full text-sagardoy-blue border-sagardoy-blue hover:bg-sagardoy-blue hover:text-white">
@@ -157,7 +157,7 @@ export default function Admission() {
                 <CardContent className="p-8">
                   <div className="mb-8">
                     <h2 className="text-3xl font-bold text-sagardoy-navy mb-4">Formulario de Solicitud</h2>
-                    <p className="text-sagardoy-gray">
+                    <p className="text-sagardoy-blue">
                       Completa todos los campos para que podamos evaluar tu candidatura de manera integral.
                     </p>
                   </div>
@@ -177,7 +177,7 @@ export default function Admission() {
                             name="nombre"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel className="text-sagardoy-gray">Nombre *</FormLabel>
+                                <FormLabel className="text-sagardoy-blue">Nombre *</FormLabel>
                                 <FormControl>
                                   <Input placeholder="Tu nombre" {...field} />
                                 </FormControl>
@@ -190,7 +190,7 @@ export default function Admission() {
                             name="apellidos"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel className="text-sagardoy-gray">Apellidos *</FormLabel>
+                                <FormLabel className="text-sagardoy-blue">Apellidos *</FormLabel>
                                 <FormControl>
                                   <Input placeholder="Tus apellidos" {...field} />
                                 </FormControl>
@@ -206,7 +206,7 @@ export default function Admission() {
                             name="email"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel className="text-sagardoy-gray">Email *</FormLabel>
+                                <FormLabel className="text-sagardoy-blue">Email *</FormLabel>
                                 <FormControl>
                                   <Input type="email" placeholder="tu@email.com" {...field} />
                                 </FormControl>
@@ -219,7 +219,7 @@ export default function Admission() {
                             name="telefono"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel className="text-sagardoy-gray">Teléfono *</FormLabel>
+                                <FormLabel className="text-sagardoy-blue">Teléfono *</FormLabel>
                                 <FormControl>
                                   <Input type="tel" placeholder="+34 123 456 789" {...field} />
                                 </FormControl>
@@ -242,7 +242,7 @@ export default function Admission() {
                           name="programa"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-sagardoy-gray">Programa de Interés *</FormLabel>
+                              <FormLabel className="text-sagardoy-blue">Programa de Interés *</FormLabel>
                               <Select onValueChange={field.onChange} defaultValue={field.value}>
                                 <FormControl>
                                   <SelectTrigger>
@@ -287,7 +287,7 @@ export default function Admission() {
                             name="empresa"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel className="text-sagardoy-gray">Empresa Actual</FormLabel>
+                                <FormLabel className="text-sagardoy-blue">Empresa Actual</FormLabel>
                                 <FormControl>
                                   <Input placeholder="Nombre de tu empresa" {...field} />
                                 </FormControl>
@@ -300,7 +300,7 @@ export default function Admission() {
                             name="cargo"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel className="text-sagardoy-gray">Cargo/Posición</FormLabel>
+                                <FormLabel className="text-sagardoy-blue">Cargo/Posición</FormLabel>
                                 <FormControl>
                                   <Input placeholder="Tu cargo actual" {...field} />
                                 </FormControl>
@@ -315,7 +315,7 @@ export default function Admission() {
                           name="experiencia"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-sagardoy-gray">Experiencia Profesional *</FormLabel>
+                              <FormLabel className="text-sagardoy-blue">Experiencia Profesional *</FormLabel>
                               <FormControl>
                                 <Textarea 
                                   placeholder="Describe tu experiencia profesional, logros destacados y responsabilidades actuales..." 
@@ -341,7 +341,7 @@ export default function Admission() {
                           name="educacion"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-sagardoy-gray">Formación Académica *</FormLabel>
+                              <FormLabel className="text-sagardoy-blue">Formación Académica *</FormLabel>
                               <FormControl>
                                 <Textarea 
                                   placeholder="Describe tu formación académica: grado universitario, postgrados, certificaciones relevantes..." 
@@ -367,7 +367,7 @@ export default function Admission() {
                           name="motivacion"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-sagardoy-gray">¿Por qué quieres realizar este programa? *</FormLabel>
+                              <FormLabel className="text-sagardoy-blue">¿Por qué quieres realizar este programa? *</FormLabel>
                               <FormControl>
                                 <Textarea 
                                   placeholder="Explica tus motivaciones, objetivos profesionales y cómo este programa te ayudará a alcanzarlos..." 
@@ -393,7 +393,7 @@ export default function Admission() {
                           name="cv"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-sagardoy-gray">Adjuntar CV (Opcional)</FormLabel>
+                              <FormLabel className="text-sagardoy-blue">Adjuntar CV (Opcional)</FormLabel>
                               <FormControl>
                                 <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-sagardoy-blue transition-colors">
                                   <Upload className="w-8 h-8 text-gray-400 mx-auto mb-2" />
@@ -427,8 +427,8 @@ export default function Admission() {
                                 />
                               </FormControl>
                               <div className="space-y-1 leading-none">
-                                <FormLabel className="text-sm text-sagardoy-gray">
-                                  Acepto la <a href="#" className="text-sagardoy-blue hover:underline">política de privacidad</a> 
+                                <FormLabel className="text-sm text-sagardoy-blue">
+                                  Acepto la <a href="#" className="text-sagardoy-blue font-bold hover:underline">política de privacidad</a> 
                                   {" "}y el tratamiento de mis datos personales para el proceso de admisión. 
                                   También acepto recibir información sobre programas y eventos de Sagardoy Business School. *
                                 </FormLabel>
@@ -443,7 +443,7 @@ export default function Admission() {
                       <div className="pt-6 border-t">
                         <Button 
                           type="submit" 
-                          className="w-full bg-sagardoy-gold text-white py-4 text-lg font-semibold hover:bg-yellow-600"
+                          className="w-full bg-sagardoy-gold text-white py-4 text-lg font-semibold"
                           disabled={admissionMutation.isPending}
                         >
                           {admissionMutation.isPending ? (
@@ -459,7 +459,7 @@ export default function Admission() {
                           )}
                         </Button>
                         
-                        <p className="text-center text-sm text-sagardoy-gray mt-4">
+                        <p className="text-center text-sm text-sagardoy-blue mt-4">
                           Al enviar esta solicitud, nuestro equipo de admisiones la revisará en un plazo de 3-5 días laborables 
                           y se pondrá en contacto contigo para los siguientes pasos del proceso.
                         </p>

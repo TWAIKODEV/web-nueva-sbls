@@ -105,7 +105,7 @@ export default function Contact() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               {t("contact.title")} <span className="text-sagardoy-gold">{t("contact.titleHighlight")}</span>
             </h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl max-w-3xl mx-auto leading-relaxed">
               {t("contact.subtitle")}
             </p>
           </div>
@@ -128,7 +128,7 @@ export default function Contact() {
                       name="nombre"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-sagardoy-gray">Nombre *</FormLabel>
+                          <FormLabel className="text-sagardoy-blue">Nombre *</FormLabel>
                           <FormControl>
                             <Input placeholder="Tu nombre" {...field} />
                           </FormControl>
@@ -141,7 +141,7 @@ export default function Contact() {
                       name="apellidos"
                       render={({ field }) => (
                         <FormItem>
-                          <FormLabel className="text-sagardoy-gray">Apellidos *</FormLabel>
+                          <FormLabel className="text-sagardoy-blue">Apellidos *</FormLabel>
                           <FormControl>
                             <Input placeholder="Tus apellidos" {...field} />
                           </FormControl>
@@ -156,7 +156,7 @@ export default function Contact() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sagardoy-gray">Email *</FormLabel>
+                        <FormLabel className="text-sagardoy-blue">Email *</FormLabel>
                         <FormControl>
                           <Input type="email" placeholder="tu@email.com" {...field} />
                         </FormControl>
@@ -170,7 +170,7 @@ export default function Contact() {
                     name="telefono"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sagardoy-gray">Teléfono</FormLabel>
+                        <FormLabel className="text-sagardoy-blue">Teléfono</FormLabel>
                         <FormControl>
                           <Input type="tel" placeholder="+34 123 456 789" {...field} />
                         </FormControl>
@@ -184,7 +184,7 @@ export default function Contact() {
                     name="programa"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sagardoy-gray">Programa de Interés</FormLabel>
+                        <FormLabel className="text-sagardoy-blue">Programa de Interés</FormLabel>
                         <Select onValueChange={field.onChange} defaultValue={field.value}>
                           <FormControl>
                             <SelectTrigger>
@@ -208,7 +208,7 @@ export default function Contact() {
                     name="mensaje"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel className="text-sagardoy-gray">Mensaje</FormLabel>
+                        <FormLabel className="text-sagardoy-blue">Mensaje</FormLabel>
                         <FormControl>
                           <Textarea 
                             placeholder="Cuéntanos más sobre tus objetivos profesionales..." 
@@ -233,8 +233,8 @@ export default function Contact() {
                           />
                         </FormControl>
                         <div className="space-y-1 leading-none">
-                          <FormLabel className="text-sm text-sagardoy-gray">
-                            Acepto la <a href="#" className="text-sagardoy-blue hover:underline">política de privacidad</a> 
+                          <FormLabel className="text-sm text-sagardoy-blue">
+                            Acepto la <a href="#" className="text-sagardoy-blue font-bold hover:underline">política de privacidad</a> 
                             {" "}y el tratamiento de mis datos personales *
                           </FormLabel>
                           <FormMessage />
@@ -270,7 +270,7 @@ export default function Contact() {
                         <div>
                           <h4 className="font-semibold text-sagardoy-navy mb-1">{info.title}</h4>
                           {info.content.map((line, lineIndex) => (
-                            <p key={lineIndex} className="text-sagardoy-gray">{line}</p>
+                            <p key={lineIndex} className="text-sagardoy-blue">{line}</p>
                           ))}
                         </div>
                       </div>
@@ -280,8 +280,8 @@ export default function Contact() {
               </div>
 
               {/* Map Placeholder */}
-              <Card className="bg-gray-200 h-64 flex items-center justify-center">
-                <CardContent className="text-center text-sagardoy-gray p-0">
+              <Card className="bg-sagardoy-light-gray h-64 flex items-center justify-center">
+                <CardContent className="text-center text-sagardoy-blue p-0">
                   <MapPin className="w-16 h-16 mx-auto mb-4" />
                   <p className="text-lg font-semibold mb-2">Mapa Interactivo</p>
                   <p className="text-sm">Visítanos en nuestras instalaciones</p>
@@ -296,10 +296,10 @@ export default function Contact() {
                     Nuestro equipo de admisiones está disponible para atenderte
                   </p>
                   <div className="flex flex-col sm:flex-row gap-3">
-                    <Button className="bg-sagardoy-gold text-white hover:bg-yellow-600 flex-1">
+                    <Button className="bg-sagardoy-gold text-white flex-1">
                       Llamar Ahora
                     </Button>
-                    <Button variant="outline" className="border-white text-white hover:bg-white hover:text-sagardoy-navy flex-1">
+                    <Button variant="outline" className="border-white text-sagardoy-blue flex-1">
                       Chat Online
                     </Button>
                   </div>

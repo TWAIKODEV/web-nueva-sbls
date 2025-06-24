@@ -198,13 +198,13 @@ export default function NewsDetail() {
             <h1 className="text-4xl md:text-5xl font-bold text-sagardoy-navy mb-6 leading-tight">
               {article.title}
             </h1>
-            <p className="text-xl text-sagardoy-gray leading-relaxed mb-8">
+            <p className="text-xl text-sagardoy-blue leading-relaxed mb-8">
               {article.excerpt}
             </p>
           </div>
 
           {/* Article Meta */}
-          <div className="flex flex-wrap items-center gap-6 text-sm text-sagardoy-gray mb-8 pb-8 border-b">
+          <div className="flex flex-wrap items-center gap-6 text-sm text-sagardoy-blue mb-8 pb-8 border-b">
             <div className="flex items-center">
               <Calendar className="w-4 h-4 mr-2" />
               <span>{article.date}</span>
@@ -243,7 +243,7 @@ export default function NewsDetail() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="prose prose-lg max-w-none">
             <div 
-              className="text-sagardoy-gray leading-relaxed"
+              className="text-sagardoy-blue leading-relaxed"
               dangerouslySetInnerHTML={{ __html: article.content }}
             />
           </div>
@@ -269,7 +269,7 @@ export default function NewsDetail() {
                     <BookOpen className="w-6 h-6 text-sagardoy-blue mr-3" />
                     <h3 className="text-lg font-semibold text-sagardoy-navy">Programas Relacionados</h3>
                   </div>
-                  <p className="text-sagardoy-gray mb-4">
+                  <p className="text-sagardoy-blue mb-4">
                     Descubre nuestros programas de formación especializada en las áreas tratadas en este artículo.
                   </p>
                   <Link href="/programas">
@@ -286,7 +286,7 @@ export default function NewsDetail() {
                     <User className="w-6 h-6 text-sagardoy-gold mr-3" />
                     <h3 className="text-lg font-semibold text-sagardoy-navy">Contacta con Expertos</h3>
                   </div>
-                  <p className="text-sagardoy-gray mb-4">
+                  <p className="text-sagardoy-blue mb-4">
                     ¿Tienes dudas sobre este tema? Contacta con nuestro equipo de expertos.
                   </p>
                   <Link href="/contacto">

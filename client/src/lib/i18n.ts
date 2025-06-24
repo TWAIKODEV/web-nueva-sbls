@@ -126,6 +126,7 @@ export const translations = {
       titleHighlight: 'Nosotros',
       subtitle: 'Estamos aquí para resolver todas tus dudas sobre nuestros programas',
       form: {
+        title: 'Formulario de Contacto',
         name: 'Nombre',
         lastName: 'Apellidos',
         email: 'Email',
@@ -316,6 +317,7 @@ export const translations = {
       titleHighlight: 'Us',
       subtitle: 'We are here to solve all your questions about our programs',
       form: {
+        title: 'Contact Form',
         name: 'Name',
         lastName: 'Last Name',
         email: 'Email',

@@ -159,7 +159,7 @@ export default function Events() {
                 <Users className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-sagardoy-navy mb-4">Eventos Corporativos</h3>
-              <p className="text-sagardoy-gray">
+              <p className="text-sagardoy-blue">
                 Organizamos encuentros especializados para directivos, profesionales y expertos de diferentes sectores, 
                 fomentando el networking y el intercambio de conocimientos.
               </p>
@@ -170,7 +170,7 @@ export default function Events() {
                 <Filter className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-sagardoy-navy mb-4">Eventos Sectoriales</h3>
-              <p className="text-sagardoy-gray">
+              <p className="text-sagardoy-blue">
                 Jornadas especializadas por industria que abordan las tendencias, regulaciones y desafíos específicos 
                 de cada sector económico.
               </p>
@@ -181,7 +181,7 @@ export default function Events() {
                 <Calendar className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-sagardoy-navy mb-4">Mesas Redondas</h3>
-              <p className="text-sagardoy-gray">
+              <p className="text-sagardoy-blue">
                 Debates de alto nivel con expertos reconocidos que analizan las cuestiones más relevantes 
                 del panorama jurídico y empresarial actual.
               </p>
@@ -191,7 +191,7 @@ export default function Events() {
       </section>
 
       {/* Filter Section */}
-      <section className="py-8 bg-gray-100">
+      <section className="py-8 bg-sagardoy-light-gray">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center gap-4">
             {eventCategories.map((category) => (
@@ -201,7 +201,7 @@ export default function Events() {
                 className={`px-6 py-3 rounded-lg font-medium transition-all duration-300 ${
                   selectedCategory === category.id
                     ? 'bg-sagardoy-navy text-white shadow-lg'
-                    : 'bg-white text-sagardoy-gray hover:bg-gray-50'
+                    : 'bg-white text-sagardoy-blue hover:bg-gray-50'
                 }`}
               >
                 {category.name}
@@ -218,7 +218,7 @@ export default function Events() {
             <h2 className="text-3xl md:text-4xl font-bold text-sagardoy-navy mb-4">
               Próximos Eventos
             </h2>
-            <p className="text-xl text-sagardoy-gray max-w-3xl mx-auto">
+            <p className="text-xl text-sagardoy-blue max-w-3xl mx-auto">
               Regístrate en nuestros próximos eventos y forma parte de la comunidad profesional de Sagardoy
             </p>
           </div>
@@ -246,22 +246,22 @@ export default function Events() {
                 
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold text-sagardoy-navy mb-3">{event.title}</h3>
-                  <p className="text-sagardoy-gray mb-4 leading-relaxed">{event.description}</p>
+                  <p className="text-sagardoy-blue mb-4 leading-relaxed">{event.description}</p>
                   
                   <div className="space-y-2 mb-6">
-                    <div className="flex items-center text-sm text-sagardoy-gray">
+                    <div className="flex items-center text-sm text-sagardoy-blue">
                       <Calendar className="w-4 h-4 mr-2" />
                       <span>{event.date}</span>
                     </div>
-                    <div className="flex items-center text-sm text-sagardoy-gray">
+                    <div className="flex items-center text-sm text-sagardoy-blue">
                       <Clock className="w-4 h-4 mr-2" />
                       <span>{event.time}</span>
                     </div>
-                    <div className="flex items-center text-sm text-sagardoy-gray">
+                    <div className="flex items-center text-sm text-sagardoy-blue">
                       <MapPin className="w-4 h-4 mr-2" />
                       <span>{event.location}</span>
                     </div>
-                    <div className="flex items-center text-sm text-sagardoy-gray">
+                    <div className="flex items-center text-sm text-sagardoy-blue">
                       <Users className="w-4 h-4 mr-2" />
                       <span>{event.attendees}</span>
                     </div>
@@ -292,7 +292,7 @@ export default function Events() {
             <h2 className="text-3xl md:text-4xl font-bold text-sagardoy-navy mb-4">
               Eventos Realizados
             </h2>
-            <p className="text-xl text-sagardoy-gray max-w-3xl mx-auto">
+            <p className="text-xl text-sagardoy-blue max-w-3xl mx-auto">
               Conoce algunos de los eventos más destacados que hemos organizado
             </p>
           </div>
@@ -315,14 +315,14 @@ export default function Events() {
                 
                 <CardContent className="p-4">
                   <h4 className="font-bold text-sagardoy-navy mb-2 text-sm leading-tight">{event.title}</h4>
-                  <p className="text-xs text-sagardoy-gray mb-2">{event.description}</p>
+                  <p className="text-xs text-sagardoy-blue mb-2">{event.description}</p>
                   
                   <div className="space-y-1 mb-3">
-                    <div className="flex items-center text-xs text-sagardoy-gray">
+                    <div className="flex items-center text-xs text-sagardoy-blue">
                       <Calendar className="w-3 h-3 mr-1" />
                       <span>{event.date}</span>
                     </div>
-                    <div className="flex items-center text-xs text-sagardoy-gray">
+                    <div className="flex items-center text-xs text-sagardoy-blue">
                       <Users className="w-3 h-3 mr-1" />
                       <span>{event.attendees}</span>
                     </div>
@@ -330,7 +330,7 @@ export default function Events() {
 
                   <div className="space-y-1">
                     {event.highlights.map((highlight, index) => (
-                      <div key={index} className="flex items-center text-xs text-sagardoy-gray">
+                      <div key={index} className="flex items-center text-xs text-sagardoy-blue">
                         <div className="w-1 h-1 bg-sagardoy-gold rounded-full mr-2"></div>
                         <span>{highlight}</span>
                       </div>
@@ -356,12 +356,12 @@ export default function Events() {
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contacto">
-              <Button className="bg-sagardoy-gold text-white px-8 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-all duration-300">
+              <Button className="bg-sagardoy-gold text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300">
                 Contactar para Eventos
               </Button>
             </Link>
             <Link href="/corporate-training">
-              <Button variant="outline" className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-sagardoy-navy transition-all duration-300">
+              <Button variant="outline" className="border-2 border-white text-sagardoy-blue px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-sagardoy-navy transition-all duration-300">
                 Formación Corporativa
               </Button>
             </Link>

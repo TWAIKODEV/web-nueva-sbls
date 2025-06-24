@@ -92,7 +92,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-blue-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+        <div className="border-t border-white mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-blue-200 text-sm mb-4 md:mb-0">
             © 2024 Sagardoy Business School. Todos los derechos reservados.
           </div>

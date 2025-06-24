@@ -99,7 +99,7 @@ export default function CollaboratorForm() {
           <h1 className="text-3xl font-bold text-sagardoy-navy mb-4">
             Equipo docente Sagardoy School
           </h1>
-          <p className="text-sagardoy-gray">
+          <p className="text-sagardoy-blue">
             Complete los siguientes datos para formar parte de nuestro equipo docente
           </p>
         </div>
@@ -597,67 +597,13 @@ export default function CollaboratorForm() {
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="bg-sagardoy-red text-white px-12 py-4 text-lg font-semibold hover:bg-red-700 disabled:opacity-50 shadow-lg"
+              className="bg-sagardoy-red text-sagardoy-blue px-12 py-4 text-lg font-semibold hover:bg-red-700 disabled:opacity-50 shadow-lg"
             >
               {isSubmitting ? "Enviando..." : "Enviar"}
             </Button>
           </div>
         </form>
       </div>
-
-      {/* Footer */}
-      <footer className="bg-sagardoy-navy text-white py-12 mt-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div>
-              <img 
-                src={sagardoyLogo} 
-                alt="Sagardoy School" 
-                className="h-12 w-auto filter brightness-0 invert mb-6"
-              />
-              <div className="space-y-2 text-slate-300">
-                <p>
-                  <Link href="#" className="hover:text-white">Condiciones de uso</Link>
-                </p>
-                <p>
-                  <Link href="#" className="hover:text-white">Política de Cookies</Link>
-                </p>
-                <p>
-                  <Link href="#" className="hover:text-white">Política de Privacidad</Link>
-                </p>
-                <p className="text-sm mt-4">
-                  © Copyright 2024<br />
-                  Sagardoy School<br />
-                  Powered by: Engage360
-                </p>
-              </div>
-            </div>
-
-            <div className="space-y-4">
-              <div>
-                <h4 className="font-semibold mb-2">VISITA NUESTRA ESCUELA:</h4>
-                <p className="text-slate-300">
-                  C/Velázquez 86D, 28006 Madrid
-                </p>
-              </div>
-
-              <div>
-                <h4 className="font-semibold mb-2">ESCRÍBENOS UN EMAIL:</h4>
-                <p className="text-slate-300">
-                  info@sagardoyschool.com
-                </p>
-              </div>
-
-              <div>
-                <h4 className="font-semibold mb-2">LLÁMANOS:</h4>
-                <p className="text-slate-300">
-                  Telf: +34 91 54 29 040
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
 
       {/* Modal de Derechos de Imagen */}
       <Dialog open={imageRightsModalOpen} onOpenChange={setImageRightsModalOpen}>

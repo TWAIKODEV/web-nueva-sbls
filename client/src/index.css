@@ -25,12 +25,12 @@
   --radius: 0.5rem;
   
   /* Sagardoy Brand Colors - Updated to match official website */
-  --sagardoy-dark-blue: hsl(210, 100%, 15%);
-  --sagardoy-blue: hsl(210, 100%, 30%);
+  --sagardoy-dark-blue: #2B2D42;
+  --sagardoy-blue: #2B2D42;
   --sagardoy-light-blue: hsl(210, 85%, 45%);
-  --sagardoy-gold: hsl(35, 100%, 50%);
-  --sagardoy-gray: hsl(215, 8%, 47%);
-  --sagardoy-light-gray: hsl(210, 5%, 85%);
+  --sagardoy-gold: #FF1300;
+  --sagardoy-gray: #E9EAEC;
+  --sagardoy-light-gray: #EDF2F4;
   --sagardoy-dark-gray: hsl(210, 11%, 25%);
 }
 

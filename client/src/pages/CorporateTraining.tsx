@@ -114,20 +114,15 @@ export default function CorporateTraining() {
   const activeArea = areas[activeTab];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-white">
       {/* Header Section */}
-      <section className="bg-white py-16 border-b border-gray-200">
+      <section className="bg-sagardoy-dark-blue py-20 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <nav className="text-sm text-sagardoy-gray mb-4">
-              <Link href="/" className="hover:text-sagardoy-blue">Inicio</Link>
-              <span className="mx-2">/</span>
-              <span>Formación in Company</span>
-            </nav>
-            <h1 className="text-4xl md:text-5xl font-bold text-sagardoy-navy mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Formación in Company
             </h1>
-            <p className="text-xl text-sagardoy-gray max-w-3xl mx-auto">
+            <p className="text-xl text-white max-w-3xl mx-auto">
               Programas de formación corporativa diseñados específicamente para las necesidades de tu empresa
             </p>
           </div>
@@ -146,7 +141,7 @@ export default function CorporateTraining() {
                 </h2>
               </div>
               
-              <div className="space-y-6 text-sagardoy-gray">
+              <div className="space-y-6 text-sagardoy-blue">
                 <p>
                   En Sagardoy Business & Law School somos conscientes de que pocas veces las necesidades de formación y desarrollo 
                   corporativo coinciden con la oferta de formación existente en el mercado. Especialmente cuando afectan a un amplio 
@@ -182,7 +177,7 @@ export default function CorporateTraining() {
                       <div key={index} className="text-center">
                         <IconComponent className="w-6 h-6 text-sagardoy-gold mx-auto mb-2" />
                         <div className="text-xl font-bold text-sagardoy-navy">{stat.value}</div>
-                        <div className="text-xs text-sagardoy-gray">{stat.label}</div>
+                        <div className="text-xs text-sagardoy-blue">{stat.label}</div>
                       </div>
                     );
                   })}
@@ -197,7 +192,7 @@ export default function CorporateTraining() {
               <h2 className="text-3xl md:text-4xl font-bold text-sagardoy-navy mb-4">
                 Áreas de Especialización
               </h2>
-              <p className="text-xl text-sagardoy-gray max-w-3xl mx-auto">
+              <p className="text-xl text-sagardoy-blue max-w-3xl mx-auto">
                 Nuestros programas especializados cubren las principales necesidades de desarrollo corporativo
               </p>
             </div>
@@ -213,7 +208,7 @@ export default function CorporateTraining() {
                     className={`flex items-center space-x-2 px-4 py-3 rounded-lg font-medium transition-all duration-300 ${
                       activeTab === index
                         ? 'bg-sagardoy-navy text-white shadow-lg'
-                        : 'bg-white text-sagardoy-gray hover:bg-gray-100'
+                        : 'bg-white text-sagardoy-blue hover:bg-gray-100'
                     }`}
                   >
                     <IconComponent className="w-5 h-5" />
@@ -236,11 +231,11 @@ export default function CorporateTraining() {
                       <h3 className="text-2xl font-bold text-sagardoy-navy">{activeArea.title}</h3>
                     </div>
                     
-                    <p className="text-sagardoy-gray leading-relaxed mb-6">
+                    <p className="text-sagardoy-blue leading-relaxed mb-6">
                       {activeArea.description}
                     </p>
                     
-                    <p className="text-sagardoy-gray leading-relaxed mb-6">
+                    <p className="text-sagardoy-blue leading-relaxed mb-6">
                       {activeArea.details}
                     </p>
 
@@ -251,7 +246,7 @@ export default function CorporateTraining() {
                         {activeArea.programs.map((program, index) => (
                           <div key={index} className="flex items-center space-x-2">
                             <CheckCircle className="w-4 h-4 text-sagardoy-gold flex-shrink-0" />
-                            <span className="text-sagardoy-gray text-sm">{program}</span>
+                            <span className="text-sagardoy-blue text-sm">{program}</span>
                           </div>
                         ))}
                       </div>
@@ -262,7 +257,7 @@ export default function CorporateTraining() {
                       <h4 className="font-bold text-sagardoy-navy mb-3">Clientes:</h4>
                       <div className="flex flex-wrap gap-2">
                         {activeArea.clients.map((client, index) => (
-                          <Badge key={index} variant="outline" className="text-sagardoy-gray">
+                          <Badge key={index} variant="outline" className="text-sagardoy-blue">
                             {client}
                           </Badge>
                         ))}
@@ -296,7 +291,7 @@ export default function CorporateTraining() {
               <h2 className="text-3xl md:text-4xl font-bold text-sagardoy-navy mb-4">
                 Nuestra Metodología
               </h2>
-              <p className="text-xl text-sagardoy-gray max-w-4xl mx-auto">
+              <p className="text-xl text-sagardoy-blue max-w-4xl mx-auto">
                 El profundo conocimiento de los recursos pedagógicos, junto con el conocimiento del negocio de las diferentes empresas e 
                 industrias, nos permite diseñar proyectos alineados al negocio con la estrategia metodológica más eficiente.
               </p>
@@ -312,7 +307,7 @@ export default function CorporateTraining() {
                         <IconComponent className={`w-10 h-10 ${area.color}`} />
                       </div>
                       <h3 className="text-xl font-bold text-sagardoy-navy mb-3">{area.title}</h3>
-                      <p className="text-sagardoy-gray leading-relaxed">{area.description}</p>
+                      <p className="text-sagardoy-blue leading-relaxed">{area.description}</p>
                     </div>
                   </div>
                 );
@@ -352,7 +347,7 @@ export default function CorporateTraining() {
             <h2 className="text-3xl md:text-4xl font-bold text-sagardoy-navy mb-6">
               ¿Listo para transformar tu empresa?
             </h2>
-            <p className="text-xl text-sagardoy-gray mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-sagardoy-blue mb-8 max-w-3xl mx-auto">
               Desde Sagardoy Business & Law School, con nuestro claustro de reconocidos expertos, hemos desarrollado una amplia 
               experiencia en la formación in company y el desarrollo de competencias profesionales.
             </p>

@@ -135,7 +135,7 @@ export default function Home() {
               <div key={index} className="w-full flex-shrink-0">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-                    <div className="text-white">
+                    <div className="text-sagardoy-blue">
                       <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
                         {slide.title}
                         <span className="text-sagardoy-gold"> {slide.titleHighlight}</span>
@@ -146,12 +146,12 @@ export default function Home() {
                       </p>
                       <div className="flex flex-col sm:flex-row gap-4">
                         <Link href={slide.primaryLink}>
-                          <Button className="bg-sagardoy-gold text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-yellow-600 transition-all duration-300">
+                          <Button className="bg-sagardoy-gold text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300">
                             {slide.primaryButton}
                           </Button>
                         </Link>
                         <Link href={slide.secondaryLink}>
-                          <Button variant="outline" className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-sagardoy-navy transition-all duration-300">
+                          <Button variant="outline" className="border-2 border-white text-sagardoy-blue px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300">
                             {slide.secondaryButton}
                           </Button>
                         </Link>
@@ -172,7 +172,7 @@ export default function Home() {
                             <>
                               <div key={statIndex} className="text-center">
                                 <div className="text-2xl font-bold text-sagardoy-dark-blue">{stat.value}</div>
-                                <div className="text-sm text-sagardoy-gray">{stat.label}</div>
+                                <div className="text-sm text-sagardoy-blue">{stat.label}</div>
                               </div>
                               {statIndex < slide.stats.length - 1 && (
                                 <div className="w-px h-12 bg-gray-200"></div>
@@ -192,13 +192,13 @@ export default function Home() {
         {/* Navigation Arrows */}
         <button 
           onClick={prevSlide}
-          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm"
+          className="absolute left-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-sagardoy-blue p-3 rounded-full transition-all duration-300 backdrop-blur-sm"
         >
           <ChevronLeft className="w-6 h-6" />
         </button>
         <button 
           onClick={nextSlide}
-          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm"
+          className="absolute right-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-20 hover:bg-opacity-30 text-sagardoy-blue p-3 rounded-full transition-all duration-300 backdrop-blur-sm"
         >
           <ChevronRight className="w-6 h-6" />
         </button>
@@ -224,7 +224,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-sagardoy-dark-blue mb-4">{t("home.ourPrograms")}</h2>
-            <p className="text-xl text-sagardoy-gray max-w-3xl mx-auto">
+            <p className="text-xl text-sagardoy-blue max-w-3xl mx-auto">
               {t("home.programsSubtitle")}
             </p>
           </div>
@@ -244,10 +244,10 @@ export default function Home() {
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between mb-2">
                       <Badge className={`${badgeColor} text-white`}>{program.category}</Badge>
-                      <span className="text-sagardoy-gray text-sm">{program.duration}</span>
+                      <span className="text-sagardoy-blue text-sm">{program.duration}</span>
                     </div>
                     <h3 className="text-xl font-bold text-sagardoy-dark-blue mb-3">{program.title}</h3>
-                    <p className="text-sagardoy-gray mb-4">{program.description}</p>
+                    <p className="text-sagardoy-blue mb-4">{program.description}</p>
                     <div className="flex items-center justify-between">
                       <span className="text-2xl font-bold text-sagardoy-dark-blue">{program.price}</span>
                       <Link href={`/programa/${program.id}`}>
@@ -278,7 +278,7 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl font-bold text-sagardoy-dark-blue mb-6">La Escuela</h2>
-              <p className="text-xl text-sagardoy-gray mb-8 leading-relaxed">
+              <p className="text-xl text-sagardoy-blue mb-8 leading-relaxed">
                 Con más de 25 años de experiencia en formación ejecutiva, Sagardoy Business School se ha consolidado 
                 como referente en educación empresarial de excelencia.
               </p>
@@ -288,10 +288,10 @@ export default function Home() {
                 {stats.map((stat, index) => {
                   const IconComponent = stat.icon;
                   return (
-                    <div key={index} className="text-center p-6 bg-gray-50 rounded-xl">
+                    <div key={index} className="text-center p-6 bg-sagardoy-gray rounded-xl">
                       <IconComponent className="w-8 h-8 text-sagardoy-gold mx-auto mb-2" />
                       <div className="text-3xl font-bold text-sagardoy-dark-blue mb-2">{stat.value}</div>
-                      <div className="text-sagardoy-gray">{stat.label}</div>
+                      <div className="text-sagardoy-blue">{stat.label}</div>
                     </div>
                   );
                 })}
@@ -316,11 +316,11 @@ export default function Home() {
                 <div className="flex items-center space-x-4">
                   <div className="text-center">
                     <Award className="w-8 h-8 text-sagardoy-gold mx-auto mb-2" />
-                    <div className="text-xs text-sagardoy-gray">AACSB</div>
+                    <div className="text-xs text-sagardoy-blue">AACSB</div>
                   </div>
                   <div className="text-center">
                     <Award className="w-8 h-8 text-sagardoy-gold mx-auto mb-2" />
-                    <div className="text-xs text-sagardoy-gray">EQUIS</div>
+                    <div className="text-xs text-sagardoy-blue">EQUIS</div>
                   </div>
                 </div>
               </div>
@@ -335,7 +335,7 @@ export default function Home() {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
             ¿Listo para Transformar tu Carrera?
           </h2>
-          <p className="text-xl text-slate-200 mb-8 leading-relaxed">
+          <p className="text-xl text-sagardoy-blue mb-8 leading-relaxed">
             Únete a miles de profesionales que han impulsado su éxito con nuestros programas ejecutivos
           </p>
           
@@ -346,7 +346,7 @@ export default function Home() {
               </Button>
             </Link>
             <Link href="/programas">
-              <Button variant="outline" className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-sagardoy-navy transition-all duration-300">
+              <Button variant="outline" className="border-2 border-white text-sagardoy-blue px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-sagardoy-navy transition-all duration-300">
                 Ver Programas
               </Button>
             </Link>
@@ -355,20 +355,20 @@ export default function Home() {
           {/* Trust indicators */}
           <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-8 opacity-80">
             <div className="text-center">
-              <div className="text-2xl font-bold text-white mb-1">98%</div>
-              <div className="text-sm text-blue-200">Satisfacción</div>
+              <div className="text-2xl font-bold text-sagardoy-blue mb-1">98%</div>
+              <div className="text-sm text-sagardoy-blue">Satisfacción</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-white mb-1">94%</div>
-              <div className="text-sm text-blue-200">Empleabilidad</div>
+              <div className="text-2xl font-bold text-sagardoy-blue mb-1">94%</div>
+              <div className="text-sm text-sagardoy-blue">Empleabilidad</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-white mb-1">47%</div>
-              <div className="text-sm text-blue-200">Incremento Salarial</div>
+              <div className="text-2xl font-bold text-sagardoy-blue mb-1">47%</div>
+              <div className="text-sm text-sagardoy-blue">Incremento Salarial</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl font-bold text-white mb-1">5,200+</div>
-              <div className="text-sm text-blue-200">Red de Contactos</div>
+              <div className="text-2xl font-bold text-sagardoy-blue mb-1">5,200+</div>
+              <div className="text-sm text-sagardoy-blue">Red de Contactos</div>
             </div>
           </div>
         </div>

@@ -61,7 +61,7 @@ export default function About() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               {t("about.title")} <span className="text-sagardoy-gold">{t("about.titleHighlight")}</span>
             </h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl max-w-3xl mx-auto leading-relaxed">
               {t("about.subtitle")}
             </p>
           </div>
@@ -74,10 +74,10 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-4xl font-bold text-sagardoy-navy mb-6">{t("about.mission")}</h2>
-              <p className="text-xl text-sagardoy-gray mb-6 leading-relaxed">
+              <p className="text-xl text-sagardoy-blue mb-6 leading-relaxed">
                 {t("about.missionText")}
               </p>
-              <p className="text-lg text-sagardoy-gray mb-8 leading-relaxed">
+              <p className="text-lg text-sagardoy-blue mb-8 leading-relaxed">
                 {t("about.missionDetails")}
               </p>
               
@@ -88,7 +88,7 @@ export default function About() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-sagardoy-navy mb-1">Calidad Educativa</h4>
-                    <p className="text-sagardoy-gray">Programas acreditados internacionalmente</p>
+                    <p className="text-sagardoy-blue">Programas acreditados internacionalmente</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
@@ -97,7 +97,7 @@ export default function About() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-sagardoy-navy mb-1">Comunidad Global</h4>
-                    <p className="text-sagardoy-gray">Red internacional de profesionales</p>
+                    <p className="text-sagardoy-blue">Red internacional de profesionales</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
@@ -106,7 +106,7 @@ export default function About() {
                   </div>
                   <div>
                     <h4 className="font-semibold text-sagardoy-navy mb-1">Innovación Continua</h4>
-                    <p className="text-sagardoy-gray">Metodologías pedagógicas de vanguardia</p>
+                    <p className="text-sagardoy-blue">Metodologías pedagógicas de vanguardia</p>
                   </div>
                 </div>
               </div>
@@ -123,7 +123,7 @@ export default function About() {
               <div className="absolute -bottom-6 -right-6 bg-white rounded-xl p-6 shadow-lg">
                 <div className="text-center">
                   <div className="text-3xl font-bold text-sagardoy-navy mb-1">98%</div>
-                  <div className="text-sm text-sagardoy-gray">Satisfacción<br />del Estudiante</div>
+                  <div className="text-sm text-sagardoy-blue">Satisfacción<br />del Estudiante</div>
                 </div>
               </div>
             </div>
@@ -132,11 +132,11 @@ export default function About() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-sagardoy-light-gray">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-sagardoy-navy mb-4">Números que Hablan</h2>
-            <p className="text-xl text-sagardoy-gray max-w-3xl mx-auto">
+            <p className="text-xl text-sagardoy-blue max-w-3xl mx-auto">
               Nuestro compromiso con la excelencia se refleja en los resultados y el impacto de nuestros programas
             </p>
           </div>
@@ -150,7 +150,7 @@ export default function About() {
                     <IconComponent className="w-12 h-12 text-sagardoy-gold mx-auto mb-4" />
                     <div className="text-4xl font-bold text-sagardoy-navy mb-2">{stat.value}</div>
                     <div className="text-lg font-semibold text-sagardoy-navy mb-2">{stat.label}</div>
-                    <div className="text-sm text-sagardoy-gray">{stat.description}</div>
+                    <div className="text-sm text-sagardoy-blue">{stat.description}</div>
                   </CardContent>
                 </Card>
               );
@@ -164,7 +164,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-sagardoy-navy mb-4">Nuestros Valores</h2>
-            <p className="text-xl text-sagardoy-gray max-w-3xl mx-auto">
+            <p className="text-xl text-sagardoy-blue max-w-3xl mx-auto">
               Los principios que guían nuestra misión educativa y definen nuestra identidad institucional
             </p>
           </div>
@@ -181,7 +181,7 @@ export default function About() {
                       </div>
                       <div className="flex-1">
                         <h3 className="text-xl font-bold text-sagardoy-navy mb-3">{value.title}</h3>
-                        <p className="text-sagardoy-gray leading-relaxed">{value.description}</p>
+                        <p className="text-sagardoy-blue leading-relaxed">{value.description}</p>
                       </div>
                     </div>
                   </CardContent>

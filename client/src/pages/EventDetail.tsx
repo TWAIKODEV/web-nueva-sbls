@@ -283,7 +283,7 @@ export default function EventDetail() {
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-bold text-sagardoy-navy mb-4">Evento no encontrado</h1>
-          <p className="text-sagardoy-gray mb-8">El evento que buscas no existe o ha sido movido.</p>
+          <p className="text-sagardoy-blue mb-8">El evento que buscas no existe o ha sido movido.</p>
           <Link href="/noticias">
             <Button className="bg-sagardoy-navy text-white">
               Volver a Eventos
@@ -316,7 +316,7 @@ export default function EventDetail() {
                 <h1 className="text-4xl md:text-5xl font-bold text-sagardoy-navy mb-4 leading-tight">
                   {event.title}
                 </h1>
-                <p className="text-xl text-sagardoy-gray leading-relaxed mb-6">
+                <p className="text-xl text-sagardoy-blue leading-relaxed mb-6">
                   {event.subtitle}
                 </p>
               </div>
@@ -327,28 +327,28 @@ export default function EventDetail() {
                   <Calendar className="w-5 h-5 text-sagardoy-blue mr-3" />
                   <div>
                     <p className="font-medium text-sagardoy-navy">Fecha</p>
-                    <p className="text-sagardoy-gray text-sm">{event.fullDate}</p>
+                    <p className="text-sagardoy-blue text-sm">{event.fullDate}</p>
                   </div>
                 </div>
                 <div className="flex items-center">
                   <Clock className="w-5 h-5 text-sagardoy-blue mr-3" />
                   <div>
                     <p className="font-medium text-sagardoy-navy">Horario</p>
-                    <p className="text-sagardoy-gray text-sm">{event.time}</p>
+                    <p className="text-sagardoy-blue text-sm">{event.time}</p>
                   </div>
                 </div>
                 <div className="flex items-center">
                   <MapPin className="w-5 h-5 text-sagardoy-blue mr-3" />
                   <div>
                     <p className="font-medium text-sagardoy-navy">Ubicación</p>
-                    <p className="text-sagardoy-gray text-sm">{event.location}</p>
+                    <p className="text-sagardoy-blue text-sm">{event.location}</p>
                   </div>
                 </div>
                 <div className="flex items-center">
                   <Users className="w-5 h-5 text-sagardoy-blue mr-3" />
                   <div>
                     <p className="font-medium text-sagardoy-navy">Participantes</p>
-                    <p className="text-sagardoy-gray text-sm">{event.maxParticipants}</p>
+                    <p className="text-sagardoy-blue text-sm">{event.maxParticipants}</p>
                   </div>
                 </div>
               </div>
@@ -364,25 +364,25 @@ export default function EventDetail() {
                       <div className="text-sm">{event.date.split(' ')[1]}</div>
                     </div>
                     <h3 className="text-xl font-bold text-sagardoy-navy mb-2">{event.title}</h3>
-                    <p className="text-sagardoy-gray text-sm mb-4">{event.time} • {event.format}</p>
+                    <p className="text-sagardoy-blue text-sm mb-4">{event.time} • {event.format}</p>
                   </div>
                   
                   <div className="space-y-4 mb-6">
                     <div className="flex justify-between">
-                      <span className="text-sagardoy-gray">Precio:</span>
+                      <span className="text-sagardoy-blue">Precio:</span>
                       <span className="font-semibold text-sagardoy-navy">{event.price}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-sagardoy-gray">Duración:</span>
+                      <span className="text-sagardoy-blue">Duración:</span>
                       <span className="font-semibold text-sagardoy-navy">{event.duration}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-sagardoy-gray">Nivel:</span>
+                      <span className="text-sagardoy-blue">Nivel:</span>
                       <span className="font-semibold text-sagardoy-navy">{event.level}</span>
                     </div>
                   </div>
                   
-                  <Button className="w-full bg-sagardoy-gold text-white hover:bg-yellow-600 mb-4">
+                  <Button className="w-full bg-sagardoy-gold text-white mb-4">
                     Registrarse Ahora
                   </Button>
                   
@@ -419,7 +419,7 @@ export default function EventDetail() {
               <div>
                 <h2 className="text-3xl font-bold text-sagardoy-navy mb-6">Acerca del Evento</h2>
                 <div 
-                  className="prose prose-lg max-w-none text-sagardoy-gray"
+                  className="prose prose-lg max-w-none text-sagardoy-blue"
                   dangerouslySetInnerHTML={{ __html: event.fullDescription }}
                 />
               </div>
@@ -438,8 +438,8 @@ export default function EventDetail() {
                         />
                         <h3 className="text-lg font-bold text-sagardoy-navy mb-1">{speaker.name}</h3>
                         <p className="text-sagardoy-blue font-medium mb-2">{speaker.title}</p>
-                        <p className="text-sagardoy-gray text-sm mb-3">{speaker.expertise}</p>
-                        <p className="text-sagardoy-gray text-xs">{speaker.bio}</p>
+                        <p className="text-sagardoy-blue text-sm mb-3">{speaker.expertise}</p>
+                        <p className="text-sagardoy-blue text-xs">{speaker.bio}</p>
                       </CardContent>
                     </Card>
                   ))}
@@ -458,7 +458,7 @@ export default function EventDetail() {
                       <div className="flex-1">
                         <h4 className="font-semibold text-sagardoy-navy">{item.topic}</h4>
                         {item.speaker && (
-                          <p className="text-sagardoy-gray text-sm">{item.speaker}</p>
+                          <p className="text-sagardoy-blue text-sm">{item.speaker}</p>
                         )}
                       </div>
                     </div>
@@ -477,7 +477,7 @@ export default function EventDetail() {
                     {event.requirements.map((req: string, index: number) => (
                       <li key={index} className="flex items-start">
                         <div className="w-2 h-2 bg-sagardoy-blue rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                        <span className="text-sagardoy-gray text-sm">{req}</span>
+                        <span className="text-sagardoy-blue text-sm">{req}</span>
                       </li>
                     ))}
                   </ul>
@@ -492,7 +492,7 @@ export default function EventDetail() {
                     {event.includes.map((item: string, index: number) => (
                       <li key={index} className="flex items-start">
                         <div className="w-2 h-2 bg-sagardoy-gold rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                        <span className="text-sagardoy-gray text-sm">{item}</span>
+                        <span className="text-sagardoy-blue text-sm">{item}</span>
                       </li>
                     ))}
                   </ul>

@@ -136,7 +136,7 @@ export default function News() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               {t("news.title")} <span className="text-sagardoy-gold">{t("news.titleHighlight")}</span>
             </h1>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl max-w-3xl mx-auto leading-relaxed">
               {t("news.subtitle")}
             </p>
           </div>
@@ -159,7 +159,7 @@ export default function News() {
                   className="w-full h-64 object-cover"
                 />
                 <CardContent className="p-8">
-                  <div className="flex items-center gap-4 text-sm text-sagardoy-gray mb-4">
+                  <div className="flex items-center gap-4 text-sm text-sagardoy-blue mb-4">
                     <div className="flex items-center">
                       <Calendar className="w-4 h-4 mr-1" />
                       <span>{featuredNews.date}</span>
@@ -174,7 +174,7 @@ export default function News() {
                     <span>{featuredNews.readTime} lectura</span>
                   </div>
                   <h3 className="text-2xl font-bold text-sagardoy-navy mb-4">{featuredNews.title}</h3>
-                  <p className="text-sagardoy-gray mb-6 leading-relaxed">{featuredNews.excerpt}</p>
+                  <p className="text-sagardoy-blue mb-6 leading-relaxed">{featuredNews.excerpt}</p>
                   <Link href={`/noticia/${featuredNews.id}`}>
                     <Button className="bg-sagardoy-blue text-white hover:bg-blue-700">
                       Leer artículo completo <ArrowRight className="ml-2 h-4 w-4" />
@@ -196,7 +196,7 @@ export default function News() {
                         />
                       </div>
                       <CardContent className="md:w-2/3 p-6">
-                        <div className="flex items-center gap-3 text-sm text-sagardoy-gray mb-3">
+                        <div className="flex items-center gap-3 text-sm text-sagardoy-blue mb-3">
                           <div className="flex items-center">
                             <Calendar className="w-4 h-4 mr-1" />
                             <span>{article.date}</span>
@@ -207,7 +207,7 @@ export default function News() {
                           <span>{article.readTime}</span>
                         </div>
                         <h4 className="text-xl font-bold text-sagardoy-navy mb-3">{article.title}</h4>
-                        <p className="text-sagardoy-gray mb-4">{article.excerpt}</p>
+                        <p className="text-sagardoy-blue mb-4">{article.excerpt}</p>
                         <Link href={`/noticia/${article.id}`}>
                           <Button variant="ghost" className="text-sagardoy-blue hover:text-sagardoy-navy font-semibold p-0">
                             Leer más <ArrowRight className="ml-1 h-4 w-4" />
@@ -242,8 +242,8 @@ export default function News() {
                         </div>
                         <div className="flex-1">
                           <h4 className="font-bold text-sagardoy-navy mb-2">{event.title}</h4>
-                          <p className="text-sm text-sagardoy-gray mb-3">{event.description}</p>
-                          <div className="flex items-center text-xs text-sagardoy-gray mb-3">
+                          <p className="text-sm text-sagardoy-blue mb-3">{event.description}</p>
+                          <div className="flex items-center text-xs text-sagardoy-blue mb-3">
                             <Calendar className="w-3 h-3 mr-1" />
                             <span>{event.time}</span>
                             <span className="mx-2">•</span>

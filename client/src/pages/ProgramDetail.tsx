@@ -191,17 +191,17 @@ export default function ProgramDetail() {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               {program.title}
             </h1>
-            <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+            <p className="text-xl text-white mb-8 leading-relaxed">
               {program.description}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link href="/solicitud-admision">
-                <Button className="bg-sagardoy-gold text-white px-8 py-4 rounded-lg font-semibold hover:bg-yellow-600 transition-colors duration-200">
+                <Button className="bg-sagardoy-gold text-white px-8 py-4 rounded-lg font-semibold transition-colors duration-200">
                   Solicitar Admisión
                 </Button>
               </Link>
               <Link href="/contacto">
-                <Button variant="outline" className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-sagardoy-navy transition-colors duration-200">
+                <Button variant="outline" className="border-2 border-white text-sagardoy-blue px-8 py-4 rounded-lg font-semibold transition-colors duration-200">
                   Más Información
                 </Button>
               </Link>
@@ -219,7 +219,7 @@ export default function ProgramDetail() {
               {/* About the Program */}
               <div>
                 <h2 className="text-3xl font-bold text-sagardoy-navy mb-6">Acerca del Programa</h2>
-                <p className="text-lg text-sagardoy-gray leading-relaxed mb-6">
+                <p className="text-lg text-sagardoy-blue leading-relaxed mb-6">
                   {program.longDescription}
                 </p>
                 
@@ -228,7 +228,7 @@ export default function ProgramDetail() {
                   {program.highlights.map((highlight: string, index: number) => (
                     <div key={index} className="flex items-center">
                       <CheckCircle className="w-5 h-5 text-green-500 mr-3 flex-shrink-0" />
-                      <span className="text-sagardoy-gray">{highlight}</span>
+                      <span className="text-sagardoy-blue">{highlight}</span>
                     </div>
                   ))}
                 </div>
@@ -253,7 +253,7 @@ export default function ProgramDetail() {
                             {module.topics.map((topic: string, topicIndex: number) => (
                               <div key={topicIndex} className="flex items-center">
                                 <BookOpen className="w-4 h-4 text-sagardoy-blue mr-2 flex-shrink-0" />
-                                <span className="text-sagardoy-gray text-sm">{topic}</span>
+                                <span className="text-sagardoy-blue text-sm">{topic}</span>
                               </div>
                             ))}
                           </div>
@@ -274,7 +274,7 @@ export default function ProgramDetail() {
                             />
                             <h3 className="text-lg font-bold text-sagardoy-navy mb-1">{professor.name}</h3>
                             <p className="text-sagardoy-blue font-medium mb-2">{professor.title}</p>
-                            <p className="text-sagardoy-gray text-sm">{professor.expertise}</p>
+                            <p className="text-sagardoy-blue text-sm">{professor.expertise}</p>
                           </CardContent>
                         </Card>
                       ))}
@@ -289,7 +289,7 @@ export default function ProgramDetail() {
                           {program.requirements.map((requirement: string, index: number) => (
                             <li key={index} className="flex items-start">
                               <CheckCircle className="w-5 h-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                              <span className="text-sagardoy-gray">{requirement}</span>
+                              <span className="text-sagardoy-blue">{requirement}</span>
                             </li>
                           ))}
                         </ul>
@@ -300,7 +300,7 @@ export default function ProgramDetail() {
                           {program.benefits.map((benefit: string, index: number) => (
                             <li key={index} className="flex items-start">
                               <Award className="w-5 h-5 text-sagardoy-gold mr-3 mt-0.5 flex-shrink-0" />
-                              <span className="text-sagardoy-gray">{benefit}</span>
+                              <span className="text-sagardoy-blue">{benefit}</span>
                             </li>
                           ))}
                         </ul>
@@ -323,7 +323,7 @@ export default function ProgramDetail() {
                       <Clock className="w-5 h-5 text-sagardoy-blue mr-3" />
                       <div>
                         <p className="font-medium text-sagardoy-navy">Duración</p>
-                        <p className="text-sagardoy-gray text-sm">{program.duration}</p>
+                        <p className="text-sagardoy-blue text-sm">{program.duration}</p>
                       </div>
                     </div>
                     
@@ -331,7 +331,7 @@ export default function ProgramDetail() {
                       <Euro className="w-5 h-5 text-sagardoy-blue mr-3" />
                       <div>
                         <p className="font-medium text-sagardoy-navy">Precio</p>
-                        <p className="text-sagardoy-gray text-sm">{program.price}</p>
+                        <p className="text-sagardoy-blue text-sm">{program.price}</p>
                       </div>
                     </div>
                     
@@ -339,7 +339,7 @@ export default function ProgramDetail() {
                       <Calendar className="w-5 h-5 text-sagardoy-blue mr-3" />
                       <div>
                         <p className="font-medium text-sagardoy-navy">Inicio</p>
-                        <p className="text-sagardoy-gray text-sm">{program.startDate}</p>
+                        <p className="text-sagardoy-blue text-sm">{program.startDate}</p>
                       </div>
                     </div>
                     
@@ -347,7 +347,7 @@ export default function ProgramDetail() {
                       <Users className="w-5 h-5 text-sagardoy-blue mr-3" />
                       <div>
                         <p className="font-medium text-sagardoy-navy">Grupo</p>
-                        <p className="text-sagardoy-gray text-sm">{program.classSize}</p>
+                        <p className="text-sagardoy-blue text-sm">{program.classSize}</p>
                       </div>
                     </div>
                   </div>
