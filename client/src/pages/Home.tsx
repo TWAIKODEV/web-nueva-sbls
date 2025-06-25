@@ -5,6 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { ArrowRight, Award, Users, Building, TrendingUp, ChevronLeft, ChevronRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useState, useEffect } from "react";
+import { useQuery } from "convex/react";
+import { api } from "@convex/_generated/api";
 
 export default function Home() {
   const { t } = useLanguage();
@@ -61,35 +63,17 @@ export default function Home() {
     }
   ];
 
-  const programs = [
-    {
-      id: "master-acceso-abogacia",
-      title: "Máster de Acceso a la Abogacía",
-      description: "Programa oficial que habilita para el ejercicio de la profesión de abogado, con enfoque práctico y especialización sectorial.",
-      duration: "12 meses",
-      price: "Consultar",
-      category: "Máster",
-      image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250"
-    },
-    {
-      id: "master-derecho-trabajo", 
-      title: "Máster en Derecho del Trabajo y RRHH",
-      description: "Especialización integral en derecho laboral y gestión de recursos humanos para profesionales del sector jurídico.",
-      duration: "12 meses",
-      price: "Consultar",
-      category: "Máster",
-      image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250"
-    },
-    {
-      id: "executive-rrhh",
-      title: "Executive en Recursos Humanos", 
-      description: "Programa ejecutivo diseñado para directivos de RRHH que buscan actualizar sus competencias directivas.",
-      duration: "6 meses",
-      price: "Consultar",
-      category: "Executive",
-      image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250"
-    }
-  ];
+  const apiPrograms = useQuery(api.programs.getPrograms);
+  
+  // Transform apiPrograms to match the expected format
+  const programs = apiPrograms?.map(program => ({
+    id: program.path,
+    title: program.title,
+    duration: program.duration,
+    hours: program.hours,
+    category: program.type === "master" ? "Máster" : "Especialización",
+    image: program.cover
+  })) || [];
 
   // Auto-advance slider
   useEffect(() => {
@@ -239,7 +223,7 @@ export default function Home() {
                   <img 
                     src={program.image} 
                     alt={program.title}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-96 object-cover object-center"
                   />
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between mb-2">
@@ -247,9 +231,8 @@ export default function Home() {
                       <span className="text-sagardoy-blue text-sm">{program.duration}</span>
                     </div>
                     <h3 className="text-xl font-bold text-sagardoy-dark-blue mb-3">{program.title}</h3>
-                    <p className="text-sagardoy-blue mb-4">{program.description}</p>
                     <div className="flex items-center justify-between">
-                      <span className="text-2xl font-bold text-sagardoy-dark-blue">{program.price}</span>
+                      <span className="text-2xl font-bold text-sagardoy-dark-blue">{program.hours}</span>
                       <Link href={`/programa/${program.id}`}>
                         <Button variant="ghost" className="text-sagardoy-blue hover:text-sagardoy-navy font-semibold">
                           {t("home.viewMore")} <ArrowRight className="ml-1 h-4 w-4" />
