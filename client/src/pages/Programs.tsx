@@ -5,78 +5,30 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useQuery } from "convex/react";
+import { api } from "@convex/_generated/api";
 
 export default function Programs() {
   const { t } = useLanguage();
   const [activeFilter, setActiveFilter] = useState("all");
 
-  const programs = [
-    {
-      id: "master-acceso-abogacia",
-      title: "Máster de Acceso a la Abogacía",
-      description: "Programa oficial que habilita para el ejercicio de la profesión de abogado. Incluye prácticas en despachos de prestigio y especialización sectorial.",
-      duration: "12 meses",
-      price: "Consultar",
-      category: "master",
-      categoryLabel: "Máster",
-      image: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250"
-    },
-    {
-      id: "master-derecho-trabajo",
-      title: "Máster en Derecho del Trabajo y RRHH",
-      description: "Especialización integral en derecho laboral y gestión de recursos humanos. Formación práctica con casos reales del sector.",
-      duration: "12 meses",
-      price: "Consultar",
-      category: "master",
-      categoryLabel: "Máster",
-      image: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250"
-    },
-    {
-      id: "executive-rrhh",
-      title: "Executive en Recursos Humanos",
-      description: "Programa ejecutivo para directivos de RRHH. Actualización en normativa laboral, gestión del talento y transformación digital.",
-      duration: "6 meses",
-      price: "Consultar",
-      category: "executive",
-      categoryLabel: "Executive",
-      image: "https://images.unsplash.com/photo-1553877522-43269d4ea984?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250"
-    },
-    {
-      id: "curso-especialista-derecho-trabajo",
-      title: "Curso de Especialista en Derecho del Trabajo",
-      description: "Formación intensiva en derecho laboral con enfoque práctico. Actualización normativa y resolución de casos complejos.",
-      duration: "4 meses",
-      price: "Consultar",
-      category: "executive",
-      categoryLabel: "Executive",
-      image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250"
-    },
-    {
-      id: "programa-compliance-laboral",
-      title: "Programa de Compliance Laboral",
-      description: "Especialización en cumplimiento normativo laboral. Prevención de riesgos y auditorías laborales en la empresa.",
-      duration: "3 meses",
-      price: "Consultar",
-      category: "executive",
-      categoryLabel: "Executive",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250"
-    },
-    {
-      id: "master-derecho-empresa",
-      title: "Máster en Derecho de la Empresa",
-      description: "Formación integral en asesoría jurídica empresarial. Especialización en derecho corporativo y mercantil.",
-      duration: "12 meses",
-      price: "Consultar",
-      category: "master",
-      categoryLabel: "Máster",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=250"
-    }
-  ];
+  const apiPrograms = useQuery(api.programs.getPrograms);
+  
+  // Transform apiPrograms to match the expected format
+  const programs = apiPrograms?.map(program => ({
+    id: program.path,
+    title: program.title,
+    duration: program.duration,
+    price: program.hours,
+    category: program.type,
+    categoryLabel: program.type === "master" ? "Máster" : "Especialización",
+    image: program.cover
+  })) || [];
 
   const filters = [
     { key: "all", label: t("programs.filters.all") },
     { key: "master", label: t("programs.filters.master") },
-    { key: "executive", label: t("programs.filters.executive") }
+    { key: "specialization", label: "Especialización" }
   ];
 
   const filteredPrograms = activeFilter === "all" 
@@ -87,7 +39,7 @@ export default function Programs() {
     switch (category) {
       case "mba": return "bg-sagardoy-gold";
       case "master": return "bg-sagardoy-blue";
-      case "executive": return "bg-green-500";
+      case "specialization": return "bg-green-500";
       default: return "bg-gray-500";
     }
   };
@@ -135,7 +87,7 @@ export default function Programs() {
                 <img 
                   src={program.image} 
                   alt={program.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-96 object-cover object-center"
                 />
                 <CardContent className="p-6">
                   <div className="flex items-center justify-between mb-2">
@@ -145,7 +97,6 @@ export default function Programs() {
                     <span className="text-sagardoy-blue text-sm">{program.duration}</span>
                   </div>
                   <h3 className="text-xl font-bold text-sagardoy-navy mb-3">{program.title}</h3>
-                  <p className="text-sagardoy-blue mb-4">{program.description}</p>
                   <div className="flex items-center justify-between">
                     <span className="text-2xl font-bold text-sagardoy-navy">{program.price}</span>
                     <Link href={`/programa/${program.id}`}>
