@@ -38,4 +38,18 @@ export default defineSchema({
     program: v.id("programs"),
     message: v.optional(v.string()),
   }),
+
+  admissionForm: defineTable({
+    name: v.string(),
+    lastName: v.string(),
+    email: v.string(),
+    phone: v.string(),
+    program: v.id("programs"),
+    company: v.string(),
+    position: v.string(),
+    experience: v.string(),
+    training: v.string(),
+    motivation: v.string(),
+    cv: v.optional(v.string()),
+  }),
 });

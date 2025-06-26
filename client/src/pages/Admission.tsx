@@ -10,10 +10,13 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@/lib/queryClient";
 import { Badge } from "@/components/ui/badge";
 import { Upload, FileText, CheckCircle, User, Briefcase, GraduationCap, MessageSquare } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useMutation as useConvexMutation, useQuery } from "convex/react";
+import { api } from "@convex/_generated/api";
+import { uploadFile } from "@/firebase/config";
+import { useState, useRef } from "react";
 
 const admissionFormSchema = z.object({
   nombre: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
@@ -22,10 +25,10 @@ const admissionFormSchema = z.object({
   telefono: z.string().min(9, "El teléfono debe tener al menos 9 dígitos"),
   programa: z.string().min(1, "Debes seleccionar un programa"),
   experiencia: z.string().min(10, "Describe tu experiencia profesional (mínimo 10 caracteres)"),
-  motivacion: z.string().min(50, "La carta de motivación debe tener al menos 50 caracteres"),
+  motivacion: z.string().min(10, "La carta de motivación debe tener al menos 10 caracteres"),
   educacion: z.string().min(10, "Describe tu formación académica (mínimo 10 caracteres)"),
-  empresa: z.string().optional(),
-  cargo: z.string().optional(),
+  empresa: z.string().min(1, "El nombre de la empresa es obligatorio"),
+  cargo: z.string().min(1, "El cargo es obligatorio"),
   cv: z.string().optional(),
   privacidad: z.boolean().refine(val => val === true, "Debes aceptar la política de privacidad")
 });
@@ -35,6 +38,15 @@ type AdmissionFormData = z.infer<typeof admissionFormSchema>;
 export default function Admission() {
   const { t } = useLanguage();
   const { toast } = useToast();
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+  const [isDragOver, setIsDragOver] = useState(false);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  
+  // Fetch programs from Convex
+  const programs = useQuery(api.programs.getPrograms);
+  
+  // Convex mutation for admission form
+  const submitAdmissionForm = useConvexMutation(api.admissionForm.submitAdmissionForm);
   
   const form = useForm<AdmissionFormData>({
     resolver: zodResolver(admissionFormSchema),
@@ -56,8 +68,52 @@ export default function Admission() {
 
   const admissionMutation = useMutation({
     mutationFn: async (data: AdmissionFormData) => {
-      const response = await apiRequest("POST", "/api/admission", data);
-      return response.json();
+      // Find the selected program by path to get its ID
+      const selectedProgram = programs?.find(p => p.path === data.programa);
+      if (!selectedProgram) {
+        throw new Error("Programa no encontrado");
+      }
+
+      let cvUrl = data.cv;
+
+      // Upload file to Firebase if a file was selected
+      if (selectedFile) {
+        // Validate file type
+        const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+        if (!allowedTypes.includes(selectedFile.type)) {
+          throw new Error("Tipo de archivo no válido. Solo se permiten archivos PDF, DOC o DOCX.");
+        }
+
+        // Validate file size (5MB max)
+        const maxSize = 5 * 1024 * 1024; // 5MB
+        if (selectedFile.size > maxSize) {
+          throw new Error("El archivo no puede superar los 5MB.");
+        }
+
+        try {
+          cvUrl = await uploadFile(selectedFile);
+        } catch (error) {
+          console.error(error);
+          throw new Error("Error al subir el archivo. Inténtalo de nuevo.");
+        }
+      }
+
+      // Submit to Convex
+      const result = await submitAdmissionForm({
+        name: data.nombre,
+        lastName: data.apellidos,
+        email: data.email,
+        phone: data.telefono,
+        program: selectedProgram._id,
+        company: data.empresa,
+        position: data.cargo,
+        experience: data.experiencia,
+        training: data.educacion,
+        motivation: data.motivacion,
+        cv: cvUrl,
+      });
+
+      return result;
     },
     onSuccess: () => {
       toast({
@@ -65,6 +121,7 @@ export default function Admission() {
         description: "Hemos recibido tu solicitud de admisión. Nuestro equipo la revisará y se pondrá en contacto contigo pronto.",
       });
       form.reset();
+      setSelectedFile(null);
     },
     onError: (error: any) => {
       toast({
@@ -79,16 +136,69 @@ export default function Admission() {
     admissionMutation.mutate(data);
   };
 
-  const programs = [
-    { value: "mba", label: "MBA Ejecutivo", duration: "18 meses", price: "€24,500" },
-    { value: "master-estrategia", label: "Máster en Dirección Estratégica", duration: "12 meses", price: "€18,900" },
-    { value: "liderazgo-digital", label: "Liderazgo Digital", duration: "6 meses", price: "€12,500" },
-    { value: "finanzas-corporativas", label: "Finanzas Corporativas", duration: "8 meses", price: "€14,500" },
-    { value: "marketing-digital", label: "Marketing Digital", duration: "6 meses", price: "€11,500" },
-    { value: "recursos-humanos", label: "Gestión Estratégica de RRHH", duration: "10 meses", price: "€16,900" }
-  ];
+  // File handling functions
+  const handleFileSelect = (file: File) => {
+    // Validate file type
+    const allowedTypes = ['application/pdf', 'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+    if (!allowedTypes.includes(file.type)) {
+      toast({
+        title: "Tipo de archivo no válido",
+        description: "Solo se permiten archivos PDF, DOC o DOCX.",
+        variant: "destructive",
+      });
+      return;
+    }
 
-  const selectedProgram = programs.find(p => p.value === form.watch("programa"));
+    // Validate file size (5MB max)
+    const maxSize = 5 * 1024 * 1024; // 5MB
+    if (file.size > maxSize) {
+      toast({
+        title: "Archivo demasiado grande",
+        description: "El archivo no puede superar los 5MB.",
+        variant: "destructive",
+      });
+      return;
+    }
+
+    setSelectedFile(file);
+    form.setValue("cv", ""); // Clear URL field when file is selected
+  };
+
+  const handleFileInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      handleFileSelect(file);
+    }
+  };
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragOver(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragOver(false);
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    e.preventDefault();
+    setIsDragOver(false);
+    
+    const file = e.dataTransfer.files?.[0];
+    if (file) {
+      handleFileSelect(file);
+    }
+  };
+
+  const removeSelectedFile = () => {
+    setSelectedFile(null);
+    if (fileInputRef.current) {
+      fileInputRef.current.value = "";
+    }
+  };
+
+  const selectedProgram = programs?.find(p => p.path === form.watch("programa"));
 
   const steps = [
     { id: 1, title: "Datos Personales", icon: User, completed: true },
@@ -250,9 +360,9 @@ export default function Admission() {
                                   </SelectTrigger>
                                 </FormControl>
                                 <SelectContent>
-                                  {programs.map((program) => (
-                                    <SelectItem key={program.value} value={program.value}>
-                                      {program.label}
+                                  {programs?.map((program) => (
+                                    <SelectItem key={program._id} value={program.path}>
+                                      {program.title}
                                     </SelectItem>
                                   ))}
                                 </SelectContent>
@@ -262,16 +372,6 @@ export default function Admission() {
                           )}
                         />
 
-                        {selectedProgram && (
-                          <div className="p-4 bg-blue-50 rounded-lg">
-                            <h4 className="font-semibold text-sagardoy-navy mb-2">{selectedProgram.label}</h4>
-                            <div className="flex space-x-4 text-sm text-sagardoy-gray">
-                              <span>Duración: {selectedProgram.duration}</span>
-                              <span>•</span>
-                              <span>Precio: {selectedProgram.price}</span>
-                            </div>
-                          </div>
-                        )}
                       </div>
 
                       {/* Professional Information */}
@@ -395,16 +495,80 @@ export default function Admission() {
                             <FormItem>
                               <FormLabel className="text-sagardoy-blue">Adjuntar CV (Opcional)</FormLabel>
                               <FormControl>
-                                <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center hover:border-sagardoy-blue transition-colors">
+                                <div className={`border-2 ${isDragOver ? 'border-sagardoy-blue' : 'border-gray-300'} rounded-lg p-6 text-center hover:border-sagardoy-blue transition-colors`}
+                                  onDragOver={handleDragOver}
+                                  onDragLeave={handleDragLeave}
+                                  onDrop={handleDrop}
+                                >
                                   <Upload className="w-8 h-8 text-gray-400 mx-auto mb-2" />
                                   <p className="text-sm text-gray-600 mb-2">Arrastra tu CV aquí o haz clic para seleccionar</p>
                                   <p className="text-xs text-gray-500">Formatos admitidos: PDF, DOC, DOCX (máx. 5MB)</p>
-                                  <Input 
-                                    type="url" 
-                                    placeholder="O ingresa la URL de tu CV online" 
-                                    className="mt-4"
-                                    {...field} 
+                                  
+                                  {/* File input */}
+                                  <input
+                                    ref={fileInputRef}
+                                    type="file"
+                                    accept=".pdf,.doc,.docx"
+                                    className="hidden"
+                                    onChange={handleFileInputChange}
                                   />
+                                  
+                                  <Button
+                                    type="button"
+                                    variant="outline"
+                                    className="mt-4"
+                                    onClick={() => fileInputRef.current?.click()}
+                                  >
+                                    Seleccionar Archivo
+                                  </Button>
+                                  
+                                  {/* Show selected file */}
+                                  {selectedFile && (
+                                    <div className="mt-4 p-3 bg-green-50 rounded border border-green-200">
+                                      <div className="flex items-center justify-between">
+                                        <div className="flex items-center space-x-2">
+                                          <FileText className="w-4 h-4 text-green-600" />
+                                          <span className="text-sm text-green-700 font-medium">
+                                            {selectedFile.name}
+                                          </span>
+                                        </div>
+                                        <Button
+                                          type="button"
+                                          variant="ghost"
+                                          size="sm"
+                                          onClick={removeSelectedFile}
+                                          className="text-red-600 hover:text-red-700"
+                                        >
+                                          ×
+                                        </Button>
+                                      </div>
+                                      <p className="text-xs text-green-600 mt-1">
+                                        {(selectedFile.size / 1024 / 1024).toFixed(2)} MB
+                                      </p>
+                                    </div>
+                                  )}
+                                  
+                                  {/* URL input as alternative */}
+                                  {!selectedFile && (
+                                    <div className="mt-4">
+                                      <p className="text-xs text-gray-500 mb-2">O ingresa la URL de tu CV online:</p>
+                                      <Input 
+                                        type="url" 
+                                        placeholder="https://ejemplo.com/mi-cv.pdf" 
+                                        value={field.value || ""}
+                                        onChange={field.onChange}
+                                      />
+                                    </div>
+                                  )}
+                                  
+                                  {/* Show URL if provided */}
+                                  {field.value && !selectedFile && (
+                                    <div className="mt-4 p-2 bg-blue-50 rounded border border-blue-200">
+                                      <p className="text-sm text-blue-700">
+                                        ✓ URL de CV proporcionada
+                                      </p>
+                                    </div>
+                                  )}
                                 </div>
                               </FormControl>
                               <FormMessage />
