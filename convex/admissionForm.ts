@@ -10,9 +10,11 @@ export const submitAdmissionForm = mutation({
     program: v.id("programs"),
     company: v.string(),
     position: v.string(),
+    linkedin: v.string(),
     experience: v.string(),
-    training: v.string(),
-    motivation: v.string(),
+    howDidYouKnowUs: v.string(),
+    whyDidYouChooseUs: v.string(),
+    reasonsToStudy: v.string(),
     cv: v.optional(v.string()),
   },
   handler: async (ctx, args) => {
@@ -24,9 +26,11 @@ export const submitAdmissionForm = mutation({
       program: args.program,
       company: args.company,
       position: args.position,
+      linkedin: args.linkedin,
       experience: args.experience,
-      training: args.training,
-      motivation: args.motivation,
+      howDidYouKnowUs: args.howDidYouKnowUs,
+      whyDidYouChooseUs: args.whyDidYouChooseUs,
+      reasonsToStudy: args.reasonsToStudy,
       cv: args.cv,
     });
 

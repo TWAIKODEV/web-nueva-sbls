@@ -25,10 +25,12 @@ const admissionFormSchema = z.object({
   telefono: z.string().min(9, "El teléfono debe tener al menos 9 dígitos"),
   programa: z.string().min(1, "Debes seleccionar un programa"),
   experiencia: z.string().min(10, "Describe tu experiencia profesional (mínimo 10 caracteres)"),
-  motivacion: z.string().min(10, "La carta de motivación debe tener al menos 10 caracteres"),
-  educacion: z.string().min(10, "Describe tu formación académica (mínimo 10 caracteres)"),
   empresa: z.string().min(1, "El nombre de la empresa es obligatorio"),
   cargo: z.string().min(1, "El cargo es obligatorio"),
+  linkedin: z.string().url("Ingresa una URL de LinkedIn válida"),
+  comoNosConociste: z.string().min(10, "Describe cómo nos conociste (mínimo 10 caracteres)"),
+  porQueNosElegiste: z.string().min(10, "Explica por qué nos elegiste (mínimo 10 caracteres)"),
+  razonesParaEstudiar: z.string().min(10, "Describe tus razones para estudiar (mínimo 10 caracteres)"),
   cv: z.string().optional(),
   privacidad: z.boolean().refine(val => val === true, "Debes aceptar la política de privacidad")
 });
@@ -57,10 +59,12 @@ export default function Admission() {
       telefono: "",
       programa: "",
       experiencia: "",
-      motivacion: "",
-      educacion: "",
       empresa: "",
       cargo: "",
+      linkedin: "",
+      comoNosConociste: "",
+      porQueNosElegiste: "",
+      razonesParaEstudiar: "",
       cv: "",
       privacidad: false
     }
@@ -107,9 +111,11 @@ export default function Admission() {
         program: selectedProgram._id,
         company: data.empresa,
         position: data.cargo,
+        linkedin: data.linkedin,
         experience: data.experiencia,
-        training: data.educacion,
-        motivation: data.motivacion,
+        howDidYouKnowUs: data.comoNosConociste,
+        whyDidYouChooseUs: data.porQueNosElegiste,
+        reasonsToStudy: data.razonesParaEstudiar,
         cv: cvUrl,
       });
 
@@ -387,7 +393,7 @@ export default function Admission() {
                             name="empresa"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel className="text-sagardoy-blue">Empresa Actual</FormLabel>
+                                <FormLabel className="text-sagardoy-blue">Empresa Actual *</FormLabel>
                                 <FormControl>
                                   <Input placeholder="Nombre de tu empresa" {...field} />
                                 </FormControl>
@@ -400,7 +406,7 @@ export default function Admission() {
                             name="cargo"
                             render={({ field }) => (
                               <FormItem>
-                                <FormLabel className="text-sagardoy-blue">Cargo/Posición</FormLabel>
+                                <FormLabel className="text-sagardoy-blue">Cargo/Posición *</FormLabel>
                                 <FormControl>
                                   <Input placeholder="Tu cargo actual" {...field} />
                                 </FormControl>
@@ -409,6 +415,20 @@ export default function Admission() {
                             )}
                           />
                         </div>
+
+                        <FormField
+                          control={form.control}
+                          name="linkedin"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-sagardoy-blue">URL de LinkedIn *</FormLabel>
+                              <FormControl>
+                                <Input type="url" placeholder="https://www.linkedin.com/in/tu-perfil" {...field} />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
 
                         <FormField
                           control={form.control}
@@ -429,22 +449,22 @@ export default function Admission() {
                         />
                       </div>
 
-                      {/* Academic Background */}
+                      {/* How did you know us */}
                       <div className="space-y-6">
                         <div className="flex items-center space-x-2 mb-4">
-                          <GraduationCap className="w-5 h-5 text-sagardoy-gold" />
-                          <h3 className="text-xl font-bold text-sagardoy-navy">Formación Académica</h3>
+                          <MessageSquare className="w-5 h-5 text-sagardoy-gold" />
+                          <h3 className="text-xl font-bold text-sagardoy-navy">¿Cómo nos conociste?</h3>
                         </div>
 
                         <FormField
                           control={form.control}
-                          name="educacion"
+                          name="comoNosConociste"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-sagardoy-blue">Formación Académica *</FormLabel>
+                              <FormLabel className="text-sagardoy-blue">¿Cómo conociste Sagardoy Business School? *</FormLabel>
                               <FormControl>
                                 <Textarea 
-                                  placeholder="Describe tu formación académica: grado universitario, postgrados, certificaciones relevantes..." 
+                                  placeholder="Explica cómo llegaste a conocer nuestra escuela: redes sociales, recomendación, búsqueda web, evento..." 
                                   rows={4}
                                   {...field} 
                                 />
@@ -455,23 +475,49 @@ export default function Admission() {
                         />
                       </div>
 
-                      {/* Motivation */}
+                      {/* Why did you choose us */}
                       <div className="space-y-6">
                         <div className="flex items-center space-x-2 mb-4">
                           <MessageSquare className="w-5 h-5 text-sagardoy-gold" />
-                          <h3 className="text-xl font-bold text-sagardoy-navy">Carta de Motivación</h3>
+                          <h3 className="text-xl font-bold text-sagardoy-navy">¿Por qué nos elegiste?</h3>
                         </div>
 
                         <FormField
                           control={form.control}
-                          name="motivacion"
+                          name="porQueNosElegiste"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-sagardoy-blue">¿Por qué quieres realizar este programa? *</FormLabel>
+                              <FormLabel className="text-sagardoy-blue">¿Por qué elegiste Sagardoy Business School? *</FormLabel>
                               <FormControl>
                                 <Textarea 
-                                  placeholder="Explica tus motivaciones, objetivos profesionales y cómo este programa te ayudará a alcanzarlos..." 
-                                  rows={6}
+                                  placeholder="Explica qué te llevó a elegir nuestra escuela: metodología, profesorado, prestigio, programa específico..." 
+                                  rows={4}
+                                  {...field} 
+                                />
+                              </FormControl>
+                              <FormMessage />
+                            </FormItem>
+                          )}
+                        />
+                      </div>
+
+                      {/* Reasons to study */}
+                      <div className="space-y-6">
+                        <div className="flex items-center space-x-2 mb-4">
+                          <MessageSquare className="w-5 h-5 text-sagardoy-gold" />
+                          <h3 className="text-xl font-bold text-sagardoy-navy">Razones para estudiar</h3>
+                        </div>
+
+                        <FormField
+                          control={form.control}
+                          name="razonesParaEstudiar"
+                          render={({ field }) => (
+                            <FormItem>
+                              <FormLabel className="text-sagardoy-blue">¿Cuáles son tus razones para realizar este programa? *</FormLabel>
+                              <FormControl>
+                                <Textarea 
+                                  placeholder="Describe tus motivaciones, objetivos profesionales y cómo este programa te ayudará a alcanzarlos..." 
+                                  rows={4}
                                   {...field} 
                                 />
                               </FormControl>

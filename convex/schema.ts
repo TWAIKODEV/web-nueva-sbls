@@ -47,9 +47,11 @@ export default defineSchema({
     program: v.id("programs"),
     company: v.string(),
     position: v.string(),
+    linkedin: v.string(),
     experience: v.string(),
-    training: v.string(),
-    motivation: v.string(),
+    howDidYouKnowUs: v.string(),
+    whyDidYouChooseUs: v.string(),
+    reasonsToStudy: v.string(),
     cv: v.optional(v.string()),
   }),
 });
