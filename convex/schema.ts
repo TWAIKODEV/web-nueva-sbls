@@ -29,4 +29,13 @@ export default defineSchema({
     metaDescription: v.string(),
     metaKeywords: v.string(),
   }),
+
+  contactForm: defineTable({
+    name: v.string(),
+    lastName: v.string(),
+    email: v.string(),
+    phone: v.string(),
+    program: v.id("programs"),
+    message: v.optional(v.string()),
+  }),
 });

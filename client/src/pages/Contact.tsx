@@ -11,16 +11,17 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@/lib/queryClient";
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useMutation as useConvexMutation, useQuery } from "convex/react";
+import { api } from "@convex/_generated/api";
 
 const contactFormSchema = z.object({
   nombre: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
   apellidos: z.string().min(2, "Los apellidos deben tener al menos 2 caracteres"),
   email: z.string().email("Ingresa un email válido"),
-  telefono: z.string().optional(),
-  programa: z.string().optional(),
+  telefono: z.string().min(1, "El teléfono es obligatorio"),
+  programa: z.string().min(1, "Debes seleccionar un programa"),
   mensaje: z.string().optional(),
   privacidad: z.boolean().refine(val => val === true, "Debes aceptar la política de privacidad")
 });
@@ -30,6 +31,12 @@ type ContactFormData = z.infer<typeof contactFormSchema>;
 export default function Contact() {
   const { t } = useLanguage();
   const { toast } = useToast();
+  
+  // Fetch programs from Convex
+  const programs = useQuery(api.programs.getPrograms);
+  
+  // Convex mutation for contact form
+  const submitContactForm = useConvexMutation(api.contactForm.submitContactForm);
   
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
@@ -46,8 +53,23 @@ export default function Contact() {
 
   const contactMutation = useMutation({
     mutationFn: async (data: ContactFormData) => {
-      const response = await apiRequest("POST", "/api/contact", data);
-      return response.json();
+      // Find the selected program by path to get its ID
+      const selectedProgram = programs?.find(p => p.path === data.programa);
+      if (!selectedProgram) {
+        throw new Error("Programa no encontrado");
+      }
+
+      // Submit to Convex
+      const result = await submitContactForm({
+        name: data.nombre,
+        lastName: data.apellidos,
+        email: data.email,
+        phone: data.telefono,
+        program: selectedProgram._id,
+        message: data.mensaje,
+      });
+
+      return result;
     },
     onSuccess: () => {
       toast({
@@ -192,10 +214,11 @@ export default function Contact() {
                             </SelectTrigger>
                           </FormControl>
                           <SelectContent>
-                            <SelectItem value="mba">MBA Ejecutivo</SelectItem>
-                            <SelectItem value="master-estrategia">Máster en Dirección Estratégica</SelectItem>
-                            <SelectItem value="liderazgo-digital">Liderazgo Digital</SelectItem>
-                            <SelectItem value="otros">Otros programas</SelectItem>
+                            {programs?.map((program) => (
+                              <SelectItem key={program._id} value={program.path}>
+                                {program.title}
+                              </SelectItem>
+                            ))}
                           </SelectContent>
                         </Select>
                         <FormMessage />
