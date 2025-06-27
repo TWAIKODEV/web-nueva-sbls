@@ -21,14 +21,16 @@ export default function Programs() {
     duration: program.duration,
     price: program.hours,
     category: program.type,
-    categoryLabel: program.type === "master" ? "Máster" : "Especialización",
+    categoryLabel: program.type === "master" ? "Máster" : 
+                  program.type === "incompany" ? "In Company" : "Especialización",
     image: program.cover
   })) || [];
 
   const filters = [
     { key: "all", label: t("programs.filters.all") },
     { key: "master", label: t("programs.filters.master") },
-    { key: "specialization", label: "Especialización" }
+    { key: "specialization", label: "Especialización" },
+    { key: "incompany", label: "In Company" }
   ];
 
   const filteredPrograms = activeFilter === "all" 
@@ -40,6 +42,7 @@ export default function Programs() {
       case "mba": return "bg-sagardoy-gold";
       case "master": return "bg-sagardoy-blue";
       case "specialization": return "bg-green-500";
+      case "incompany": return "bg-purple-500";
       default: return "bg-gray-500";
     }
   };

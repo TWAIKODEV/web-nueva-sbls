@@ -71,7 +71,8 @@ export default function Home() {
     title: program.title,
     duration: program.duration,
     hours: program.hours,
-    category: program.type === "master" ? "Máster" : "Especialización",
+    category: program.type === "master" ? "Máster" : 
+              program.type === "incompany" ? "In Company" : "Especialización",
     image: program.cover
   })) || [];
 
@@ -216,7 +217,8 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {programs.map((program) => {
               const badgeColor = program.category === "MBA" ? "bg-sagardoy-gold" : 
-                               program.category === "Máster" ? "bg-sagardoy-blue" : "bg-green-500";
+                               program.category === "Máster" ? "bg-sagardoy-blue" : 
+                               program.category === "In Company" ? "bg-purple-500" : "bg-green-500";
               
               return (
                 <Card key={program.id} className="overflow-hidden hover:shadow-xl transition-shadow duration-300">

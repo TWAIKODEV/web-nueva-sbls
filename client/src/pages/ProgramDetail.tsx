@@ -45,12 +45,22 @@ export default function ProgramDetail() {
 
   // Get category color based on type
   const getCategoryColor = (type: string) => {
-    return type === "master" ? "bg-sagardoy-blue" : "bg-green-500";
+    switch (type) {
+      case "master": return "bg-sagardoy-blue";
+      case "incompany": return "bg-purple-500";
+      case "specialization": return "bg-green-500";
+      default: return "bg-gray-500";
+    }
   };
 
   // Get category label
   const getCategoryLabel = (type: string) => {
-    return type === "master" ? "Máster" : "Especialización";
+    switch (type) {
+      case "master": return "Máster";
+      case "incompany": return "In Company";
+      case "specialization": return "Especialización";
+      default: return "Programa";
+    }
   };
 
   return (
@@ -94,21 +104,28 @@ export default function ProgramDetail() {
             {/* Main Content */}
             <div className="lg:col-span-2 space-y-12">
               {/* About the Program */}
-              <div>
-                <h2 className="text-3xl font-bold text-sagardoy-navy mb-6">Acerca del Programa</h2>
-                <div className="text-lg text-sagardoy-blue leading-relaxed mb-6">
-                  {renderHTML(program.introduction)}
+              {program.introduction && (
+                <div>
+                  <h2 className="text-3xl font-bold text-sagardoy-navy mb-6">Acerca del Programa</h2>
+                  <div className="text-lg text-sagardoy-blue leading-relaxed mb-6">
+                    {renderHTML(program.introduction)}
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Curriculum */}
               <div>
                 <h2 className="text-3xl font-bold text-sagardoy-navy mb-6">Plan de Estudios</h2>
                 <Tabs defaultValue="curriculum" className="w-full">
-                  <TabsList className="grid w-full grid-cols-3">
+                  <TabsList className={`grid w-full ${program.aimedAt && program.modality ? 'grid-cols-4' : program.aimedAt || program.modality ? 'grid-cols-3' : 'grid-cols-2'}`}>
                     <TabsTrigger value="curriculum">Objetivos</TabsTrigger>
                     <TabsTrigger value="faculty">Profesorado</TabsTrigger>
-                    <TabsTrigger value="requirements">Dirigido a</TabsTrigger>
+                    {program.aimedAt && (
+                      <TabsTrigger value="requirements">Dirigido a</TabsTrigger>
+                    )}
+                    {program.modality && (
+                      <TabsTrigger value="modality">Modalidad Formativa</TabsTrigger>
+                    )}
                   </TabsList>
                   
                   <TabsContent value="curriculum" className="space-y-6">
@@ -150,15 +167,29 @@ export default function ProgramDetail() {
                     )}
                   </TabsContent>
                   
-                  <TabsContent value="requirements" className="space-y-6">
-                    <Card>
-                      <CardContent className="p-6">
-                        <div className="text-sagardoy-blue">
-                          {renderHTML(program.aimedAt)}
-                        </div>
-                      </CardContent>
-                    </Card>
-                  </TabsContent>
+                  {program.aimedAt && (
+                    <TabsContent value="requirements" className="space-y-6">
+                      <Card>
+                        <CardContent className="p-6">
+                          <div className="text-sagardoy-blue">
+                            {renderHTML(program.aimedAt)}
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </TabsContent>
+                  )}
+
+                  {program.modality && (
+                    <TabsContent value="modality" className="space-y-6">
+                      <Card>
+                        <CardContent className="p-6">
+                          <div className="text-sagardoy-blue">
+                            {renderHTML(program.modality)}
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </TabsContent>
+                  )}
                 </Tabs>
               </div>
             </div>

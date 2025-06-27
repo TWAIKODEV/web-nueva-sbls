@@ -8,9 +8,10 @@ export default defineSchema({
     type: v.union(
       v.literal('specialization'),
       v.literal('master'),
+      v.literal('incompany'),
     ),
     title: v.string(),
-    introduction: v.string(),
+    introduction: v.optional(v.string()),
     targets: v.string(),
     teachers: v.optional(v.array(v.object({
         name: v.string(),
@@ -20,7 +21,8 @@ export default defineSchema({
         partner: v.optional(v.boolean()),
         order: v.optional(v.number()),
       }))),
-    aimedAt: v.string(),
+    aimedAt: v.optional(v.string()),
+    modality: v.optional(v.string()),
     duration: v.string(),
     schedule: v.string(),
     hours: v.string(),
