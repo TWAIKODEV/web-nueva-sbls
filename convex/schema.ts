@@ -32,6 +32,19 @@ export default defineSchema({
     metaKeywords: v.string(),
   }),
 
+  events: defineTable({
+    path: v.string(),
+    cover: v.string(),
+    title: v.string(),
+    description: v.string(),
+    location: v.string(),
+    date: v.string(),
+    time: v.string(),
+    registration: v.string(),
+    metaDescription: v.string(),
+    metaKeywords: v.string(),
+  }),
+
   contactForm: defineTable({
     name: v.string(),
     lastName: v.string(),

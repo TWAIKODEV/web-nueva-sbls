@@ -15,6 +15,7 @@ import type {
 } from "convex/server";
 import type * as admissionForm from "../admissionForm.js";
 import type * as contactForm from "../contactForm.js";
+import type * as events from "../events.js";
 import type * as index from "../index.js";
 import type * as programs from "../programs.js";
 
@@ -29,6 +30,7 @@ import type * as programs from "../programs.js";
 declare const fullApi: ApiFromModules<{
   admissionForm: typeof admissionForm;
   contactForm: typeof contactForm;
+  events: typeof events;
   index: typeof index;
   programs: typeof programs;
 }>;
