@@ -17,6 +17,7 @@ import type * as admissionForm from "../admissionForm.js";
 import type * as contactForm from "../contactForm.js";
 import type * as events from "../events.js";
 import type * as index from "../index.js";
+import type * as news from "../news.js";
 import type * as programs from "../programs.js";
 
 /**
@@ -32,6 +33,7 @@ declare const fullApi: ApiFromModules<{
   contactForm: typeof contactForm;
   events: typeof events;
   index: typeof index;
+  news: typeof news;
   programs: typeof programs;
 }>;
 export declare const api: FilterApi<

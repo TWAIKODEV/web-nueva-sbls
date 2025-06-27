@@ -35,7 +35,7 @@ export default function EventDetail() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Header Section */}
-      <section className="bg-white border-b">
+      <section className="bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <Link href="/noticias">
             <Button variant="ghost" className="mb-6 text-sagardoy-blue hover:text-sagardoy-navy">
@@ -102,21 +102,35 @@ export default function EventDetail() {
       </section>
 
       {/* Event Image */}
-      <section className="bg-white">
+      <section className="mt-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <img 
-            src={event.cover} 
-            alt={event.title}
-            className="w-full h-64 md:h-96 object-cover rounded-lg mb-8"
-          />
+          <div>
+            <img 
+              src={event.cover} 
+              alt={event.title}
+              className="object-cover rounded-lg mb-8"
+            />
+          </div>
         </div>
       </section>
 
       {/* Event Content */}
-      <section className="bg-white pb-20">
+      <section className="pb-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-lg max-w-none text-sagardoy-blue">
-            <div dangerouslySetInnerHTML={{ __html: event.description }} />
+          {/* Introduction */}
+          <div className="prose prose-lg max-w-none mb-8">
+            <div 
+              className="text-sagardoy-blue leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: event.introduction }}
+            />
+          </div>
+
+          {/* Body */}
+          <div className="prose prose-lg max-w-none">
+            <div 
+              className="text-sagardoy-blue leading-relaxed"
+              dangerouslySetInnerHTML={{ __html: event.body }}
+            />
           </div>
         </div>
       </section>
