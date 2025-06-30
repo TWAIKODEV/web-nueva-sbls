@@ -93,7 +93,7 @@ export default function News() {
                   <img 
                     src={featuredNews.cover} 
                     alt={featuredNews.title}
-                    className="w-full h-64 object-cover"
+                    className="w-full h-90 object-cover"
                   />
                   <CardContent className="p-8">
                     <div className="flex items-center gap-4 text-sm text-sagardoy-blue mb-4">

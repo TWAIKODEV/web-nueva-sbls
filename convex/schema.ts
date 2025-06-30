@@ -41,6 +41,7 @@ export default defineSchema({
     location: v.string(),
     date: v.string(),
     time: v.string(),
+    format: v.optional(v.string()),
     registration: v.string(),
     metaDescription: v.string(),
     metaKeywords: v.string(),

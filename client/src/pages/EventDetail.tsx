@@ -1,7 +1,7 @@
 import { useParams, Link } from "wouter";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Calendar, Clock, MapPin, ArrowLeft } from "lucide-react";
+import { Calendar, Clock, MapPin, ArrowLeft, Monitor } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useQuery } from "convex/react";
 import { api } from "@convex/_generated/api";
@@ -76,6 +76,15 @@ export default function EventDetail() {
                     <p className="text-sagardoy-blue text-sm">{event.location}</p>
                   </div>
                 </div>
+                {event.format && (
+                  <div className="flex items-center">
+                    <Monitor className="w-5 h-5 text-sagardoy-blue mr-3" />
+                    <div>
+                      <p className="font-medium text-sagardoy-navy">Formato</p>
+                      <p className="text-sagardoy-blue text-sm">{event.format}</p>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 
