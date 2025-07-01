@@ -90,7 +90,7 @@ export default function EventDetail() {
 
             {/* Registration Card */}
             <div>
-              <Card className="sticky top-8">
+              <Card>
                 <CardContent className="p-6">
                   <div className="text-center mb-6">
                     <h3 className="text-xl font-bold text-sagardoy-navy mb-2">{event.title}</h3>

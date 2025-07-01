@@ -43,10 +43,10 @@ export default function News() {
   };
 
   // Obtener la primera noticia como destacada
-  const featuredNews = apiNews?.[0];
+  const featuredNews = apiNews?.sort((a: any, b: any) => b.createdAt - a.createdAt)[0];
   
   // Obtener las noticias restantes (excluyendo la primera)
-  const news = apiNews?.slice(1) || [];
+  const news = apiNews?.sort((a: any, b: any) => b.createdAt - a.createdAt).slice(1) || [];
   
   // Obtener los primeros 4 eventos
   const upcomingEvents = apiEvents?.slice(0, 4) || [];
@@ -99,7 +99,7 @@ export default function News() {
                     <div className="flex items-center gap-4 text-sm text-sagardoy-blue mb-4">
                       <div className="flex items-center">
                         <Calendar className="w-4 h-4 mr-1" />
-                        <span>{formatDate(featuredNews._creationTime)}</span>
+                        <span>{formatDate(featuredNews.createdAt)}</span>
                       </div>
                     </div>
                     <h3 className="text-2xl font-bold text-sagardoy-navy mb-4">{featuredNews.title}</h3>
@@ -128,7 +128,7 @@ export default function News() {
                         <div className="flex items-center gap-3 text-sm text-sagardoy-blue mb-3">
                           <div className="flex items-center">
                             <Calendar className="w-4 h-4 mr-1" />
-                            <span>{formatDate(article._creationTime)}</span>
+                            <span>{formatDate(article.createdAt)}</span>
                           </div>
                         </div>
                         <h4 className="text-xl font-bold text-sagardoy-navy mb-3">{article.title}</h4>

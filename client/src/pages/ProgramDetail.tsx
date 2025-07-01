@@ -141,8 +141,17 @@ export default function ProgramDetail() {
                   <TabsContent value="faculty" className="space-y-6">
                     {program.teachers && program.teachers.length > 0 ? (
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {program.teachers.map((teacher: any, index: number) => (
-                          <Card key={index}>
+                        {[...program.teachers]
+                          .sort((a, b) => (a.order ?? Infinity) - (b.order ?? Infinity))
+                          .map((teacher: any, index: number) => (
+                          <Card key={index} className="relative">
+                            {teacher.partner && (
+                              <div className="absolute top-2 right-2">
+                                <Badge className="bg-sagardoy-gold text-white">
+                                  Colaborador
+                                </Badge>
+                              </div>
+                            )}
                             <CardContent className="p-6 text-center">
                               <img 
                                 src={teacher.img} 
@@ -153,9 +162,13 @@ export default function ProgramDetail() {
                               {teacher.charge && (
                                 <p className="text-sagardoy-blue font-medium mb-2">{teacher.charge}</p>
                               )}
-                              <div className="text-sagardoy-blue text-sm">
-                                {renderHTML(teacher.description)}
-                              </div>
+                              {
+                                teacher.description && (
+                                  <div className="text-sagardoy-blue text-sm mb-2">
+                                    {renderHTML(teacher.description)}
+                                  </div>
+                                )
+                              }
                             </CardContent>
                           </Card>
                         ))}
@@ -197,7 +210,7 @@ export default function ProgramDetail() {
             {/* Sidebar */}
             <div className="space-y-8">
               {/* Program Info Card */}
-              <Card className="sticky top-8">
+              <Card className="sticky top-20">
                 <CardContent className="p-6">
                   <h3 className="text-xl font-bold text-sagardoy-navy mb-6">Información del Programa</h3>
                   

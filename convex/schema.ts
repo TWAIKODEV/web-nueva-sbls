@@ -16,8 +16,8 @@ export default defineSchema({
     teachers: v.optional(v.array(v.object({
         name: v.string(),
         img: v.string(),
-        description: v.string(),
-        charge: v.optional(v.string()),
+        charge: v.string(),
+        description: v.optional(v.string()),
         partner: v.optional(v.boolean()),
         order: v.optional(v.number()),
       }))),
@@ -55,6 +55,7 @@ export default defineSchema({
     body: v.string(),
     metaDescription: v.string(),
     metaKeywords: v.string(),
+    createdAt: v.number(),
   }),
 
   contactForm: defineTable({
