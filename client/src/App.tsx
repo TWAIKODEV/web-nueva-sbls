@@ -24,6 +24,10 @@ import DemoCourseBuilder from "./components/DemoCourseBuilder";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
 import CookiesPolicy from "./pages/CookiesPolicy";
 import TermsOfUse from "./pages/TermsOfUse";
+import ProfessionalOpportunity from "./pages/ProfessionalOpportunity";
+import UnescoChair from "./pages/UnescoChair";
+import Financing from "./pages/Financing";
+import SiteMap from "./pages/SiteMap";
 import NotFound from "@/pages/not-found";
 import { useEffect } from "react";
 
@@ -65,6 +69,10 @@ function Router() {
           <Route path="/politica-de-privacidad" component={PrivacyPolicy} />
           <Route path="/politica-de-cookies" component={CookiesPolicy} />
           <Route path="/condiciones-de-uso" component={TermsOfUse} />
+          <Route path="/la-escuela/salidas-profesionales" component={ProfessionalOpportunity} />
+          <Route path="/catedra-unesco" component={UnescoChair} />
+          <Route path="/financiacion" component={Financing} />
+          <Route path="/sitemap" component={SiteMap} />
           <Route component={NotFound} />
         </Switch>
       </main>
