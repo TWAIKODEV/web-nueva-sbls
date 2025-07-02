@@ -29,7 +29,14 @@ export default function Header() {
   const [userModalOpen, setUserModalOpen] = useState(false);
   const { t } = useLanguage();
 
-  const navigation = [
+  type NavigationItem = {
+    name: string;
+    href: string;
+    isDropdown?: boolean;
+    dropdownItems?: { name: string; href: string; icon?: React.ElementType }[];
+  };
+
+  const navigation: NavigationItem[] = [
     { name: "Nosotros", href: "/la-escuela" },
     { name: t("nav.programas"), href: "/programas" },
     { name: "In Company", href: "/corporate-training" },
@@ -119,7 +126,7 @@ export default function Header() {
                               </div>
                             </Link>
                           </DropdownMenuItem>
-                          {index < item.dropdownItems.length - 1 && (
+                          {index < (item.dropdownItems?.length ?? 0) - 1 && (
                             <DropdownMenuSeparator />
                           )}
                         </div>
@@ -152,7 +159,7 @@ export default function Header() {
               >
                 <User className="h-24 w-24" />
               </Button>
-              <LanguageSelector />
+              {/* <LanguageSelector /> */}
             </div>
           </div>
 
@@ -212,7 +219,7 @@ export default function Header() {
                     );
                   })}
                   <div className="mt-6 pt-4 border-t border-gray-200 space-y-4">
-                    <LanguageSelector />
+                    {/* <LanguageSelector /> */}
                     <Button
                       variant="ghost"
                       className="w-full justify-start text-sagardoy-blue hover:text-sagardoy-navy"
