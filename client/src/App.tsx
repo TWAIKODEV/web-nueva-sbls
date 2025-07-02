@@ -22,6 +22,7 @@ import CourseBuilder from "./pages/CourseBuilder";
 import ProgressTracking from "./pages/ProgressTracking";
 import DemoCourseBuilder from "./components/DemoCourseBuilder";
 import PrivacyPolicy from "./pages/PrivacyPolicy";
+import CookiesPolicy from "./pages/CookiesPolicy";
 import NotFound from "@/pages/not-found";
 import { useEffect } from "react";
 
@@ -61,6 +62,7 @@ function Router() {
           <Route path="/seguimiento-progreso" component={ProgressTracking} />
           <Route path="/curso-demo" component={DemoCourseBuilder} />
           <Route path="/politica-de-privacidad" component={PrivacyPolicy} />
+          <Route path="/politica-de-cookies" component={CookiesPolicy} />
           <Route component={NotFound} />
         </Switch>
       </main>
