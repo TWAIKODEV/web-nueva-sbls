@@ -99,7 +99,7 @@ export default function Footer() {
           <div className="flex space-x-6 text-sm text-blue-200">
             <a href="/politica-de-privacidad" className="hover:text-white transition-colors duration-200">Política de Privacidad</a>
             <a href="/politica-de-cookies" className="hover:text-white transition-colors duration-200">Política de Cookies</a>
-            <a href="#" className="hover:text-white transition-colors duration-200">Aviso Legal</a>
+            <a href="/condiciones-de-uso" className="hover:text-white transition-colors duration-200">Condiciones de Uso</a>
           </div>
         </div>
       </div>
