@@ -97,8 +97,8 @@ export default function Footer() {
             © 2024 Sagardoy Business School. Todos los derechos reservados.
           </div>
           <div className="flex space-x-6 text-sm text-blue-200">
-            <a href="#" className="hover:text-white transition-colors duration-200">Política de Privacidad</a>
-            <a href="#" className="hover:text-white transition-colors duration-200">Cookies</a>
+            <a href="/politica-de-privacidad" className="hover:text-white transition-colors duration-200">Política de Privacidad</a>
+            <a href="#" className="hover:text-white transition-colors duration-200">Política de Cookies</a>
             <a href="#" className="hover:text-white transition-colors duration-200">Aviso Legal</a>
           </div>
         </div>

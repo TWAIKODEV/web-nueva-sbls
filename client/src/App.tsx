@@ -21,6 +21,7 @@ import CollaboratorForm from "./pages/CollaboratorForm";
 import CourseBuilder from "./pages/CourseBuilder";
 import ProgressTracking from "./pages/ProgressTracking";
 import DemoCourseBuilder from "./components/DemoCourseBuilder";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "@/pages/not-found";
 import { useEffect } from "react";
 
@@ -59,6 +60,7 @@ function Router() {
           <Route path="/constructor-cursos" component={CourseBuilder} />
           <Route path="/seguimiento-progreso" component={ProgressTracking} />
           <Route path="/curso-demo" component={DemoCourseBuilder} />
+          <Route path="/politica-de-privacidad" component={PrivacyPolicy} />
           <Route component={NotFound} />
         </Switch>
       </main>

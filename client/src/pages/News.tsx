@@ -89,27 +89,27 @@ export default function News() {
               
               {/* Featured News Article */}
               {featuredNews && (
-                <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-8">
-                  <img 
+              <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300 mb-8">
+                <img 
                     src={featuredNews.cover} 
                     alt={featuredNews.title}
                     className="w-full h-90 object-cover"
-                  />
-                  <CardContent className="p-8">
-                    <div className="flex items-center gap-4 text-sm text-sagardoy-blue mb-4">
-                      <div className="flex items-center">
-                        <Calendar className="w-4 h-4 mr-1" />
+                />
+                <CardContent className="p-8">
+                  <div className="flex items-center gap-4 text-sm text-sagardoy-blue mb-4">
+                    <div className="flex items-center">
+                      <Calendar className="w-4 h-4 mr-1" />
                         <span>{formatDate(featuredNews.createdAt)}</span>
-                      </div>
                     </div>
-                    <h3 className="text-2xl font-bold text-sagardoy-navy mb-4">{featuredNews.title}</h3>
+                  </div>
+                  <h3 className="text-2xl font-bold text-sagardoy-navy mb-4">{featuredNews.title}</h3>
                     <Link href={`/noticia/${featuredNews.path}`}>
-                      <Button className="bg-sagardoy-blue text-white hover:bg-blue-700">
-                        Leer artículo completo <ArrowRight className="ml-2 h-4 w-4" />
-                      </Button>
-                    </Link>
-                  </CardContent>
-                </Card>
+                    <Button className="bg-sagardoy-blue text-white hover:bg-blue-700">
+                      Leer artículo completo <ArrowRight className="ml-2 h-4 w-4" />
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
               )}
 
               {/* Secondary News Articles */}
@@ -160,27 +160,27 @@ export default function News() {
                   const { day, month } = extractDateParts(event.date);
                   return (
                     <Card key={event._id} className="p-6 hover:shadow-lg transition-shadow duration-300">
-                      <CardContent className="p-0">
-                        <div className="flex items-start space-x-4">
+                    <CardContent className="p-0">
+                      <div className="flex items-start space-x-4">
                           <div className="bg-sagardoy-blue text-white rounded-lg p-3 text-center min-w-[60px]">
                             <div className="text-lg font-bold">{day}</div>
                             <div className="text-xs">{month}</div>
-                          </div>
-                          <div className="flex-1">
-                            <h4 className="font-bold text-sagardoy-navy mb-2">{event.title}</h4>
-                            <div className="flex items-center text-xs text-sagardoy-blue mb-3">
-                              <Calendar className="w-3 h-3 mr-1" />
-                              <span>{event.time}</span>
-                            </div>
-                            <Link href={`/evento/${event.path}`}>
-                              <Button size="sm" className="bg-sagardoy-gold text-white hover:bg-yellow-600">
-                                Registrarse
-                              </Button>
-                            </Link>
-                          </div>
                         </div>
-                      </CardContent>
-                    </Card>
+                        <div className="flex-1">
+                          <h4 className="font-bold text-sagardoy-navy mb-2">{event.title}</h4>
+                          <div className="flex items-center text-xs text-sagardoy-blue mb-3">
+                            <Calendar className="w-3 h-3 mr-1" />
+                            <span>{event.time}</span>
+                          </div>
+                            <Link href={`/evento/${event.path}`}>
+                            <Button size="sm" className="bg-sagardoy-gold text-white hover:bg-yellow-600">
+                              Registrarse
+                            </Button>
+                          </Link>
+                        </div>
+                      </div>
+                    </CardContent>
+                  </Card>
                   );
                 })}
               </div>
