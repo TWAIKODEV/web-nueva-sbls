@@ -124,7 +124,7 @@ export default function Contact() {
       <section className="bg-sagardoy-navy text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-6xl mb-6 title">
               {t("contact.title")} <span className="text-sagardoy-gold">{t("contact.titleHighlight")}</span>
             </h1>
             <p className="text-xl max-w-3xl mx-auto leading-relaxed">

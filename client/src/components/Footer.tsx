@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { useQuery } from "convex/react";
 import { api } from "@convex/_generated/api";
+import sagardoyLogo from "@/resources/images/sagardoy-white-Z9zkyCWA.png";
 
 export default function Footer() {
   const apiPrograms = useQuery(api.programs.getPrograms);
@@ -21,10 +22,11 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8">
           {/* Company Info */}
           <div className="lg:col-span-1">
-            <div className="text-2xl font-bold mb-4">
-              <span className="text-sagardoy-gold">S</span>agardoy
-              <div className="text-sm font-medium text-slate-300">Business School</div>
-            </div>
+            <img
+              src={sagardoyLogo}
+              alt="Sagardoy Business School"
+              className="w-64 mb-4"
+            />
             <p className="text-slate-300 mb-6 leading-relaxed">
               Formando líderes empresariales del futuro con programas de excelencia y metodologías innovadoras.
             </p>

@@ -11,14 +11,10 @@ export default function Financing() {
       <section className="bg-sagardoy-navy text-white py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Financiación</h1>
-            <nav className="text-sm text-gray-300">
-              <ol className="flex items-center justify-center space-x-2">
-                <li><a href="/" className="hover:text-white transition-colors">Inicio</a></li>
-                <li className="text-gray-400">/</li>
-                <li className="text-white">Financiación</li>
-              </ol>
-            </nav>
+            <h1 className="text-4xl md:text-5xl mb-6 title">Financiación</h1>
+            <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+              Sagardoy Business & Law School pone a tu disposición diferentes opciones de financiación para que puedas cursar nuestros programas.
+            </p>
           </div>
         </div>
       </section>
@@ -29,7 +25,7 @@ export default function Financing() {
           <div className="max-w-6xl mx-auto">
             {/* Introduction */}
             <div className="mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold text-sagardoy-navy mb-8">Financiación hecha a tu medida</h2>
+              <h2 className="text-subtitle text-sagardoy-navy mb-8 title">Financiación hecha a tu medida</h2>
               <div className="mx-auto space-y-4 text-lg text-sagardoy-blue">
                 <p>
                   Sagardoy Business & Law School pone a tu disposición diferentes opciones de financiación para que puedas cursar nuestros programas.
@@ -217,7 +213,7 @@ export default function Financing() {
 
             {/* Legal Notes */}
             <div className="bg-gray-50 p-8 rounded-lg">
-              <h3 className="text-xl font-bold text-sagardoy-navy mb-6">Notas legales</h3>
+              <p className="text-xl font-bold text-sagardoy-navy mb-6">Notas legales</p>
               <div className="space-y-4 text-sm text-sagardoy-blue">
                 <p>
                   <strong>(1)</strong> TAE 8,12% para un Préstamo Curso de 3.000 euros en un plazo de 10 meses con un tipo de interés del 0,00% y sin incluir carencia de capital. Cuota mensual de 300 euros. Impoorte total adecuado: 3.105.00 euros.
@@ -253,20 +249,20 @@ export default function Financing() {
       <section className="bg-sagardoy-navy text-white py-16">
         <div className="container mx-auto px-4 text-center">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">¿Necesitas más información sobre financiación?</h2>
+            <h2 className="text-3xl mb-6 title">¿Necesitas más información sobre financiación?</h2>
             <p className="text-xl mb-8 text-gray-200">
               Nuestro equipo está aquí para ayudarte a encontrar la mejor opción de financiación para tus estudios.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
                 href="/contacto" 
-                className="bg-sagardoy-gold text-white px-8 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-colors inline-block"
+                className="bg-sagardoy-gold text-white px-8 py-3 rounded-lg font-semibold hover:bg-yellow-600 transition-colors"
               >
                 Contactar
               </a>
               <a 
                 href="/programas" 
-                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-sagardoy-navy transition-colors inline-block"
+                className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-sagardoy-navy transition-colors"
               >
                 Ver Programas
               </a>

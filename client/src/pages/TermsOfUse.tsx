@@ -11,7 +11,7 @@ export default function TermsOfUse() {
       <section className="bg-sagardoy-navy text-white py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl mb-6 title">
               Condiciones de Uso
             </h1>
             <p className="text-xl text-gray-200 max-w-3xl mx-auto">
@@ -216,7 +216,7 @@ export default function TermsOfUse() {
 
           {/* CTA Section */}
           <div className="mt-16 text-center">
-            <h2 className="text-3xl font-bold text-sagardoy-navy mb-6">
+            <h2 className="text-3xl text-sagardoy-navy mb-6 title">
               ¿Tienes alguna pregunta sobre nuestras condiciones de uso?
             </h2>
             <p className="text-xl text-sagardoy-blue mb-8 max-w-3xl mx-auto">

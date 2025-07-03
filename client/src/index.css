@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'TiemposHeadline';
+  src: url('./resources/fonts/TiemposHeadline-Regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+.title {
+  font-family: "TiemposHeadline", sans-serif;
+}
+
 :root {
   --background: hsl(0, 0%, 100%);
   --foreground: hsl(210, 11%, 15%);
@@ -72,6 +84,10 @@
 }
 
 @layer utilities {
+  .text-subtitle {
+    font-size: 2.7rem;
+  }
+
   /* Text Colors */
   .text-sagardoy-dark-blue {
     color: var(--sagardoy-dark-blue);

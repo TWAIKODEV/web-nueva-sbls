@@ -78,7 +78,7 @@ export default function ProgramDetail() {
             <Badge className={`${getCategoryColor(program.type)} text-white mb-4`}>
               {getCategoryLabel(program.type)}
             </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-6xl mb-6 title">
               {program.title}
             </h1>
             <div className="flex flex-col sm:flex-row gap-4">
@@ -106,7 +106,7 @@ export default function ProgramDetail() {
               {/* About the Program */}
               {program.introduction && (
                 <div>
-                  <h2 className="text-3xl font-bold text-sagardoy-navy mb-6">Acerca del Programa</h2>
+                  <h2 className="text-3xl md:text-subtitle text-sagardoy-navy mb-6 title">Acerca del Programa</h2>
                   <div className="text-lg text-sagardoy-blue leading-relaxed mb-6">
                     {renderHTML(program.introduction)}
                   </div>
@@ -115,7 +115,7 @@ export default function ProgramDetail() {
 
               {/* Curriculum */}
               <div>
-                <h2 className="text-3xl font-bold text-sagardoy-navy mb-6">Plan de Estudios</h2>
+                <h2 className="text-3xl md:text-subtitle text-sagardoy-navy mb-6 title">Plan de Estudios</h2>
                 <Tabs defaultValue="curriculum" className="w-full">
                   <TabsList className={`grid w-full ${program.aimedAt && program.modality ? 'grid-cols-4' : program.aimedAt || program.modality ? 'grid-cols-3' : 'grid-cols-2'}`}>
                     <TabsTrigger value="curriculum">Objetivos</TabsTrigger>
@@ -212,7 +212,7 @@ export default function ProgramDetail() {
               {/* Program Info Card */}
               <Card className="sticky top-20">
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold text-sagardoy-navy mb-6">Información del Programa</h3>
+                  <h3 className="text-2xl text-sagardoy-navy mb-6 title">Información del Programa</h3>
                   
                   <div className="space-y-4">
                     <div className="flex items-center">

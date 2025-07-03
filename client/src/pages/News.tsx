@@ -69,7 +69,7 @@ export default function News() {
       <section className="bg-sagardoy-navy text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-6xl mb-6 title">
               {t("news.title")} <span className="text-sagardoy-gold">{t("news.titleHighlight")}</span>
             </h1>
             <p className="text-xl max-w-3xl mx-auto leading-relaxed">
@@ -85,7 +85,7 @@ export default function News() {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Latest News */}
             <div className="lg:col-span-2">
-              <h2 className="text-3xl font-bold text-sagardoy-navy mb-8">{t("news.latestNews")}</h2>
+              <h2 className="text-subtitle text-sagardoy-navy mb-6 title">{t("news.latestNews")}</h2>
               
               {/* Featured News Article */}
               {featuredNews && (
@@ -142,18 +142,11 @@ export default function News() {
                   </Card>
                 ))}
               </div>
-
-              {/* Load More Button */}
-              <div className="text-center mt-12">
-                <Button className="bg-sagardoy-navy text-white px-8 py-3 hover:bg-blue-800">
-                  Cargar más noticias
-                </Button>
-              </div>
             </div>
 
             {/* Upcoming Events Sidebar */}
             <div>
-              <h3 className="text-2xl font-bold text-sagardoy-navy mb-6">Próximos Eventos</h3>
+              <h3 className="text-3xl text-sagardoy-navy mb-6 title">Próximos Eventos</h3>
               
               <div className="space-y-4">
                 {upcomingEvents.map((event: any, index: number) => {

@@ -73,7 +73,7 @@ export default function Events() {
       <section className="bg-sagardoy-navy text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-6xl mb-6 title">
               Eventos Sagardoy
             </h1>
             <p className="text-xl md:text-2xl text-slate-200 mb-8 max-w-3xl mx-auto">
@@ -88,7 +88,7 @@ export default function Events() {
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-sagardoy-navy mb-4">
+            <h2 className="text-subtitle text-sagardoy-navy mb-4 title">
               Próximos Eventos
             </h2>
             <p className="text-xl text-sagardoy-blue max-w-3xl mx-auto">
@@ -172,7 +172,7 @@ export default function Events() {
         <section className="py-16 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-sagardoy-navy mb-4">
+              <h2 className="text-subtitle text-sagardoy-navy mb-4 title">
                 Eventos Realizados
               </h2>
               <p className="text-xl text-sagardoy-blue max-w-3xl mx-auto">
@@ -215,7 +215,7 @@ export default function Events() {
       {/* CTA Section */}
       <section className="py-16 bg-sagardoy-navy text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-subtitle mb-6 title">
             ¿Quieres organizar un evento corporativo?
           </h2>
           <p className="text-xl text-slate-200 mb-8 max-w-3xl mx-auto">

@@ -53,7 +53,7 @@ export default function Programs() {
       <section className="bg-sagardoy-navy text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-6xl mb-6 title">
               {t("programs.title")}
             </h1>
             <p className="text-xl max-w-3xl mx-auto leading-relaxed">
@@ -122,7 +122,7 @@ export default function Programs() {
 
           {/* CTA Section */}
           <div className="text-center mt-16">
-            <h3 className="text-2xl font-bold text-sagardoy-navy mb-4">{t("programs.cta.title")}</h3>
+            <h3 className="text-3xl text-sagardoy-navy mb-4 title">{t("programs.cta.title")}</h3>
             <p className="text-sagardoy-blue mb-8">{t("programs.cta.subtitle")}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contacto">

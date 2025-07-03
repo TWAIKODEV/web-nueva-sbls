@@ -48,7 +48,7 @@ export default function EventDetail() {
             {/* Event Info */}
             <div className="lg:col-span-2">
               <div className="mb-6">
-                <h1 className="text-4xl md:text-5xl font-bold text-sagardoy-navy mb-4 leading-tight">
+                <h1 className="text-4xl md:text-5xl text-sagardoy-navy mb-4 leading-tight title">
                   {event.title}
                 </h1>
               </div>

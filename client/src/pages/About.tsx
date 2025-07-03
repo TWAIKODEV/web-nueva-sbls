@@ -58,7 +58,7 @@ export default function About() {
       <section className="bg-sagardoy-navy text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            <h1 className="text-4xl md:text-6xl mb-6 title">
               {t("about.title")} <span className="text-sagardoy-gold">{t("about.titleHighlight")}</span>
             </h1>
             <p className="text-xl max-w-3xl mx-auto leading-relaxed">
@@ -73,7 +73,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-sagardoy-navy mb-6">{t("about.mission")}</h2>
+              <h2 className="text-subtitle text-sagardoy-navy mb-6 title">{t("about.mission")}</h2>
               <p className="text-xl text-sagardoy-blue mb-6 leading-relaxed">
                 {t("about.missionText")}
               </p>
@@ -135,7 +135,7 @@ export default function About() {
       <section className="py-20 bg-sagardoy-light-gray">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-sagardoy-navy mb-4">Números que Hablan</h2>
+            <h2 className="text-subtitle text-sagardoy-navy mb-4 title">Números que Hablan</h2>
             <p className="text-xl text-sagardoy-blue max-w-3xl mx-auto">
               Nuestro compromiso con la excelencia se refleja en los resultados y el impacto de nuestros programas
             </p>
@@ -163,7 +163,7 @@ export default function About() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-sagardoy-navy mb-4">Nuestros Valores</h2>
+            <h2 className="text-subtitle text-sagardoy-navy mb-4 title">Nuestros Valores</h2>
             <p className="text-xl text-sagardoy-blue max-w-3xl mx-auto">
               Los principios que guían nuestra misión educativa y definen nuestra identidad institucional
             </p>
@@ -196,7 +196,7 @@ export default function About() {
       <section className="py-20 bg-sagardoy-navy text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
+            <h2 className="text-subtitle mb-4 title">
               Acreditaciones <span className="text-sagardoy-gold">Internacionales</span>
             </h2>
             <p className="text-xl text-blue-100 max-w-3xl mx-auto">

@@ -55,7 +55,7 @@ export default function NewsDetail() {
           </Link>
           
           <div className="mb-6">
-            <h1 className="text-4xl md:text-5xl font-bold text-sagardoy-navy mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl text-sagardoy-navy mb-6 leading-tight title">
               {article.title}
             </h1>
           </div>

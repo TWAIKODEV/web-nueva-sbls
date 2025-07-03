@@ -119,7 +119,7 @@ export default function CorporateTraining() {
       <section className="bg-sagardoy-dark-blue py-20 border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-6xl text-white mb-6 title">
               Formación in Company
             </h1>
             <p className="text-xl text-white max-w-3xl mx-auto">
@@ -136,7 +136,7 @@ export default function CorporateTraining() {
             <div>
               <div className="mb-6">
                 <Badge className="bg-sagardoy-gold text-white mb-4">MEJORANDO LA PRODUCTIVIDAD</Badge>
-                <h2 className="text-3xl md:text-4xl font-bold text-sagardoy-navy mb-6">
+                <h2 className="text-3xl md:text-subtitle text-sagardoy-navy mb-6 title">
                   El futuro de tu empresa
                 </h2>
               </div>
@@ -189,7 +189,7 @@ export default function CorporateTraining() {
           {/* Areas de Especialización con Pestañas */}
           <div className="mb-20">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-sagardoy-navy mb-4">
+              <h2 className="text-3xl md:text-subtitle text-sagardoy-navy mb-4 title">
                 Áreas de Especialización
               </h2>
               <p className="text-xl text-sagardoy-blue max-w-3xl mx-auto">
@@ -288,7 +288,7 @@ export default function CorporateTraining() {
           {/* Metodología */}
           <div className="mb-20">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-sagardoy-navy mb-4">
+              <h2 className="text-3xl md:text-subtitle text-sagardoy-navy mb-4 title">
                 Nuestra Metodología
               </h2>
               <p className="text-xl text-sagardoy-blue max-w-4xl mx-auto">
@@ -326,7 +326,7 @@ export default function CorporateTraining() {
 
           {/* Stats Section */}
           <div className="bg-sagardoy-navy rounded-2xl p-12 text-center">
-            <h2 className="text-3xl font-bold text-white mb-12">Nuestros Resultados</h2>
+            <h2 className="text-subtitle text-white mb-12 title">Nuestros Resultados</h2>
             
             <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
               {stats.map((stat, index) => {
@@ -344,7 +344,7 @@ export default function CorporateTraining() {
 
           {/* CTA Section */}
           <div className="mt-20 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-sagardoy-navy mb-6">
+            <h2 className="text-subtitle text-sagardoy-navy mb-6 title">
               ¿Listo para transformar tu empresa?
             </h2>
             <p className="text-xl text-sagardoy-blue mb-8 max-w-3xl mx-auto">

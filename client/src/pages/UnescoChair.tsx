@@ -12,7 +12,7 @@ export default function UnescoChair() {
       <section className="bg-sagardoy-navy text-white py-16">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl mb-6 title">
               Cátedra UNESCO
             </h1>
             <p className="text-xl text-gray-200 max-w-3xl mx-auto">
@@ -33,7 +33,7 @@ export default function UnescoChair() {
                   {/* Imagen - Primera en móvil, última en desktop */}
                   <div className="flex justify-center lg:order-last lg:justify-end">
                     <img 
-                      src={logoUnesco} 
+                      src={logoUnesco}
                       alt="Logo UNESCO" 
                       className="w-48 md:w-56 lg:w-72 h-auto object-contain"
                     />
@@ -43,7 +43,7 @@ export default function UnescoChair() {
                   <div className="lg:col-span-2 lg:order-first">
                     <div className="flex items-center mb-6">
                       <Award className="w-8 h-8 text-sagardoy-gold mr-3" />
-                      <h2 className="text-2xl font-bold text-sagardoy-navy">
+                      <h2 className="text-3xl text-sagardoy-navy title">
                         Cátedra UNESCO de Promoción Socio-Laboral UNESCO-AECI
                       </h2>
                     </div>

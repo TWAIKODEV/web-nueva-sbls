@@ -121,7 +121,7 @@ export default function Home() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
                   <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div className="text-sagardoy-blue">
-                      <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
+                      <h1 className="text-4xl md:text-6xl leading-tight mb-6 title">
                         {slide.title}
                         <span className="text-sagardoy-gold"> {slide.titleHighlight}</span>
                         {slide.titleEnd && <><br />{slide.titleEnd}</>}
@@ -208,7 +208,7 @@ export default function Home() {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-sagardoy-dark-blue mb-4">{t("home.ourPrograms")}</h2>
+            <h2 className="text-subtitle text-sagardoy-dark-blue mb-4 title">{t("home.ourPrograms")}</h2>
             <p className="text-xl text-sagardoy-blue max-w-3xl mx-auto">
               {t("home.programsSubtitle")}
             </p>
@@ -262,7 +262,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-sagardoy-dark-blue mb-6">La Escuela</h2>
+              <h2 className="text-subtitle text-sagardoy-dark-blue mb-6 title">La Escuela</h2>
               <p className="text-xl text-sagardoy-blue mb-8 leading-relaxed">
                 Con más de 25 años de experiencia en formación ejecutiva, Sagardoy Business School se ha consolidado 
                 como referente en educación empresarial de excelencia.
