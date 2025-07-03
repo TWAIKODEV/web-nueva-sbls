@@ -9,32 +9,16 @@ export default function Events() {
   // Obtener eventos de la base de datos
   const apiEvents = useQuery(api.events.getEvents);
 
-  // Función para extraer fecha de la cadena de texto de eventos
-  const extractDateFromString = (dateString: string) => {
-    // La fecha viene como "Miércoles, 28 de mayo"
-    const parts = dateString.split(', ');
-    if (parts.length >= 2) {
-      const dayPart = parts[1]; // "28 de mayo"
-      const dayMatch = dayPart.match(/(\d+)/);
-      const monthMatch = dayPart.match(/de\s+(\w+)/);
-      
-      if (dayMatch && monthMatch) {
-        const day = parseInt(dayMatch[1]);
-        const monthName = monthMatch[1];
-        
-        // Mapear nombres de meses a números
-        const monthMap: { [key: string]: number } = {
-          'enero': 0, 'febrero': 1, 'marzo': 2, 'abril': 3, 'mayo': 4, 'junio': 5,
-          'julio': 6, 'agosto': 7, 'septiembre': 8, 'octubre': 9, 'noviembre': 10, 'diciembre': 11
-        };
-        
-        const month = monthMap[monthName.toLowerCase()];
-        const currentYear = new Date().getFullYear();
-        
-        return new Date(currentYear, month, day);
-      }
-    }
-    return null;
+  // Función para formatear fecha desde timestamp
+  const formatEventDate = (timestamp: number) => {
+    const date = new Date(timestamp);
+    const formattedDate = date.toLocaleDateString('es-ES', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+    return formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
   };
 
   // Separar eventos en próximos y pasados
@@ -43,29 +27,19 @@ export default function Events() {
   const pastEvents: any[] = [];
 
   apiEvents?.forEach((event: any) => {
-    const eventDate = extractDateFromString(event.date);
-    if (eventDate) {
-      if (eventDate >= now) {
-        upcomingEvents.push(event);
-      } else {
-        pastEvents.push(event);
-      }
+    const eventDate = new Date(event.date);
+    if (eventDate >= now) {
+      upcomingEvents.push(event);
+    } else {
+      pastEvents.push(event);
     }
   });
 
   // Ordenar eventos próximos por fecha
-  upcomingEvents.sort((a, b) => {
-    const dateA = extractDateFromString(a.date);
-    const dateB = extractDateFromString(b.date);
-    return dateA && dateB ? dateA.getTime() - dateB.getTime() : 0;
-  });
+  upcomingEvents.sort((a, b) => a.date - b.date);
 
   // Ordenar eventos pasados por fecha (más recientes primero) y tomar máximo 8
-  pastEvents.sort((a, b) => {
-    const dateA = extractDateFromString(a.date);
-    const dateB = extractDateFromString(b.date);
-    return dateA && dateB ? dateB.getTime() - dateA.getTime() : 0;
-  }).slice(0, 8);
+  pastEvents.sort((a, b) => b.date - a.date).slice(0, 8);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -114,7 +88,7 @@ export default function Events() {
                     <div className="space-y-2 mb-6">
                       <div className="flex items-center text-sm text-sagardoy-blue">
                         <Calendar className="w-4 h-4 mr-2" />
-                        <span>{event.date}</span>
+                        <span>{formatEventDate(event.date)}</span>
                       </div>
                       <div className="flex items-center text-sm text-sagardoy-blue">
                         <Clock className="w-4 h-4 mr-2" />
@@ -197,7 +171,7 @@ export default function Events() {
                     <div className="space-y-1 mb-3">
                       <div className="flex items-center text-xs text-sagardoy-blue">
                         <Calendar className="w-3 h-3 mr-1" />
-                        <span>{event.date}</span>
+                        <span>{formatEventDate(event.date)}</span>
                       </div>
                       <div className="flex items-center text-xs text-sagardoy-blue">
                         <MapPin className="w-3 h-3 mr-1" />

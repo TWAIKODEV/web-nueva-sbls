@@ -16,6 +16,18 @@ export default function EventDetail() {
   // Encontrar el evento específico por path
   const event = apiEvents?.find((e: any) => e.path === id);
 
+  // Función para formatear fecha desde timestamp
+  const formatEventDate = (timestamp: number) => {
+    const date = new Date(timestamp);
+    const formattedDate = date.toLocaleDateString('es-ES', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+    return formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
+  };
+
   if (!event) {
     return (
       <div className="min-h-screen bg-gray-50 flex items-center justify-center">
@@ -59,7 +71,7 @@ export default function EventDetail() {
                   <Calendar className="w-5 h-5 text-sagardoy-blue mr-3" />
                   <div>
                     <p className="font-medium text-sagardoy-navy">Fecha</p>
-                    <p className="text-sagardoy-blue text-sm">{event.date}</p>
+                    <p className="text-sagardoy-blue text-sm">{formatEventDate(event.date)}</p>
                   </div>
                 </div>
                 <div className="flex items-center">

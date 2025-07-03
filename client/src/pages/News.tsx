@@ -24,22 +24,12 @@ export default function News() {
     });
   };
 
-  // Función para extraer día y mes de la fecha de eventos
-  const extractDateParts = (dateString: string) => {
-    // La fecha viene como "Miércoles, 28 de mayo"
-    const parts = dateString.split(', ');
-    if (parts.length >= 2) {
-      const dayPart = parts[1]; // "28 de mayo"
-      const dayMatch = dayPart.match(/(\d+)/);
-      const monthMatch = dayPart.match(/de\s+(\w+)/);
-      
-      if (dayMatch && monthMatch) {
-        const day = dayMatch[1];
-        const month = monthMatch[1].substring(0, 3).toUpperCase();
-        return { day, month };
-      }
-    }
-    return { day: "01", month: "ENE" };
+  // Función para extraer día y mes de la fecha de eventos desde timestamp
+  const getEventDateParts = (timestamp: number) => {
+    const date = new Date(timestamp);
+    const day = date.getDate().toString();
+    const month = date.toLocaleDateString('es-ES', { month: 'short' }).toUpperCase();
+    return { day, month };
   };
 
   // Obtener la primera noticia como destacada
@@ -150,7 +140,7 @@ export default function News() {
               
               <div className="space-y-4">
                 {upcomingEvents.map((event: any, index: number) => {
-                  const { day, month } = extractDateParts(event.date);
+                  const { day, month } = getEventDateParts(event.date);
                   return (
                     <Card key={event._id} className="p-6 hover:shadow-lg transition-shadow duration-300">
                     <CardContent className="p-0">

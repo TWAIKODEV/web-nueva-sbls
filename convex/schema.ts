@@ -39,7 +39,7 @@ export default defineSchema({
     introduction: v.string(),
     body: v.string(),
     location: v.string(),
-    date: v.string(),
+    date: v.number(),
     time: v.string(),
     format: v.optional(v.string()),
     registration: v.string(),
