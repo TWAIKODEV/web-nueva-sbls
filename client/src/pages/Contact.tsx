@@ -15,6 +15,7 @@ import { MapPin, Phone, Mail, Clock } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { useMutation as useConvexMutation, useQuery } from "convex/react";
 import { api } from "@convex/_generated/api";
+import GoogleMapComponent from "@/components/GoogleMap";
 
 const contactFormSchema = z.object({
   nombre: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
@@ -95,19 +96,19 @@ export default function Contact() {
     {
       icon: MapPin,
       title: "Dirección",
-      content: ["Calle Serrano 93, 6ª planta", "28006 Madrid, España"],
+      content: ["Calle Velázquez, 86D", "Salamanca, 28002 Madrid"],
       color: "bg-sagardoy-gold"
     },
     {
       icon: Phone,
       title: "Teléfono",
-      content: ["+34 91 700 40 70"],
+      content: ["+34 91 454 00 71"],
       color: "bg-sagardoy-blue"
     },
     {
       icon: Mail,
       title: "Email",
-      content: ["info@sagardoy.edu"],
+      content: ["info@sagardoyschool.com"],
       color: "bg-green-500"
     },
     {
@@ -302,12 +303,17 @@ export default function Contact() {
                 </div>
               </div>
 
-              {/* Map Placeholder */}
-              <Card className="bg-sagardoy-light-gray h-64 flex items-center justify-center">
-                <CardContent className="text-center text-sagardoy-blue p-0">
-                  <MapPin className="w-16 h-16 mx-auto mb-4" />
-                  <p className="text-lg font-semibold mb-2">Mapa Interactivo</p>
-                  <p className="text-sm">Visítanos en nuestras instalaciones</p>
+              {/* Google Maps */}
+              <Card className="bg-white overflow-hidden">
+                <CardContent className="p-0">
+                  <div className="p-4 bg-sagardoy-navy text-white">
+                    <h4 className="font-bold text-lg mb-1">Ubicación</h4>
+                    <p className="text-blue-100 text-sm">Calle Velázquez, 86D, Salamanca, 28002 Madrid</p>
+                  </div>
+                  <GoogleMapComponent 
+                    address="Sagardoy Business & Law School"
+                    height="300px"
+                  />
                 </CardContent>
               </Card>
 
